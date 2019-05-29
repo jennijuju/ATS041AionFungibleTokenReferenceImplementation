@@ -220,6 +220,8 @@ public class ATSTokenContract {
             }
             return false;
         }
+
+
 //
 //        private byte[] getData() {
 //            return this.currentTokenHolderInformation;

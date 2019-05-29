@@ -1,0 +1,13 @@
+0.0
+atsToken.ATSTokenContract
+Clinit: ()
+public static String getTokenName()
+public static String getTokenSymbol()
+public static int getTokenGranularity()
+public static String getTokenTotalSupply()
+public static String getBalanceOf(Address)
+public static void authorizeOperator(Address)
+public static void revokeOperator(Address)
+public static boolean isOperatorFor(Address, Address)
+public static void send(Address, byte[], byte[])
+public static void operatorSend(Address, Address, byte[], byte[], byte[])

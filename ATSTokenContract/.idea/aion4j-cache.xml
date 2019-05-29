@@ -14,6 +14,8 @@
     </option>
     <option name="deployArgs">
       <map>
+        <entry key="ATSToken.args" value="" />
+        <entry key="ATSToken.dontask" value="false" />
         <entry key="aion.args" value="" />
         <entry key="aion.dontask" value="false" />
       </map>

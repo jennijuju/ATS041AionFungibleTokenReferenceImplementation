@@ -1,0 +1,7 @@
+0.0
+atsToken.ATSTokenContract
+Clinit: ()
+public static String getTokenName()
+public static String getTokenSymbol()
+public static int getTokenGranularity()
+public static byte[] getTokenTotalSupply()

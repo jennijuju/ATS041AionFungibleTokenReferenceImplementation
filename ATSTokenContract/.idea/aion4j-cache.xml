@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="aion4j-cache">
+    <option name="methodArgs">
+      <map>
+        <entry key="balanceOf-avm.Address,">
+          <value>
+            <list>
+              <option value="-A 0xa048630fff033d214b36879e62231cc77d81f45d348f6590d268b9b8cabb88a9" />
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="deployArgs">
+      <map>
+        <entry key="aion.args" value="" />
+        <entry key="aion.dontask" value="false" />
+      </map>
+    </option>
+  </component>
+</project>

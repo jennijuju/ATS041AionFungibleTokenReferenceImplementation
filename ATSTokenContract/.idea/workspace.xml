@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7203c8ce-24de-47f0-aaad-e583c44dfe2f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/atsToken/ATSTokenContractTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/atsToken/ATSTokenContractTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -39,12 +40,11 @@
             <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/src/test/java/atsToken/ATSTokenContractTest.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="945">
-                    <caret line="1110" column="62" selection-start-line="1110" selection-start-column="62" selection-end-line="1110" selection-end-column="62" />
+                  <state relative-caret-position="521">
+                    <caret line="1136" lean-forward="true" selection-start-line="1127" selection-end-line="1136" />
                     <folding>
                       <element signature="imports" expanded="true" />
                       <element signature="method#testGetBalanceOfNone#0;class#ATSTokenContractTest#0" />
-                      <element signature="method#testIsOperatorFor#0;class#ATSTokenContractTest#0" />
                       <element signature="method#testAutorizeOperator1#0;class#ATSTokenContractTest#0" />
                       <element signature="method#testAutorizeOperator2#0;class#ATSTokenContractTest#0" />
                       <element signature="method#testAutorizeOperator4#0;class#ATSTokenContractTest#0" />
@@ -54,6 +54,11 @@
                       <element signature="method#testRevokeOperator3#0;class#ATSTokenContractTest#0" />
                       <element signature="method#testRevokeOperator4#0;class#ATSTokenContractTest#0" />
                       <element signature="method#testRevokeOperator5#0;class#ATSTokenContractTest#0" />
+                      <element signature="method#testRevokeOperator7#0;class#ATSTokenContractTest#0" />
+                      <element signature="method#testSend1#0;class#ATSTokenContractTest#0" />
+                      <element signature="method#testSend1#1;class#ATSTokenContractTest#0" />
+                      <element signature="method#testSend1#1;class#ATSTokenContractTest#0" />
+                      <element signature="method#testSend4#1;class#ATSTokenContractTest#0" />
                     </folding>
                   </state>
                 </provider>
@@ -69,14 +74,15 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1385">
-              <caret line="174" column="12" lean-forward="true" selection-start-line="174" selection-end-line="175" />
+            <state relative-caret-position="188">
+              <caret line="167" column="43" selection-start-line="167" selection-start-column="43" selection-end-line="167" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2403#2404#0" expanded="true" />
                 <element signature="e#2442#2443#0" expanded="true" />
                 <element signature="docComment;method#getBalanceOf#0;class#ATSTokenContract#0" />
                 <element signature="method#getBalanceOf#0;class#ATSTokenContract#0" />
+                <element signature="method#authorizeOperator#0;class#ATSTokenContract#0" />
                 <element signature="method#revokeOperator#0;class#ATSTokenContract#0" />
                 <element signature="method#isOperatorFor#0;class#ATSTokenContract#0" />
                 <element signature="method#tryReveokeOperator#0;class#TokenHolderInformation#0;class#ATSTokenContract#0" />
@@ -119,6 +125,7 @@
       <find>send</find>
       <find>tobyte</find>
       <find>bytes</find>
+      <find>TEN</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -226,7 +233,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559189137063" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559189808461" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -253,7 +260,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ATSTokenContractTest.testSend5">
+  <component name="RunManager" selected="JUnit.ATSTokenContractTest.testOperatorSend">
     <configuration name="ATSTokenContractTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ATSToken" />
       <extension name="coverage">
@@ -269,6 +276,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ATSTokenContractTest.testOperatorSend" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ATSToken" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="atsToken.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="atsToken" />
+      <option name="MAIN_CLASS_NAME" value="atsToken.ATSTokenContractTest" />
+      <option name="METHOD_NAME" value="testOperatorSend" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ATSTokenContractTest.testSend1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ATSToken" />
       <extension name="coverage">
@@ -280,22 +303,6 @@
       <option name="PACKAGE_NAME" value="atsToken" />
       <option name="MAIN_CLASS_NAME" value="atsToken.ATSTokenContractTest" />
       <option name="METHOD_NAME" value="testSend1" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ATSTokenContractTest.testSend3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ATSToken" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="atsToken.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="atsToken" />
-      <option name="MAIN_CLASS_NAME" value="atsToken.ATSTokenContractTest" />
-      <option name="METHOD_NAME" value="testSend3" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -334,19 +341,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.ATSTokenContractTest.testSend3" />
       <item itemvalue="JUnit.ATSTokenContractTest.testSend4" />
       <item itemvalue="JUnit.ATSTokenContractTest.testSend5" />
       <item itemvalue="JUnit.ATSTokenContractTest" />
       <item itemvalue="JUnit.ATSTokenContractTest.testSend1" />
+      <item itemvalue="JUnit.ATSTokenContractTest.testOperatorSend" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ATSTokenContractTest.testOperatorSend" />
+        <item itemvalue="JUnit.ATSTokenContractTest" />
         <item itemvalue="JUnit.ATSTokenContractTest.testSend5" />
         <item itemvalue="JUnit.ATSTokenContractTest.testSend1" />
-        <item itemvalue="JUnit.ATSTokenContractTest" />
         <item itemvalue="JUnit.ATSTokenContractTest.testSend4" />
-        <item itemvalue="JUnit.ATSTokenContractTest.testSend3" />
       </list>
     </recent_temporary>
   </component>
@@ -375,32 +382,11 @@
       <workItem from="1559052572871" duration="15279000" />
       <workItem from="1559163891056" duration="2988000" />
       <workItem from="1559174611856" duration="562000" />
-      <workItem from="1559175198088" duration="9150000" />
+      <workItem from="1559175198088" duration="9742000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ATSTokenContractTest_testSend1 - 2019.05.29 at 23h 44m 11s.xml">
-      <configuration name="ATSTokenContractTest.testSend1" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ATSTokenContractTest_testSend2 - 2019.05.29 at 23h 46m 45s.xml">
-      <configuration name="ATSTokenContractTest.testSend2" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ATSTokenContractTest_testSend3 - 2019.05.29 at 23h 54m 31s.xml">
-      <configuration name="ATSTokenContractTest.testSend3" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ATSTokenContractTest_testSend4 - 2019.05.29 at 23h 56m 30s.xml">
-      <configuration name="ATSTokenContractTest.testSend4" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ATSTokenContractTest_testSend5 - 2019.05.29 at 23h 58m 25s.xml">
-      <configuration name="ATSTokenContractTest.testSend5" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ATSTokenContractTest_testSend5 - 2019.05.29 at 23h 59m 10s.xml">
-      <configuration name="ATSTokenContractTest.testSend5" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ATSTokenContractTest - 2019.05.29 at 23h 59m 51s.xml">
-      <configuration name="ATSTokenContractTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="ATSTokenContractTest_testSend1 - 2019.05.30 at 00h 01m 01s.xml">
       <configuration name="ATSTokenContractTest.testSend1" configurationId="JUnit" />
     </history-entry>
@@ -410,9 +396,30 @@
     <history-entry file="ATSTokenContractTest_testSend1 - 2019.05.30 at 00h 02m 06s.xml">
       <configuration name="ATSTokenContractTest.testSend1" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="ATSTokenContractTest_testSend5 - 2019.05.30 at 00h 05m 42s.xml">
+      <configuration name="ATSTokenContractTest.testSend5" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ATSTokenContractTest_testOperatorSend - 2019.05.30 at 00h 12m 26s.xml">
+      <configuration name="ATSTokenContractTest.testOperatorSend" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ATSTokenContractTest_testOperatorSend - 2019.05.30 at 00h 13m 43s.xml">
+      <configuration name="ATSTokenContractTest.testOperatorSend" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ATSTokenContractTest_testOperatorSend - 2019.05.30 at 00h 14m 08s.xml">
+      <configuration name="ATSTokenContractTest.testOperatorSend" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ATSTokenContractTest - 2019.05.30 at 00h 14m 46s.xml">
+      <configuration name="ATSTokenContractTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ATSTokenContractTest_testOperatorSend - 2019.05.30 at 00h 15m 23s.xml">
+      <configuration name="ATSTokenContractTest.testOperatorSend" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ATSTokenContractTest_testOperatorSend - 2019.05.30 at 00h 15m 36s.xml">
+      <configuration name="ATSTokenContractTest.testOperatorSend" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="121507000" />
+    <option name="totallyTimeSpent" value="122099000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="0" width="1920" height="1080" extended-state="0" />
@@ -489,7 +496,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/atsToken/ATSTokenContractTest.java</url>
-          <line>402</line>
+          <line>403</line>
           <properties />
           <option name="timeStamp" value="45" />
         </line-breakpoint>
@@ -555,14 +562,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1385">
-          <caret line="174" column="12" lean-forward="true" selection-start-line="174" selection-end-line="175" />
+        <state relative-caret-position="188">
+          <caret line="167" column="43" selection-start-line="167" selection-start-column="43" selection-end-line="167" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2403#2404#0" expanded="true" />
             <element signature="e#2442#2443#0" expanded="true" />
             <element signature="docComment;method#getBalanceOf#0;class#ATSTokenContract#0" />
             <element signature="method#getBalanceOf#0;class#ATSTokenContract#0" />
+            <element signature="method#authorizeOperator#0;class#ATSTokenContract#0" />
             <element signature="method#revokeOperator#0;class#ATSTokenContract#0" />
             <element signature="method#isOperatorFor#0;class#ATSTokenContract#0" />
             <element signature="method#tryReveokeOperator#0;class#TokenHolderInformation#0;class#ATSTokenContract#0" />
@@ -572,12 +580,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/atsToken/ATSTokenContractTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="1110" column="62" selection-start-line="1110" selection-start-column="62" selection-end-line="1110" selection-end-column="62" />
+        <state relative-caret-position="521">
+          <caret line="1136" lean-forward="true" selection-start-line="1127" selection-end-line="1136" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#testGetBalanceOfNone#0;class#ATSTokenContractTest#0" />
-            <element signature="method#testIsOperatorFor#0;class#ATSTokenContractTest#0" />
             <element signature="method#testAutorizeOperator1#0;class#ATSTokenContractTest#0" />
             <element signature="method#testAutorizeOperator2#0;class#ATSTokenContractTest#0" />
             <element signature="method#testAutorizeOperator4#0;class#ATSTokenContractTest#0" />
@@ -587,6 +594,11 @@
             <element signature="method#testRevokeOperator3#0;class#ATSTokenContractTest#0" />
             <element signature="method#testRevokeOperator4#0;class#ATSTokenContractTest#0" />
             <element signature="method#testRevokeOperator5#0;class#ATSTokenContractTest#0" />
+            <element signature="method#testRevokeOperator7#0;class#ATSTokenContractTest#0" />
+            <element signature="method#testSend1#0;class#ATSTokenContractTest#0" />
+            <element signature="method#testSend1#1;class#ATSTokenContractTest#0" />
+            <element signature="method#testSend1#1;class#ATSTokenContractTest#0" />
+            <element signature="method#testSend4#1;class#ATSTokenContractTest#0" />
           </folding>
         </state>
       </provider>

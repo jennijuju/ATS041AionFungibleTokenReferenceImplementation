@@ -165,7 +165,7 @@ public class ATSTokenContract {
     @Callable
     public static void operatorSend(Address from, Address to, byte[] amount, byte[] userData, byte[] operatorData) {
         Blockchain.require(isOperatorFor(Blockchain.getCaller(),from));
-        doSend(Blockchain.getCaller(), Blockchain.getCaller(), to, new BigInteger(amount), userData, operatorData, true);
+        doSend(Blockchain.getCaller(), from, to, new BigInteger(amount), userData, operatorData, true);
     }
 
     private static void doSend(Address operator, Address from, Address to, BigInteger amount, byte[] userData, byte[] operatorData, boolean preventLocking) {

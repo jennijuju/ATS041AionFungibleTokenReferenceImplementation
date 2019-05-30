@@ -1234,5 +1234,5 @@ public class ATSTokenContractTest {
     }
 
 
-    
+
 }

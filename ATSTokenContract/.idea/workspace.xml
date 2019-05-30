@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7203c8ce-24de-47f0-aaad-e583c44dfe2f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/atsToken/ATSTokenContractTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/atsToken/ATSTokenContractTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -40,8 +39,8 @@
             <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/src/test/java/atsToken/ATSTokenContractTest.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="11594">
-                    <caret line="1232" column="31" selection-start-line="1232" selection-start-column="31" selection-end-line="1232" selection-end-column="31" />
+                  <state relative-caret-position="11682">
+                    <caret line="1236" selection-start-line="1236" selection-end-line="1236" />
                     <folding>
                       <element signature="imports" expanded="true" />
                       <element signature="method#testGetBalanceOfNone#0;class#ATSTokenContractTest#0" />
@@ -74,10 +73,9 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1290">
-              <caret line="84" column="27" selection-start-line="84" selection-start-column="27" selection-end-line="84" selection-end-column="27" />
+            <state relative-caret-position="115">
+              <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
               <folding>
-                <element signature="imports" expanded="true" />
                 <element signature="e#2403#2404#0" expanded="true" />
                 <element signature="e#2442#2443#0" expanded="true" />
                 <element signature="docComment;method#getBalanceOf#0;class#ATSTokenContract#0" />
@@ -247,7 +245,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559196110333" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559196317216" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -396,17 +394,11 @@
       <workItem from="1559052572871" duration="15279000" />
       <workItem from="1559163891056" duration="2988000" />
       <workItem from="1559174611856" duration="562000" />
-      <workItem from="1559175198088" duration="14989000" />
+      <workItem from="1559175198088" duration="15256000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ATSTokenContractTest_testBurn2 - 2019.05.30 at 01h 46m 53s.xml">
-      <configuration name="ATSTokenContractTest.testBurn2" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ATSTokenContractTest_testBurn2 - 2019.05.30 at 01h 47m 32s.xml">
-      <configuration name="ATSTokenContractTest.testBurn2" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="ATSTokenContractTest_testBurn2 - 2019.05.30 at 01h 48m 07s.xml">
       <configuration name="ATSTokenContractTest.testBurn2" configurationId="JUnit" />
     </history-entry>
@@ -431,9 +423,15 @@
     <history-entry file="ATSTokenContractTest_testBurn2 - 2019.05.30 at 01h 54m 46s.xml">
       <configuration name="ATSTokenContractTest.testBurn2" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="ATSTokenContractTest - 2019.05.30 at 02h 01m 19s.xml">
+      <configuration name="ATSTokenContractTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ATSTokenContractTest - 2019.05.30 at 02h 01m 57s.xml">
+      <configuration name="ATSTokenContractTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="127346000" />
+    <option name="totallyTimeSpent" value="127613000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="0" width="1920" height="1080" extended-state="6" />
@@ -516,97 +514,97 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract.java</url>
-          <line>213</line>
+          <line>208</line>
           <properties />
           <option name="timeStamp" value="83" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract.java</url>
-          <line>214</line>
+          <line>209</line>
           <properties />
           <option name="timeStamp" value="84" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract.java</url>
-          <line>215</line>
+          <line>210</line>
           <properties />
           <option name="timeStamp" value="85" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract.java</url>
-          <line>216</line>
+          <line>211</line>
           <properties />
           <option name="timeStamp" value="87" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract.java</url>
-          <line>217</line>
+          <line>212</line>
           <properties />
           <option name="timeStamp" value="89" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract.java</url>
-          <line>221</line>
+          <line>216</line>
           <properties />
           <option name="timeStamp" value="91" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract.java</url>
-          <line>219</line>
+          <line>214</line>
           <properties />
           <option name="timeStamp" value="92" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract.java</url>
-          <line>218</line>
+          <line>213</line>
           <properties />
           <option name="timeStamp" value="93" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract.java</url>
-          <line>291</line>
+          <line>286</line>
           <properties />
           <option name="timeStamp" value="94" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract.java</url>
-          <line>294</line>
+          <line>289</line>
           <properties />
           <option name="timeStamp" value="97" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract.java</url>
-          <line>293</line>
+          <line>288</line>
           <properties />
           <option name="timeStamp" value="98" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract.java</url>
-          <line>292</line>
+          <line>287</line>
           <properties />
           <option name="timeStamp" value="99" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract.java</url>
-          <line>300</line>
+          <line>295</line>
           <properties />
           <option name="timeStamp" value="100" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract.java</url>
-          <line>297</line>
+          <line>292</line>
           <properties />
           <option name="timeStamp" value="101" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract.java</url>
-          <line>296</line>
+          <line>291</line>
           <properties />
           <option name="timeStamp" value="103" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract.java</url>
-          <line>295</line>
+          <line>290</line>
           <properties />
           <option name="timeStamp" value="104" />
         </line-breakpoint>
@@ -677,33 +675,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1290">
-          <caret line="84" column="27" selection-start-line="84" selection-start-column="27" selection-end-line="84" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2403#2404#0" expanded="true" />
-            <element signature="e#2442#2443#0" expanded="true" />
-            <element signature="docComment;method#getBalanceOf#0;class#ATSTokenContract#0" />
-            <element signature="method#getBalanceOf#0;class#ATSTokenContract#0" />
-            <element signature="method#authorizeOperator#0;class#ATSTokenContract#0" />
-            <element signature="method#revokeOperator#0;class#ATSTokenContract#0" />
-            <element signature="method#isOperatorFor#0;class#ATSTokenContract#0" />
-            <element signature="method#operatorSend#0;class#ATSTokenContract#0" />
-            <element signature="method#doSend#0;class#ATSTokenContract#0" />
-            <element signature="method#callSender#0;class#ATSTokenContract#0" />
-            <element signature="method#callRecipient#0;class#ATSTokenContract#0" />
-            <element signature="class#TokenHolderInformation#0;class#ATSTokenContract#0" />
-            <element signature="method#tryReveokeOperator#0;class#TokenHolderInformation#0;class#ATSTokenContract#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/atsToken/ATSTokenContractTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11594">
-          <caret line="1232" column="31" selection-start-line="1232" selection-start-column="31" selection-end-line="1232" selection-end-column="31" />
+        <state relative-caret-position="11682">
+          <caret line="1236" selection-start-line="1236" selection-end-line="1236" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#testGetBalanceOfNone#0;class#ATSTokenContractTest#0" />
@@ -721,6 +696,28 @@
             <element signature="method#testSend1#1;class#ATSTokenContractTest#0" />
             <element signature="method#testSend1#1;class#ATSTokenContractTest#0" />
             <element signature="method#testSend4#1;class#ATSTokenContractTest#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+          <folding>
+            <element signature="e#2403#2404#0" expanded="true" />
+            <element signature="e#2442#2443#0" expanded="true" />
+            <element signature="docComment;method#getBalanceOf#0;class#ATSTokenContract#0" />
+            <element signature="method#getBalanceOf#0;class#ATSTokenContract#0" />
+            <element signature="method#authorizeOperator#0;class#ATSTokenContract#0" />
+            <element signature="method#revokeOperator#0;class#ATSTokenContract#0" />
+            <element signature="method#isOperatorFor#0;class#ATSTokenContract#0" />
+            <element signature="method#operatorSend#0;class#ATSTokenContract#0" />
+            <element signature="method#doSend#0;class#ATSTokenContract#0" />
+            <element signature="method#callSender#0;class#ATSTokenContract#0" />
+            <element signature="method#callRecipient#0;class#ATSTokenContract#0" />
+            <element signature="class#TokenHolderInformation#0;class#ATSTokenContract#0" />
+            <element signature="method#tryReveokeOperator#0;class#TokenHolderInformation#0;class#ATSTokenContract#0" />
           </folding>
         </state>
       </provider>

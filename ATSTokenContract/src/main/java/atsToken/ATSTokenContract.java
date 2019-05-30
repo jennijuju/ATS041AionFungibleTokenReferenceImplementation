@@ -2,20 +2,11 @@ package atsToken;
 
 import avm.Address;
 import avm.Blockchain;
-import avm.Result;
-import org.aion.avm.tooling.AddressUtil;
 import org.aion.avm.tooling.abi.Callable;
 import org.aion.avm.tooling.abi.Initializable;
 import org.aion.avm.userlib.AionBuffer;
-import org.aion.avm.userlib.AionList;
-import org.aion.avm.userlib.AionSet;
-import org.aion.avm.userlib.abi.ABIDecoder;
-import org.aion.avm.userlib.abi.ABIEncoder;
-
-import javax.xml.crypto.Data;
 import java.math.BigInteger;
 import java.util.Arrays;
-import java.util.function.BiFunction;
 
 public class ATSTokenContract {
 
@@ -77,6 +68,7 @@ public class ATSTokenContract {
         return tokenGranularity;
     }
 
+    //Todo: make sure returning string is fine
     @Callable
     public static String getTokenTotalSupply() {
         return tokenTotalSupply.toString();

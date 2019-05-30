@@ -3,38 +3,42 @@ package atsToken;
 import avm.Address;
 import avm.Blockchain;
 import org.aion.avm.tooling.abi.Callable;
-import org.aion.avm.tooling.abi.Initializable;
 import org.aion.avm.userlib.AionBuffer;
+import org.aion.avm.userlib.abi.ABIDecoder;
+
 import java.math.BigInteger;
 import java.util.Arrays;
 
 public class ATSTokenContract {
 
     /***********************************************Constants***********************************************/
+    //ToDo: ask if balance will exceed 32 bytes
     private static final int BIGINTEGER_LENGTH = 32;
 
 
     /**************************************Deployment Initialization***************************************/
-    @Initializable
+
     private static String tokenName;
 
-    @Initializable
     private static String tokenSymbol;
 
-    @Initializable
     private static int tokenGranularity;
-
-    @Initializable
-    private static byte[] tokenTotalSupplyByteArray;
 
     private static BigInteger tokenTotalSupply;
 
     static {
+
+        ABIDecoder decoder = new ABIDecoder(Blockchain.getData());
+
+        tokenName = decoder.decodeOneString();
         Blockchain.require(tokenName.length() > 0);
+        tokenSymbol = decoder.decodeOneString();
         Blockchain.require(tokenSymbol.length() > 0);
+        tokenGranularity = decoder.decodeOneInteger();
         Blockchain.require(tokenGranularity >= 1);
-        tokenTotalSupply = new BigInteger(tokenTotalSupplyByteArray);
+        tokenTotalSupply = new BigInteger(decoder.decodeOneByteArray());
         Blockchain.require(tokenTotalSupply.compareTo(BigInteger.ZERO) == 1);
+
         initialize();
         //ToDo: Register in the AIR
     }
@@ -68,16 +72,15 @@ public class ATSTokenContract {
         return tokenGranularity;
     }
 
-    //Todo: make sure returning string is fine
     @Callable
-    public static String getTokenTotalSupply() {
-        return tokenTotalSupply.toString();
+    public static byte[] getTokenTotalSupply() {
+        return tokenTotalSupply.toByteArray();
     }
 
     //Todo: test on network
     @Callable
-    public static String getLiquidSupply() {
-        return tokenTotalSupply.subtract(new BigInteger(getBalanceOf(Blockchain.getAddress()).getBytes())).toString();
+    public static byte[] getLiquidSupply() {
+        return tokenTotalSupply.subtract(new BigInteger(getBalanceOf(Blockchain.getAddress()))).toByteArray();
     }
 
     /*********************************************Token Holder*********************************************/
@@ -88,19 +91,22 @@ public class ATSTokenContract {
      * @return
      */
     @Callable
-    public static String getBalanceOf(Address tokenHolder) {
+    public static byte[] getBalanceOf(Address tokenHolder) {
         byte[] tokenHolderInformation = Blockchain.getStorage(tokenHolder.toByteArray());
-        return !Arrays.equals(tokenHolderInformation, null)
-                ? AionBuffer.wrap(tokenHolderInformation).get32ByteInt().toString()
-                : "0";
+        return (tokenHolderInformation != null)
+                ? AionBuffer.wrap(tokenHolderInformation).get32ByteInt().toByteArray()
+                : new byte[0];
     }
 
     @Callable
     public static void authorizeOperator(Address operator) {
+
+        //Should not assign token holder itself to be the operator. Quickly revert the tx to save energy.
         Blockchain.require(!Blockchain.getCaller().equals(operator));
+
         Address tokenHolderAddress = Blockchain.getCaller();
-        byte[] tokenHolderInformation = Blockchain.getStorage(tokenHolderAddress.toByteArray());
-        if (tokenHolderInformation == null ) { /*No related information yet.
+        byte[] tokenHolderInformationBytes = Blockchain.getStorage(tokenHolderAddress.toByteArray());
+        if (tokenHolderInformationBytes == null ) { /*No related information yet.
                                                     Add balance as 0 first to make sure first 32 bytes of token holder information is balance.
                                                     Set number of operators to 1.
                                                     Following by the operator.*/
@@ -111,7 +117,7 @@ public class ATSTokenContract {
             Blockchain.putStorage(tokenHolderAddress.toByteArray(), newInformation);
             ATSTokenContractEvents.AuthorizedOperator(operator, tokenHolderAddress);
         } else {
-            TokenHolderInformation tokenHolder = new TokenHolderInformation(tokenHolderInformation);
+            TokenHolderInformation tokenHolder = new TokenHolderInformation(tokenHolderInformationBytes);
             boolean addOperatorSuccess = tokenHolder.tryAddOperator(operator);
             if(addOperatorSuccess) {
                 Blockchain.putStorage(tokenHolderAddress.toByteArray(), tokenHolder.currentTokenHolderInformation);
@@ -242,84 +248,7 @@ public class ATSTokenContract {
 
     }
 
-    /************************************************Events***********************************************/
-    private static class ATSTokenContractEvents {
 
-        private static void ATSTokenCreated(BigInteger totalSupply, Address creator) {
-            Blockchain.log("ATSTokenCreated".getBytes(),
-                    totalSupply.toByteArray(),
-                    creator.toByteArray(),
-                    new byte[0]);
-        }
-
-        /**
-         * Store byte[] sizes for collecting data
-         *
-         * @param operator
-         * @param from
-         * @param to
-         * @param amount
-         * @param holderData
-         * @param operatorData
-         */
-        private static void Sent(Address operator, Address from, Address to, BigInteger amount, byte[] holderData, byte[] operatorData) {
-            //Blockchain.println("data length for log: " + (BIGINTEGER_LENGTH + Integer.BYTES + holderData.length + Integer.BYTES + operatorData.length));
-            byte[] data = AionBuffer.allocate(BIGINTEGER_LENGTH + Integer.BYTES + holderData.length + Integer.BYTES + operatorData.length)
-                    .put32ByteInt(amount)
-                    .putInt(holderData.length)
-                    .put(holderData)
-                    .putInt(operatorData.length)
-                    .put(operatorData)
-                    .getArray();
-
-            Blockchain.log("Sent".getBytes(),
-                    operator.toByteArray(),
-                    from.toByteArray(),
-                    to.toByteArray(),
-                    data);
-
-        }
-
-        /**
-         * Store byte[] sizes for collecting data
-         *
-         * @param operator
-         * @param from
-         * @param amount
-         * @param holderData
-         * @param operatorData
-         */
-        private static void Burned(Address operator, Address from, BigInteger amount, byte[] holderData, byte[] operatorData) {
-
-            byte[] data = AionBuffer.allocate(BIGINTEGER_LENGTH + Integer.BYTES + holderData.length + Integer.BYTES + operatorData.length)
-                    .put32ByteInt(amount)
-                    .putInt(holderData.length)
-                    .put(holderData)
-                    .putInt(operatorData.length)
-                    .put(operatorData)
-                    .getArray();
-
-            Blockchain.log("Burned".getBytes(),
-                    operator.toByteArray(),
-                    from.toByteArray(),
-                    data);
-        }
-
-        private static void AuthorizedOperator(Address operator, Address tokenHolder) {
-            Blockchain.log("AuthorizedOperator".getBytes(),
-                    operator.toByteArray(),
-                    tokenHolder.toByteArray(),
-                    new byte[0]);
-        }
-
-        private static void RevokedOperator(Address operator, Address tokenHolder) {
-            Blockchain.log("RevokedOperator".getBytes(),
-                    operator.toByteArray(),
-                    tokenHolder.toByteArray(),
-                    new byte[0]);
-        }
-
-    }
 
     /********************************************Data Wrapper********************************************/
     private static class TokenHolderInformation {

@@ -11,7 +11,6 @@ import java.math.BigInteger;
 public class ATSTokenContract {
 
     /***********************************************Constants***********************************************/
-    //ToDo: ask if balance will exceed 32 bytes
     private static final int BIGINTEGER_LENGTH = 32;
 
 
@@ -151,7 +150,6 @@ public class ATSTokenContract {
 
     }
 
-
     /******************************************Token Movement*******************************************/
     @Callable
     public static void send(Address to, byte[] amount, byte[] userData) {
@@ -164,7 +162,6 @@ public class ATSTokenContract {
         doSend(Blockchain.getCaller(), from, to, new BigInteger(amount), userData, operatorData, true);
     }
 
-    //Todo: Can data be null? -ask Yao
     @Callable
     public static void burn(byte[] amount, byte[] holderData) {
         doBurn(Blockchain.getCaller(),Blockchain.getCaller(), new BigInteger(amount) ,holderData, new byte[0]);

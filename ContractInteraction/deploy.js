@@ -12,7 +12,7 @@ async function deploy() {
     var namp = new BN("1000000000000000000");
     var supply = new BN("333333333");
     let totalSupply = namp.mul(supply);
-    let data = web3.avm.contract.deploy(jarPath).args(['string','string','int', 'byte[]'],['Jennijuju', 'J3N', 1, totalSupply.toArray("be",32)]).init();
+    let data = web3.avm.contract.deploy(jarPath).args(['string','string','int', 'byte[]'],['JENNIJUJU', 'J3N', 1, totalSupply.toArray("be",32)]).init();
     console.log(data);
     //construct a transaction
     const Tx = {

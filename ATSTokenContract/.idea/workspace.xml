@@ -2,26 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7203c8ce-24de-47f0-aaad-e583c44dfe2f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/aion4j-cache.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/aion4j-cache.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/aion4j.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/aion4j.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/aion4jJclwhitelist.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/aion4jJclwhitelist.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/avmJclwhitelist.json" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/avmJclwhitelist.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ATSToken-1.0-SNAPSHOT.abi" beforeDir="false" afterPath="$PROJECT_DIR$/target/ATSToken-1.0-SNAPSHOT.abi" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ATSToken-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/ATSToken-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/.aion4j.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/atsToken/ATSTokenContract$ATSTokenContractEvents.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/atsToken/ATSTokenContract$ATSTokenContractEvents.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/atsToken/ATSTokenContract$TokenHolderInformation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/atsToken/ATSTokenContract$TokenHolderInformation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/atsToken/ATSTokenContract.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/atsToken/ATSTokenContract.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/original-ATSToken-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/original-ATSToken-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/storage/account_3fd69dbc06b75441230e0f39b08231bd036fa2637ea204b2c0f8925397af3f45/balance" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../ContractInteraction/deploy.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ContractInteraction/deploy.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ContractInteraction/interaction.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ContractInteraction/jar/ATSToken-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../ContractInteraction/jar/ATSToken-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ContractInteraction/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ContractInteraction/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ContractInteraction/getBalance.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ContractInteraction/test.js" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -97,8 +80,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-924">
-              <caret line="265" column="14" selection-start-line="265" selection-start-column="14" selection-end-line="265" selection-end-column="14" />
+            <state relative-caret-position="300">
+              <caret line="66" column="41" selection-start-line="66" selection-start-column="22" selection-end-line="66" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;method#getBalanceOf#0;class#ATSTokenContract#0" />
@@ -277,7 +260,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559232963530" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559233813775" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -427,7 +410,7 @@
       <workItem from="1559163891056" duration="2988000" />
       <workItem from="1559174611856" duration="562000" />
       <workItem from="1559175198088" duration="19430000" />
-      <workItem from="1559225781591" duration="5670000" />
+      <workItem from="1559225781591" duration="6543000" />
     </task>
     <servers />
   </component>
@@ -464,7 +447,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="137457000" />
+    <option name="totallyTimeSpent" value="138330000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-2" width="1920" height="1082" extended-state="6" />
@@ -708,8 +691,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-924">
-          <caret line="265" column="14" selection-start-line="265" selection-start-column="14" selection-end-line="265" selection-end-column="14" />
+        <state relative-caret-position="300">
+          <caret line="66" column="41" selection-start-line="66" selection-start-column="22" selection-end-line="66" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;method#getBalanceOf#0;class#ATSTokenContract#0" />

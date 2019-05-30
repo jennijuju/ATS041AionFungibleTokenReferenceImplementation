@@ -67,7 +67,7 @@ public class ATSTokenContract {
     }
 
     @Callable
-    public static int getTokenGranularity() {
+    public static int granularity() {
         return tokenGranularity;
     }
 

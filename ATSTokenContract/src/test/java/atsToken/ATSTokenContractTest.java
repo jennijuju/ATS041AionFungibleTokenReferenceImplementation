@@ -821,7 +821,7 @@ public class ATSTokenContractTest {
                 encoder.encodeOneString("send")
                         .encodeOneAddress(to)
                         .encodeOneByteArray(BigInteger.valueOf(3).multiply(nAmp).toByteArray())
-                        .encodeOneByteArray(new byte[0])
+                        .encodeOneByteArray(null)
                         .toBytes());
         Assert.assertTrue(result.getReceiptStatus().isSuccess());
 

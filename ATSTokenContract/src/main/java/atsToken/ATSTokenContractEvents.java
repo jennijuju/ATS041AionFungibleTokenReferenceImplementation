@@ -28,6 +28,15 @@ public class ATSTokenContractEvents {
      * @param operatorData
      */
     protected static void Sent(Address operator, Address from, Address to, BigInteger amount, byte[] holderData, byte[] operatorData) {
+
+        if (holderData == null){
+            holderData = new byte[0];
+        }
+
+        if (operatorData == null){
+            operatorData = new byte[0];
+        }
+
         byte[] data = AionBuffer.allocate(BIGINTEGER_LENGTH + Integer.BYTES + holderData.length + Integer.BYTES + operatorData.length)
                 .put32ByteInt(amount)
                 .putInt(holderData.length)
@@ -54,6 +63,14 @@ public class ATSTokenContractEvents {
      * @param operatorData
      */
     protected static void Burned(Address operator, Address from, BigInteger amount, byte[] holderData, byte[] operatorData) {
+
+        if (holderData == null){
+            holderData = new byte[0];
+        }
+
+        if (operatorData == null){
+            operatorData = new byte[0];
+        }
 
         byte[] data = AionBuffer.allocate(BIGINTEGER_LENGTH + Integer.BYTES + holderData.length + Integer.BYTES + operatorData.length)
                 .put32ByteInt(amount)

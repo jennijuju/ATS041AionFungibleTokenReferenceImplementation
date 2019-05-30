@@ -21,7 +21,7 @@ public class ATSTokenContract {
 
     /***********************************************Constants***********************************************/
     private static final int BIGINTEGER_LENGTH = 32;
-    
+
 
     /**************************************Deployment Initialization***************************************/
     @Initializable
@@ -183,12 +183,19 @@ public class ATSTokenContract {
         fromInfo.updateBalance(fromInfo.getBalanceOf().subtract(amount));
         Blockchain.putStorage(from.toByteArray(),fromInfo.currentTokenHolderInformation);
 
-        TokenHolderInformation toInfo = new TokenHolderInformation(Blockchain.getStorage(to.toByteArray()));
-        toInfo.updateBalance(toInfo.getBalanceOf().add(amount));
-        Blockchain.putStorage(to.toByteArray(), toInfo.currentTokenHolderInformation);
-
-        callRecipient(operator, from, to, amount, userData, operatorData, preventLocking);
-        ATSTokenContractEvents.Sent(operator, from, to, amount, userData, operatorData);
+        byte[] toTokenHolderInformation = Blockchain.getStorage(to.toByteArray());
+        if(toTokenHolderInformation == null) {
+            Blockchain.putStorage(to.toByteArray(),
+                                    AionBuffer.allocate(BIGINTEGER_LENGTH).put32ByteInt(amount).getArray());
+            callRecipient(operator, from, to, amount, userData, operatorData, preventLocking);
+            ATSTokenContractEvents.Sent(operator, from, to, amount, userData, operatorData);
+        } else {
+            TokenHolderInformation toInfo = new TokenHolderInformation(Blockchain.getStorage(to.toByteArray()));
+            toInfo.updateBalance(toInfo.getBalanceOf().add(amount));
+            Blockchain.putStorage(to.toByteArray(), toInfo.currentTokenHolderInformation);
+            callRecipient(operator, from, to, amount, userData, operatorData, preventLocking);
+            ATSTokenContractEvents.Sent(operator, from, to, amount, userData, operatorData);
+        }
     }
 
     //ToDO: register to AIR

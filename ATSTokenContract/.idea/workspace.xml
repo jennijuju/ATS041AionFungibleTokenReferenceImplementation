@@ -4,35 +4,7 @@
     <list default="true" id="7203c8ce-24de-47f0-aaad-e583c44dfe2f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/atsToken/ATSTokenContract$ATSTokenContractEvents.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/atsToken/ATSTokenContract$ATSTokenContractEvents.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/atsToken/ATSTokenContract$TokenHolderInformation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/atsToken/ATSTokenContract$TokenHolderInformation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/atsToken/ATSTokenContract.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/atsToken/ATSTokenContract.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionBuffer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionList$AionListIterator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionList$AionSubList$AionSubListIterator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionList$AionSubList.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionList.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$AionAbstractCollection.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$AionMapEntry.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$AionMapEntryIterator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$AionMapEntrySet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$AionMapIterator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$AionMapKeyIterator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$AionMapKeySet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$AionMapValueIterator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$AionMapValues.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$BInternalNode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$BLeafNode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$BNode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionSet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/abi/ABIDecoder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/abi/ABIEncoder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/abi/ABIException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/abi/ABIStreamingEncoder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/abi/ABIToken.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/atsToken/ATSTokenContractTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/atsToken/ATSTokenContractTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -69,11 +41,10 @@
             <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/src/test/java/atsToken/ATSTokenContractTest.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="880">
-                    <caret line="40" column="59" selection-start-line="40" selection-start-column="59" selection-end-line="40" selection-end-column="59" />
+                  <state relative-caret-position="509">
+                    <caret line="950" column="93" selection-start-line="950" selection-start-column="93" selection-end-line="950" selection-end-column="93" />
                     <folding>
                       <element signature="imports" expanded="true" />
-                      <element signature="method#testInitialization#0;class#ATSTokenContractTest#0" />
                       <element signature="method#testGetBalanceOfNone#0;class#ATSTokenContractTest#0" />
                       <element signature="method#testIsOperatorFor#0;class#ATSTokenContractTest#0" />
                       <element signature="method#testAutorizeOperator1#0;class#ATSTokenContractTest#0" />
@@ -81,7 +52,11 @@
                       <element signature="method#testAutorizeOperator3#0;class#ATSTokenContractTest#0" />
                       <element signature="method#testAutorizeOperator4#0;class#ATSTokenContractTest#0" />
                       <element signature="method#testAutorizeOperator5#0;class#ATSTokenContractTest#0" />
+                      <element signature="method#testRevokeOperator1#0;class#ATSTokenContractTest#0" />
+                      <element signature="method#testRevokeOperator2#0;class#ATSTokenContractTest#0" />
                       <element signature="method#testRevokeOperator3#0;class#ATSTokenContractTest#0" />
+                      <element signature="method#testRevokeOperator4#0;class#ATSTokenContractTest#0" />
+                      <element signature="method#testRevokeOperator5#0;class#ATSTokenContractTest#0" />
                     </folding>
                   </state>
                 </provider>
@@ -97,21 +72,27 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="501">
-              <caret line="49" column="69" selection-start-line="49" selection-start-column="69" selection-end-line="49" selection-end-column="69" />
+            <state relative-caret-position="387">
+              <caret line="194" column="90" lean-forward="true" selection-start-line="194" selection-start-column="90" selection-end-line="194" selection-end-column="90" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2403#2404#0" expanded="true" />
                 <element signature="e#2442#2443#0" expanded="true" />
                 <element signature="docComment;method#getBalanceOf#0;class#ATSTokenContract#0" />
                 <element signature="method#getBalanceOf#0;class#ATSTokenContract#0" />
-                <element signature="method#authorizeOperator#0;class#ATSTokenContract#0" />
                 <element signature="method#revokeOperator#0;class#ATSTokenContract#0" />
                 <element signature="method#isOperatorFor#0;class#ATSTokenContract#0" />
-                <element signature="method#doSend#0;class#ATSTokenContract#0" />
-                <element signature="class#ATSTokenContractEvents#0;class#ATSTokenContract#0" />
                 <element signature="method#tryReveokeOperator#0;class#TokenHolderInformation#0;class#ATSTokenContract#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$PROJECT_DIR$/lib/avm.jar!/org/aion/avm/core/persistence/LoadedDApp.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="233">
+              <caret line="125" selection-start-line="125" selection-end-line="125" />
             </state>
           </provider>
         </entry>
@@ -155,9 +136,9 @@
         <option value="$PROJECT_DIR$/src/test/java/atsToken/ATSTokenContract.java" />
         <option value="$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract" />
         <option value="$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContractCopy.java" />
-        <option value="$PROJECT_DIR$/src/test/java/atsToken/ATSTokenContractTest.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract.java" />
+        <option value="$PROJECT_DIR$/src/test/java/atsToken/ATSTokenContractTest.java" />
       </list>
     </option>
   </component>
@@ -248,7 +229,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559178451532" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559188008630" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -275,7 +256,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ATSTokenContractTest">
+  <component name="RunManager" selected="JUnit.ATSTokenContractTest.testSend2">
     <configuration name="ATSTokenContractTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ATSToken" />
       <extension name="coverage">
@@ -287,22 +268,6 @@
       <option name="PACKAGE_NAME" value="atsToken" />
       <option name="MAIN_CLASS_NAME" value="atsToken.ATSTokenContractTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ATSTokenContractTest.testAutorizeOperator3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="aion" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="atsToken.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="atsToken" />
-      <option name="MAIN_CLASS_NAME" value="atsToken.ATSTokenContractTest" />
-      <option name="METHOD_NAME" value="testAutorizeOperator3" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -323,8 +288,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ATSTokenContractTest.testRevokeOperator2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="aion" />
+    <configuration name="ATSTokenContractTest.testSend1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ATSToken" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="atsToken.*" />
@@ -333,7 +298,23 @@
       </extension>
       <option name="PACKAGE_NAME" value="atsToken" />
       <option name="MAIN_CLASS_NAME" value="atsToken.ATSTokenContractTest" />
-      <option name="METHOD_NAME" value="testRevokeOperator2" />
+      <option name="METHOD_NAME" value="testSend1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ATSTokenContractTest.testSend2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ATSToken" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="atsToken.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="atsToken" />
+      <option name="MAIN_CLASS_NAME" value="atsToken.ATSTokenContractTest" />
+      <option name="METHOD_NAME" value="testSend2" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -361,17 +342,17 @@
     <list>
       <item itemvalue="JUnit.Whole project" />
       <item itemvalue="JUnit.ATSTokenContractTest" />
-      <item itemvalue="JUnit.ATSTokenContractTest.testAutorizeOperator3" />
       <item itemvalue="JUnit.ATSTokenContractTest.testInitialization" />
-      <item itemvalue="JUnit.ATSTokenContractTest.testRevokeOperator2" />
+      <item itemvalue="JUnit.ATSTokenContractTest.testSend1" />
+      <item itemvalue="JUnit.ATSTokenContractTest.testSend2" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ATSTokenContractTest.testSend2" />
+        <item itemvalue="JUnit.ATSTokenContractTest.testSend1" />
         <item itemvalue="JUnit.ATSTokenContractTest" />
         <item itemvalue="JUnit.Whole project" />
         <item itemvalue="JUnit.ATSTokenContractTest.testInitialization" />
-        <item itemvalue="JUnit.ATSTokenContractTest.testAutorizeOperator3" />
-        <item itemvalue="JUnit.ATSTokenContractTest.testRevokeOperator2" />
       </list>
     </recent_temporary>
   </component>
@@ -400,50 +381,50 @@
       <workItem from="1559052572871" duration="15279000" />
       <workItem from="1559163891056" duration="2988000" />
       <workItem from="1559174611856" duration="562000" />
-      <workItem from="1559175198088" duration="3056000" />
+      <workItem from="1559175198088" duration="8299000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="atsToken - 2019.05.29 at 21h 02m 28s.xml">
-      <configuration name="atsToken" configurationId="JUnit" />
+    <history-entry file="ATSTokenContractTest_testSend1 - 2019.05.29 at 23h 31m 02s.xml">
+      <configuration name="ATSTokenContractTest.testSend1" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ATSTokenContractTest - 2019.05.29 at 21h 02m 34s.xml">
-      <configuration name="ATSTokenContractTest" configurationId="JUnit" />
+    <history-entry file="ATSTokenContractTest_testSend1 - 2019.05.29 at 23h 36m 06s.xml">
+      <configuration name="ATSTokenContractTest.testSend1" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ATSTokenContractTest - 2019.05.29 at 21h 02m 39s.xml">
-      <configuration name="ATSTokenContractTest" configurationId="JUnit" />
+    <history-entry file="ATSTokenContractTest_testSend1 - 2019.05.29 at 23h 36m 25s.xml">
+      <configuration name="ATSTokenContractTest.testSend1" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ATSTokenContractTest - 2019.05.29 at 21h 02m 49s.xml">
-      <configuration name="ATSTokenContractTest" configurationId="JUnit" />
+    <history-entry file="ATSTokenContractTest_testSend1 - 2019.05.29 at 23h 36m 46s.xml">
+      <configuration name="ATSTokenContractTest.testSend1" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ATSTokenContractTest - 2019.05.29 at 21h 02m 55s.xml">
-      <configuration name="ATSTokenContractTest" configurationId="JUnit" />
+    <history-entry file="ATSTokenContractTest_testSend1 - 2019.05.29 at 23h 37m 00s.xml">
+      <configuration name="ATSTokenContractTest.testSend1" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ATSTokenContractTest - 2019.05.29 at 21h 03m 03s.xml">
-      <configuration name="ATSTokenContractTest" configurationId="JUnit" />
+    <history-entry file="ATSTokenContractTest_testSend1 - 2019.05.29 at 23h 40m 41s.xml">
+      <configuration name="ATSTokenContractTest.testSend1" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ATSTokenContractTest_testInitialization - 2019.05.29 at 21h 03m 11s.xml">
-      <configuration name="ATSTokenContractTest.testInitialization" configurationId="JUnit" />
+    <history-entry file="ATSTokenContractTest_testSend1 - 2019.05.29 at 23h 41m 21s.xml">
+      <configuration name="ATSTokenContractTest.testSend1" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Whole_project - 2019.05.29 at 21h 03m 54s.xml">
-      <configuration name="Whole project" configurationId="JUnit" />
+    <history-entry file="ATSTokenContractTest_testSend1 - 2019.05.29 at 23h 43m 34s.xml">
+      <configuration name="ATSTokenContractTest.testSend1" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ATSTokenContractTest - 2019.05.29 at 21h 03m 59s.xml">
-      <configuration name="ATSTokenContractTest" configurationId="JUnit" />
+    <history-entry file="ATSTokenContractTest_testSend1 - 2019.05.29 at 23h 44m 11s.xml">
+      <configuration name="ATSTokenContractTest.testSend1" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ATSTokenContractTest - 2019.05.29 at 21h 05m 46s.xml">
-      <configuration name="ATSTokenContractTest" configurationId="JUnit" />
+    <history-entry file="ATSTokenContractTest_testSend2 - 2019.05.29 at 23h 46m 45s.xml">
+      <configuration name="ATSTokenContractTest.testSend2" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115413000" />
+    <option name="totallyTimeSpent" value="120656000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="0" width="1920" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13205537" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13205537" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -457,8 +438,8 @@
       <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Find" order="6" visible="true" weight="0.32843652" />
-      <window_info anchor="bottom" id="Run" order="7" visible="true" weight="0.25101215" />
-      <window_info anchor="bottom" id="Debug" order="8" weight="0.26547745" />
+      <window_info active="true" anchor="bottom" id="Run" order="7" visible="true" weight="0.25101215" />
+      <window_info anchor="bottom" id="Debug" order="8" weight="0.2651822" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="11" />
@@ -514,7 +495,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/atsToken/ATSTokenContractTest.java</url>
-          <line>399</line>
+          <line>401</line>
           <properties />
           <option name="timeStamp" value="45" />
         </line-breakpoint>
@@ -571,21 +552,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/avm.jar!/org/aion/avm/core/persistence/LoadedDApp.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="125" selection-start-line="125" selection-end-line="125" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="49" column="69" selection-start-line="49" selection-start-column="69" selection-end-line="49" selection-end-column="69" />
+        <state relative-caret-position="387">
+          <caret line="194" column="90" lean-forward="true" selection-start-line="194" selection-start-column="90" selection-end-line="194" selection-end-column="90" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2403#2404#0" expanded="true" />
             <element signature="e#2442#2443#0" expanded="true" />
             <element signature="docComment;method#getBalanceOf#0;class#ATSTokenContract#0" />
             <element signature="method#getBalanceOf#0;class#ATSTokenContract#0" />
-            <element signature="method#authorizeOperator#0;class#ATSTokenContract#0" />
             <element signature="method#revokeOperator#0;class#ATSTokenContract#0" />
             <element signature="method#isOperatorFor#0;class#ATSTokenContract#0" />
-            <element signature="method#doSend#0;class#ATSTokenContract#0" />
-            <element signature="class#ATSTokenContractEvents#0;class#ATSTokenContract#0" />
             <element signature="method#tryReveokeOperator#0;class#TokenHolderInformation#0;class#ATSTokenContract#0" />
           </folding>
         </state>
@@ -593,11 +578,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/atsToken/ATSTokenContractTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="880">
-          <caret line="40" column="59" selection-start-line="40" selection-start-column="59" selection-end-line="40" selection-end-column="59" />
+        <state relative-caret-position="509">
+          <caret line="950" column="93" selection-start-line="950" selection-start-column="93" selection-end-line="950" selection-end-column="93" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#testInitialization#0;class#ATSTokenContractTest#0" />
             <element signature="method#testGetBalanceOfNone#0;class#ATSTokenContractTest#0" />
             <element signature="method#testIsOperatorFor#0;class#ATSTokenContractTest#0" />
             <element signature="method#testAutorizeOperator1#0;class#ATSTokenContractTest#0" />
@@ -605,7 +589,11 @@
             <element signature="method#testAutorizeOperator3#0;class#ATSTokenContractTest#0" />
             <element signature="method#testAutorizeOperator4#0;class#ATSTokenContractTest#0" />
             <element signature="method#testAutorizeOperator5#0;class#ATSTokenContractTest#0" />
+            <element signature="method#testRevokeOperator1#0;class#ATSTokenContractTest#0" />
+            <element signature="method#testRevokeOperator2#0;class#ATSTokenContractTest#0" />
             <element signature="method#testRevokeOperator3#0;class#ATSTokenContractTest#0" />
+            <element signature="method#testRevokeOperator4#0;class#ATSTokenContractTest#0" />
+            <element signature="method#testRevokeOperator5#0;class#ATSTokenContractTest#0" />
           </folding>
         </state>
       </provider>

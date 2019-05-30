@@ -131,7 +131,7 @@ public class ATSTokenContract {
         if (!Blockchain.getCaller().equals(operator)) {
             Address tokenHolderAddress = Blockchain.getCaller();
             byte[] tokenHolderInformation = Blockchain.getStorage(tokenHolderAddress.toByteArray());
-            if(tokenHolderInformation != null && tokenHolderInformation.length != BIGINTEGER_LENGTH) {
+            if(tokenHolderInformation != null && tokenHolderInformation.length > BIGINTEGER_LENGTH) {
                 TokenHolderInformation tokenHolder = new TokenHolderInformation(tokenHolderInformation);
                 boolean tryRevokeOperator = tokenHolder.tryReveokeOperator(operator);
                 if(tryRevokeOperator) {
@@ -248,109 +248,6 @@ public class ATSTokenContract {
 
     }
 
-
-
-    /********************************************Data Wrapper********************************************/
-    private static class TokenHolderInformation {
-        private byte[] currentTokenHolderInformation;
-        int currentTokenHolderInfoLength;
-
-        private TokenHolderInformation(byte[] currentTokenHolderInformation) {
-            this.currentTokenHolderInformation = currentTokenHolderInformation;
-            this.currentTokenHolderInfoLength = currentTokenHolderInformation.length;
-        }
-
-        private boolean isOperatorFor(Address operator, byte[] tokenHolderInfo) {
-            AionBuffer tokenHolderInformation = AionBuffer.wrap(tokenHolderInfo);
-            tokenHolderInformation.get32ByteInt();
-            //boolean isOperatorFor = false;
-            while (/*!isOperatorFor && */(tokenHolderInformation.getPosition() < tokenHolderInformation.getCapacity())) {
-                Address operatorWalker = tokenHolderInformation.getAddress();
-                if (operator.equals(operatorWalker)) {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        private boolean tryAddOperator(Address newOperator) {
-
-            if (currentTokenHolderInformation.length == BIGINTEGER_LENGTH) { /*has balance but no operator yet*/
-                byte[] newTokenHolderInformation = AionBuffer.allocate(BIGINTEGER_LENGTH + Address.LENGTH)
-                        .put32ByteInt(AionBuffer.wrap(this.currentTokenHolderInformation).get32ByteInt())  //balance
-                        .putAddress(newOperator)
-                        .getArray();
-                currentTokenHolderInformation = newTokenHolderInformation;
-                return true;
-            } else{
-                boolean isOperatorFor = isOperatorFor(newOperator,currentTokenHolderInformation);
-                if (!isOperatorFor) {
-                    AionBuffer tokenHolderInfoBuffer = AionBuffer.wrap(currentTokenHolderInformation);
-                    tokenHolderInfoBuffer.get32ByteInt();
-                    byte[] newTokenHolderInformation = new byte[this.currentTokenHolderInfoLength + Address.LENGTH];
-                    System.arraycopy(this.currentTokenHolderInformation, 0,
-                            newTokenHolderInformation, 0,
-                            currentTokenHolderInfoLength);
-                    System.arraycopy(newOperator.toByteArray(), 0,
-                            newTokenHolderInformation, currentTokenHolderInfoLength,
-                            Address.LENGTH);
-                    currentTokenHolderInformation = newTokenHolderInformation;
-                    return true;
-                }
-                return false;
-            }
-        }
-
-        private boolean tryReveokeOperator(Address revokeOperator) {
-            AionBuffer tokenHolderInfoBuffer =  AionBuffer.wrap(currentTokenHolderInformation);
-            tokenHolderInfoBuffer.get32ByteInt();
-            //boolean isOperatorFor = false;
-            int walker = 0;
-            while(/*!isOperatorFor && */(tokenHolderInfoBuffer.getPosition() < tokenHolderInfoBuffer.getLimit())) {
-                Address operatorWalker = tokenHolderInfoBuffer.getAddress();
-                if(revokeOperator.equals(operatorWalker)) {
-                    //isOperatorFor = true;
-                    byte[] newTokenHolderInformation = new byte[this.currentTokenHolderInfoLength - Address.LENGTH];
-                    System.arraycopy(this.currentTokenHolderInformation,0,
-                            newTokenHolderInformation,0,
-                            (BIGINTEGER_LENGTH + walker * Address.LENGTH));
-                    System.arraycopy(this.currentTokenHolderInformation, (BIGINTEGER_LENGTH + (walker + 1)* Address.LENGTH),
-                            newTokenHolderInformation,(BIGINTEGER_LENGTH + walker * Address.LENGTH), (currentTokenHolderInfoLength- (BIGINTEGER_LENGTH + (walker + 1)* Address.LENGTH)));
-                    currentTokenHolderInformation = newTokenHolderInformation;
-                    return true;
-                }
-                walker++;
-            }
-            return false;
-        }
-
-        private void updateBalance(BigInteger newBalance) {
-            byte[] newBalanceArray = AionBuffer.allocate(BIGINTEGER_LENGTH).put32ByteInt(newBalance).getArray();
-            if (this.currentTokenHolderInformation == null) {
-                currentTokenHolderInformation = newBalanceArray;
-            } else {
-                byte[] newTokenHolderInformation = new byte[this.currentTokenHolderInfoLength];
-                System.arraycopy(newBalanceArray, 0,
-                        newTokenHolderInformation, 0,
-                        BIGINTEGER_LENGTH);
-                System.arraycopy(this.currentTokenHolderInformation, BIGINTEGER_LENGTH,
-                        newTokenHolderInformation, BIGINTEGER_LENGTH,
-                        (currentTokenHolderInfoLength - BIGINTEGER_LENGTH));
-                currentTokenHolderInformation = newBalanceArray;
-            }
-        }
-
-        private BigInteger getBalanceOf() {
-            return (this.currentTokenHolderInformation != null)
-                    ? AionBuffer.wrap(this.currentTokenHolderInformation).get32ByteInt()
-                    : BigInteger.ZERO;
-        }
-
-//
-//        private byte[] getData() {
-//            return this.currentTokenHolderInformation;
-//        }
-    }
 
     /*********************************************Cross Chain *******************************************/
     @Callable

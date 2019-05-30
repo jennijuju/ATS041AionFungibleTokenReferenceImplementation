@@ -42,7 +42,7 @@ async function getTokenInfo() {
         data: data,
     };
     initialResponse = await web3.eth.call(transactionObject);
-    let tokenTotalSupply = await web3.avm.contract.decode("string", initialResponse);
+    let tokenTotalSupply = await web3.avm.contract.decode("byte[]", initialResponse);
     console.log(tokenTotalSupply);
 }
 

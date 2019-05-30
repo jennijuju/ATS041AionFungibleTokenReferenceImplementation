@@ -5,6 +5,7 @@ import avm.Blockchain;
 import avm.Result;
 import org.aion.avm.tooling.AddressUtil;
 import org.aion.avm.tooling.abi.Callable;
+import org.aion.avm.tooling.abi.Initializable;
 import org.aion.avm.userlib.AionBuffer;
 import org.aion.avm.userlib.AionList;
 import org.aion.avm.userlib.AionSet;
@@ -21,28 +22,30 @@ public class ATSTokenContract {
     /***********************************************Constants***********************************************/
     private static final int BIGINTEGER_LENGTH = 32;
 
-    /******************************************ATS Contract State******************************************/
-    private static String tokenName;
-    private static String tokenSymbol;
-    private static int tokenGranularity;
-    private static BigInteger tokenTotalSupply;
-    //private static Address AIRContract = new Address("0xa062407049f4fa5fb15f088f115fe87f6d6231e45c2e8f8448a44c282a9d7bf3".getBytes());
+
 
 
     /**************************************Deployment Initialization***************************************/
+    @Initializable
+    private static String tokenName;
+
+    @Initializable
+    private static String tokenSymbol;
+
+    @Initializable
+    private static int tokenGranularity;
+
+    @Initializable
+    private static BigInteger tokenTotalSupply;
+
+    //private static Address AIRContract = new Address("0xa062407049f4fa5fb15f088f115fe87f6d6231e45c2e8f8448a44c282a9d7bf3".getBytes());
+
     static {
-        ABIDecoder decoder = new ABIDecoder(Blockchain.getData());
-        tokenName = decoder.decodeOneString();
         Blockchain.require(tokenName.length() > 0);
-        tokenSymbol = decoder.decodeOneString();
         Blockchain.require(tokenSymbol.length() > 0);
-        tokenGranularity = decoder.decodeOneInteger();
         Blockchain.require(tokenGranularity >= 1);
-        tokenTotalSupply = new BigInteger(decoder.decodeOneByteArray());
         Blockchain.require(tokenTotalSupply.compareTo(BigInteger.ZERO) == 1);
-
         initialize();
-
         //ToDo: Register in the AIR
     }
 

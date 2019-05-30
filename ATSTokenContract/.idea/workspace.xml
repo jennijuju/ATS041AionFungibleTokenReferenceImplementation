@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7203c8ce-24de-47f0-aaad-e583c44dfe2f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/aion4jJclwhitelist.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/aion4jJclwhitelist.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/avmJclwhitelist.json" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/avmJclwhitelist.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ATSToken.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -38,15 +34,23 @@
             <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="2225">
-                    <caret line="165" column="156" selection-start-line="165" selection-start-column="156" selection-end-line="165" selection-end-column="156" />
+                  <state relative-caret-position="212">
+                    <caret line="35" column="40" lean-forward="true" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="40" />
                     <folding>
                       <element signature="imports" expanded="true" />
+                      <element signature="e#2403#2404#0" expanded="true" />
+                      <element signature="e#2435#2436#0" expanded="true" />
+                      <element signature="e#2494#2495#0" expanded="true" />
+                      <element signature="e#2528#2529#0" expanded="true" />
+                      <element signature="e#2589#2590#0" expanded="true" />
+                      <element signature="e#2628#2629#0" expanded="true" />
+                      <element signature="e#2692#2693#0" expanded="true" />
+                      <element signature="e#2742#2743#0" expanded="true" />
                       <element signature="docComment;method#getBalanceOf#0;class#ATSTokenContract#0" />
                       <element signature="method#getBalanceOf#0;class#ATSTokenContract#0" />
+                      <element signature="method#authorizeOperator#0;class#ATSTokenContract#0" />
                       <element signature="method#revokeOperator#0;class#ATSTokenContract#0" />
                       <element signature="method#isOperatorFor#0;class#ATSTokenContract#0" />
-                      <element signature="method#operatorSend#0;class#ATSTokenContract#0" />
                       <element signature="method#doSend#0;class#ATSTokenContract#0" />
                       <element signature="class#ATSTokenContractEvents#0;class#ATSTokenContract#0" />
                       <element signature="method#tryReveokeOperator#0;class#TokenHolderInformation#0;class#ATSTokenContract#0" />
@@ -224,7 +228,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559177104959" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559177662686" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -366,7 +370,7 @@
       <workItem from="1559052572871" duration="15279000" />
       <workItem from="1559163891056" duration="2988000" />
       <workItem from="1559174611856" duration="562000" />
-      <workItem from="1559175198088" duration="1837000" />
+      <workItem from="1559175198088" duration="2530000" />
     </task>
     <servers />
   </component>
@@ -403,7 +407,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="114194000" />
+    <option name="totallyTimeSpent" value="114887000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="0" width="1920" height="1080" extended-state="0" />
@@ -557,15 +561,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2225">
-          <caret line="165" column="156" selection-start-line="165" selection-start-column="156" selection-end-line="165" selection-end-column="156" />
+        <state relative-caret-position="212">
+          <caret line="35" column="40" lean-forward="true" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2403#2404#0" expanded="true" />
+            <element signature="e#2435#2436#0" expanded="true" />
+            <element signature="e#2494#2495#0" expanded="true" />
+            <element signature="e#2528#2529#0" expanded="true" />
+            <element signature="e#2589#2590#0" expanded="true" />
+            <element signature="e#2628#2629#0" expanded="true" />
+            <element signature="e#2692#2693#0" expanded="true" />
+            <element signature="e#2742#2743#0" expanded="true" />
             <element signature="docComment;method#getBalanceOf#0;class#ATSTokenContract#0" />
             <element signature="method#getBalanceOf#0;class#ATSTokenContract#0" />
+            <element signature="method#authorizeOperator#0;class#ATSTokenContract#0" />
             <element signature="method#revokeOperator#0;class#ATSTokenContract#0" />
             <element signature="method#isOperatorFor#0;class#ATSTokenContract#0" />
-            <element signature="method#operatorSend#0;class#ATSTokenContract#0" />
             <element signature="method#doSend#0;class#ATSTokenContract#0" />
             <element signature="class#ATSTokenContractEvents#0;class#ATSTokenContract#0" />
             <element signature="method#tryReveokeOperator#0;class#TokenHolderInformation#0;class#ATSTokenContract#0" />

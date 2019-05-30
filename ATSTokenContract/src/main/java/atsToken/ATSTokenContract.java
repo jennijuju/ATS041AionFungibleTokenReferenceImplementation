@@ -38,10 +38,7 @@ public class ATSTokenContract {
 
     private static BigInteger tokenTotalSupply;
 
-    //private static Address AIRContract = new Address("0xa062407049f4fa5fb15f088f115fe87f6d6231e45c2e8f8448a44c282a9d7bf3".getBytes());
-
     static {
-
         Blockchain.require(tokenName.length() > 0);
         Blockchain.require(tokenSymbol.length() > 0);
         Blockchain.require(tokenGranularity >= 1);
@@ -83,6 +80,11 @@ public class ATSTokenContract {
     @Callable
     public static String getTokenTotalSupply() {
         return tokenTotalSupply.toString();
+    }
+
+    @Callable
+    public static String getLiquidSupply() {
+        return tokenTotalSupply.subtract(Blockchain.getBalanceOfThisContract()).toString();
     }
 
     /*********************************************Token Holder*********************************************/
@@ -156,7 +158,7 @@ public class ATSTokenContract {
 
 
 
-    /********************************************Transactions*********************************************/
+    /******************************************Token Movement*******************************************/
     @Callable
     public static void send(Address to, byte[] amount, byte[] userData) {
         doSend(Blockchain.getCaller(), Blockchain.getCaller(), to, new BigInteger(amount), userData, new byte[0], true);
@@ -168,6 +170,16 @@ public class ATSTokenContract {
         doSend(Blockchain.getCaller(), from, to, new BigInteger(amount), userData, operatorData, true);
     }
 
+    @Callable
+    public static void burn(byte[] amount, byte[] holderData) {
+        doBurn(Blockchain.getCaller(),Blockchain.getCaller(), new BigInteger(amount) ,holderData, null);
+    }
+
+    @Callable
+    public static void operatorBurn(Address tokenHolder, byte[] amount, byte[] holderData, byte[] operatorData) {
+        Blockchain.require(isOperatorFor(Blockchain.getCaller(), tokenHolder));
+        doBurn(Blockchain.getCaller(), tokenHolder, new BigInteger(amount), holderData, null);
+    }
     private static void doSend(Address operator, Address from, Address to, BigInteger amount, byte[] userData, byte[] operatorData, boolean preventLocking) {
         Blockchain.require(amount.mod(BigInteger.valueOf(tokenGranularity)).equals(BigInteger.ZERO));
         callSender(operator, from, to, amount, userData, operatorData);
@@ -198,11 +210,26 @@ public class ATSTokenContract {
         }
     }
 
+    private static void doBurn(Address operator, Address tokenHolder, BigInteger amount, byte[] holderData,
+                               byte[] operatorData) {
+        Blockchain.require(amount.mod(BigInteger.valueOf(tokenGranularity)).equals(BigInteger.ZERO));
+        byte[] tokenHolderInformation = Blockchain.getStorage(tokenHolder.toByteArray());
+        Blockchain.require(tokenHolderInformation != null);
+        TokenHolderInformation tokenhHolderInfo = new TokenHolderInformation(tokenHolderInformation);
+        Blockchain.require(tokenhHolderInfo.getBalanceOf().compareTo(amount) >= -1);
+        tokenhHolderInfo.updateBalance(tokenhHolderInfo.getBalanceOf().subtract(amount));
+        Blockchain.putStorage(tokenHolder.toByteArray(),tokenhHolderInfo.currentTokenHolderInformation);
+        tokenTotalSupply = tokenTotalSupply.subtract(amount);
+        callSender(operator, tokenHolder, new Address(new byte[32]), amount, holderData, operatorData);
+        ATSTokenContractEvents.Burned(operator, tokenHolder, amount, holderData, operatorData);
+    }
+
     //ToDO: register to AIR
     private static void callSender(Address operator, Address from, Address to, BigInteger amount, byte[] userData, byte[] operatorData) {
 
     }
 
+    //ToDO: register to AIR
     private static void callRecipient(Address operator, Address from, Address to, BigInteger amount, byte[] userData, byte[] operatorData, boolean preventLocking) {
 
     }

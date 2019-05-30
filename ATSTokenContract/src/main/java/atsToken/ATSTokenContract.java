@@ -21,9 +21,7 @@ public class ATSTokenContract {
 
     /***********************************************Constants***********************************************/
     private static final int BIGINTEGER_LENGTH = 32;
-
-
-
+    
 
     /**************************************Deployment Initialization***************************************/
     @Initializable
@@ -36,14 +34,18 @@ public class ATSTokenContract {
     private static int tokenGranularity;
 
     @Initializable
+    private static byte[] tokenTotalSupplyByteArray;
+
     private static BigInteger tokenTotalSupply;
 
     //private static Address AIRContract = new Address("0xa062407049f4fa5fb15f088f115fe87f6d6231e45c2e8f8448a44c282a9d7bf3".getBytes());
 
     static {
+
         Blockchain.require(tokenName.length() > 0);
         Blockchain.require(tokenSymbol.length() > 0);
         Blockchain.require(tokenGranularity >= 1);
+        tokenTotalSupply = new BigInteger(tokenTotalSupplyByteArray);
         Blockchain.require(tokenTotalSupply.compareTo(BigInteger.ZERO) == 1);
         initialize();
         //ToDo: Register in the AIR

@@ -16,7 +16,7 @@ async function deploy() {
     console.log(data);
     //construct a transaction
     const Tx = {
-        from: account.address,
+        //from: account.address,
         data: data,
         gasPrice: 10000000000,
         gas: 5000000,

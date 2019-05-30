@@ -152,6 +152,7 @@ public class ATSTokenContract {
     /******************************************Token Movement*******************************************/
     @Callable
     public static void send(Address to, byte[] amount, byte[] userData) {
+        //Blockchain.println("send user data length: " + userData.length);
         doSend(Blockchain.getCaller(), Blockchain.getCaller(), to, new BigInteger(amount), userData, new byte[0], true);
     }
 
@@ -177,6 +178,7 @@ public class ATSTokenContract {
         callSender(operator, from, to, amount, userData, operatorData);
         Blockchain.require(!to.equals(new Address(new byte[32]))); //forbid sending to 0x0 (=burning)
         Blockchain.require(!to.equals(Blockchain.getAddress())); //forbid sending to this contract
+        //Blockchain.println("Check point 1.");
 
 
         byte[] fromTokenHolderInformation = Blockchain.getStorage(from.toByteArray());
@@ -187,13 +189,20 @@ public class ATSTokenContract {
         fromInfo.updateBalance(fromInfo.getBalanceOf().subtract(amount));
         Blockchain.putStorage(from.toByteArray(),fromInfo.currentTokenHolderInformation);
 
+        //Blockchain.println("Check point 2.");
+
+
         byte[] toTokenHolderInformation = Blockchain.getStorage(to.toByteArray());
         if(toTokenHolderInformation == null) {
+            //Blockchain.println("Check point 3.");
+
             Blockchain.putStorage(to.toByteArray(),
                                     AionBuffer.allocate(BIGINTEGER_LENGTH).put32ByteInt(amount).getArray());
             callRecipient(operator, from, to, amount, userData, operatorData, preventLocking);
             ATSTokenContractEvents.Sent(operator, from, to, amount, userData, operatorData);
         } else {
+            //Blockchain.println("Check point 4.");
+
             TokenHolderInformation toInfo = new TokenHolderInformation(Blockchain.getStorage(to.toByteArray()));
             toInfo.updateBalance(toInfo.getBalanceOf().add(amount));
             Blockchain.putStorage(to.toByteArray(), toInfo.currentTokenHolderInformation);
@@ -254,7 +263,7 @@ public class ATSTokenContract {
          * @param operatorData
          */
         private static void Sent(Address operator, Address from, Address to, BigInteger amount, byte[] holderData, byte[] operatorData) {
-
+            //Blockchain.println("data length for log: " + (BIGINTEGER_LENGTH + Integer.BYTES + holderData.length + Integer.BYTES + operatorData.length));
             byte[] data = AionBuffer.allocate(BIGINTEGER_LENGTH + Integer.BYTES + holderData.length + Integer.BYTES + operatorData.length)
                     .put32ByteInt(amount)
                     .putInt(holderData.length)

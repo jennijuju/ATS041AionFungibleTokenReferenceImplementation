@@ -22,7 +22,7 @@ public class TokenHolderInformation {
         AionBuffer tokenHolderInformation = AionBuffer.wrap(tokenHolderInfo);
         tokenHolderInformation.get32ByteInt();
         //boolean isOperatorFor = false;
-        while (/*!isOperatorFor && */(tokenHolderInformation.getPosition() < tokenHolderInformation.getCapacity())) {
+        while (/*!isOperatorFor && */(tokenHolderInformation.getPosition() < tokenHolderInformation.getLimit())) {
             Address operatorWalker = tokenHolderInformation.getAddress();
             if (operator.equals(operatorWalker)) {
                 return true;

@@ -7,7 +7,6 @@ import org.aion.avm.userlib.AionBuffer;
 import org.aion.avm.userlib.abi.ABIDecoder;
 
 import java.math.BigInteger;
-import java.util.Arrays;
 
 public class ATSTokenContract {
 
@@ -58,12 +57,12 @@ public class ATSTokenContract {
     /**********************************************Token Info**********************************************/
 
     @Callable
-    public static String getTokenName() {
+    public static String name() {
         return tokenName;
     }
 
     @Callable
-    public static String getTokenSymbol() {
+    public static String symbol() {
         return tokenSymbol;
     }
 
@@ -73,14 +72,8 @@ public class ATSTokenContract {
     }
 
     @Callable
-    public static byte[] getTokenTotalSupply() {
+    public static byte[] totalSupply() {
         return tokenTotalSupply.toByteArray();
-    }
-
-    //Todo: test on network
-    @Callable
-    public static byte[] getLiquidSupply() {
-        return tokenTotalSupply.subtract(new BigInteger(getBalanceOf(Blockchain.getAddress()))).toByteArray();
     }
 
     /*********************************************Token Holder*********************************************/
@@ -91,7 +84,7 @@ public class ATSTokenContract {
      * @return
      */
     @Callable
-    public static byte[] getBalanceOf(Address tokenHolder) {
+    public static byte[] balanceOf(Address tokenHolder) {
         byte[] tokenHolderInformation = Blockchain.getStorage(tokenHolder.toByteArray());
         return (tokenHolderInformation != null)
                 ? AionBuffer.wrap(tokenHolderInformation).get32ByteInt().toByteArray()
@@ -145,12 +138,16 @@ public class ATSTokenContract {
     //Todo: token contract as operator?
     @Callable
     public static boolean isOperatorFor(Address operator, Address tokenHolder) {
-        if (operator.equals(tokenHolder)) return true;
+        if (operator.equals(tokenHolder)) {
+            return true;
+        }
         byte[] tokenHolderInformation = Blockchain.getStorage(tokenHolder.toByteArray());
-        if(tokenHolderInformation != null && tokenHolderInformation.length != BIGINTEGER_LENGTH) {
+        if(tokenHolderInformation != null && tokenHolderInformation.length > BIGINTEGER_LENGTH) {
             TokenHolderInformation tokenHolderInfo = new TokenHolderInformation(tokenHolderInformation);
             return tokenHolderInfo.isOperatorFor(operator,tokenHolderInformation);
-        } else return false;
+        } else {
+            return false;
+        }
 
     }
 
@@ -158,7 +155,6 @@ public class ATSTokenContract {
     /******************************************Token Movement*******************************************/
     @Callable
     public static void send(Address to, byte[] amount, byte[] userData) {
-        //Blockchain.println("send user data length: " + userData.length);
         doSend(Blockchain.getCaller(), Blockchain.getCaller(), to, new BigInteger(amount), userData, new byte[0], true);
     }
 
@@ -180,11 +176,11 @@ public class ATSTokenContract {
         doBurn(Blockchain.getCaller(), tokenHolder, new BigInteger(amount), holderData, new byte[0]);
     }
     private static void doSend(Address operator, Address from, Address to, BigInteger amount, byte[] userData, byte[] operatorData, boolean preventLocking) {
+        Blockchain.require(amount.compareTo(BigInteger.ZERO) >= -1);
         Blockchain.require(amount.mod(BigInteger.valueOf(tokenGranularity)).equals(BigInteger.ZERO));
         callSender(operator, from, to, amount, userData, operatorData);
         Blockchain.require(!to.equals(new Address(new byte[32]))); //forbid sending to 0x0 (=burning)
         Blockchain.require(!to.equals(Blockchain.getAddress())); //forbid sending to this contract
-        //Blockchain.println("Check point 1.");
 
 
         byte[] fromTokenHolderInformation = Blockchain.getStorage(from.toByteArray());
@@ -194,8 +190,6 @@ public class ATSTokenContract {
         // revert tx
         fromInfo.updateBalance(fromInfo.getBalanceOf().subtract(amount));
         Blockchain.putStorage(from.toByteArray(),fromInfo.currentTokenHolderInformation);
-
-        //Blockchain.println("Check point 2.");
 
 
         byte[] toTokenHolderInformation = Blockchain.getStorage(to.toByteArray());
@@ -219,6 +213,7 @@ public class ATSTokenContract {
 
     private static void doBurn(Address operator, Address tokenHolder, BigInteger amount, byte[] holderData,
                                byte[] operatorData) {
+        Blockchain.require(amount.compareTo(BigInteger.ZERO) >= -1); //ToDo: negative number?
         Blockchain.require(amount.mod(BigInteger.valueOf(tokenGranularity)).equals(BigInteger.ZERO));
         byte[] tokenHolderInformation = Blockchain.getStorage(tokenHolder.toByteArray());
         Blockchain.require(tokenHolderInformation != null);
@@ -263,6 +258,14 @@ public class ATSTokenContract {
     public static void operatorFreeze(Address localSender, byte[] remoteRecipient, byte[] amount, byte[] bridgeId,
                                       byte[] localData) {
     }
+
+
+    //Todo: test on network
+    @Callable
+    public static byte[] getLiquidSupply() {
+        return tokenTotalSupply.subtract(new BigInteger(balanceOf(Blockchain.getAddress()))).toByteArray();
+    }
+
 }
 
 

@@ -49,23 +49,23 @@ public class ATSTokenContractTest {
     @Test
     public void testInitialization() {
         ABIStreamingEncoder encoder = new ABIStreamingEncoder();
-        AvmRule.ResultWrapper result = avmRule.call(deployer,contractAddress,BigInteger.ZERO,encoder.encodeOneString("getTokenName").toBytes());
+        AvmRule.ResultWrapper result = avmRule.call(deployer,contractAddress,BigInteger.ZERO,encoder.encodeOneString("name").toBytes());
         String resStr = (String) result.getDecodedReturnData();
         Assert.assertTrue(resStr.equals("JENNIJUJU"));
 
-        result = avmRule.call(deployer,contractAddress,BigInteger.ZERO,encoder.encodeOneString("getTokenSymbol").toBytes());
+        result = avmRule.call(deployer,contractAddress,BigInteger.ZERO,encoder.encodeOneString("symbol").toBytes());
         resStr = (String) result.getDecodedReturnData();
         Assert.assertTrue(resStr.equals("J3N"));
 
-        result = avmRule.call(deployer,contractAddress,BigInteger.ZERO,encoder.encodeOneString("getTokenGranularity").toBytes());
+        result = avmRule.call(deployer,contractAddress,BigInteger.ZERO,encoder.encodeOneString("granularity").toBytes());
         int resInt = (int) result.getDecodedReturnData();
         Assert.assertTrue(resInt == 3);
 
-        result = avmRule.call(deployer,contractAddress,BigInteger.ZERO,encoder.encodeOneString("getTokenTotalSupply").toBytes());
+        result = avmRule.call(deployer,contractAddress,BigInteger.ZERO,encoder.encodeOneString("totalSupply").toBytes());
         byte[] resBytes = (byte[]) result.getDecodedReturnData();
         Assert.assertTrue(new BigInteger(resBytes).equals(new BigInteger(tokenTotalSupply)));
 
-        result = avmRule.call(deployer,contractAddress, BigInteger.ZERO, encoder.encodeOneString("getBalanceOf").encodeOneAddress(deployer).toBytes());
+        result = avmRule.call(deployer,contractAddress, BigInteger.ZERO, encoder.encodeOneString("balanceOf").encodeOneAddress(deployer).toBytes());
         resBytes = (byte[]) result.getDecodedReturnData();
         Assert.assertTrue(new BigInteger(resBytes).equals(new BigInteger(tokenTotalSupply)));
     }
@@ -73,7 +73,7 @@ public class ATSTokenContractTest {
     @Test
     public void testGetBalanceOfNone() {
         ABIStreamingEncoder encoder = new ABIStreamingEncoder();
-        AvmRule.ResultWrapper result = avmRule.call(deployer,contractAddress, BigInteger.ZERO, encoder.encodeOneString("getBalanceOf").encodeOneAddress(avmRule.getRandomAddress(BigInteger.ZERO)).toBytes());
+        AvmRule.ResultWrapper result = avmRule.call(deployer,contractAddress, BigInteger.ZERO, encoder.encodeOneString("balanceOf").encodeOneAddress(avmRule.getRandomAddress(BigInteger.ZERO)).toBytes());
         byte[] resBytes = (byte[]) result.getDecodedReturnData();
         Assert.assertTrue(resBytes.length == 0);
     }
@@ -187,7 +187,7 @@ public class ATSTokenContractTest {
         Assert.assertTrue(res);
 
         //balance should be added as 0
-        result = avmRule.call(deployer,contractAddress, BigInteger.ZERO, encoder.encodeOneString("getBalanceOf").encodeOneAddress(tokenHolder).toBytes());
+        result = avmRule.call(deployer,contractAddress, BigInteger.ZERO, encoder.encodeOneString("balanceOf").encodeOneAddress(tokenHolder).toBytes());
         byte[] resBytes = (byte[]) result.getDecodedReturnData();
         Assert.assertTrue(new BigInteger(resBytes).equals(BigInteger.ZERO));
     }
@@ -251,7 +251,7 @@ public class ATSTokenContractTest {
         Assert.assertTrue(res);
 
         //balance should be added as 0
-        result = avmRule.call(deployer,contractAddress, BigInteger.ZERO, encoder.encodeOneString("getBalanceOf").encodeOneAddress(tokenHolder).toBytes());
+        result = avmRule.call(deployer,contractAddress, BigInteger.ZERO, encoder.encodeOneString("balanceOf").encodeOneAddress(tokenHolder).toBytes());
         byte[] resBytes = (byte[]) result.getDecodedReturnData();
         Assert.assertTrue(new BigInteger(resBytes).equals(BigInteger.ZERO));
     }
@@ -300,7 +300,7 @@ public class ATSTokenContractTest {
 
 
         //balance should be added as 0
-        result = avmRule.call(deployer,contractAddress, BigInteger.ZERO, encoder.encodeOneString("getBalanceOf").encodeOneAddress(tokenHolder).toBytes());
+        result = avmRule.call(deployer,contractAddress, BigInteger.ZERO, encoder.encodeOneString("balanceOf").encodeOneAddress(tokenHolder).toBytes());
         byte[] resBytes = (byte[]) result.getDecodedReturnData();
         Assert.assertTrue(new BigInteger(resBytes).equals(BigInteger.ZERO));
     }
@@ -379,7 +379,7 @@ public class ATSTokenContractTest {
 //        Assert.assertTrue(!res);
 //
 //        //balance should be added as 0
-//        result = avmRule.call(deployer,contractAddress, BigInteger.ZERO, encoder.encodeOneString("getBalanceOf").encodeOneAddress(tokenHolder).toBytes());
+//        result = avmRule.call(deployer,contractAddress, BigInteger.ZERO, encoder.encodeOneString("balanceOf").encodeOneAddress(tokenHolder).toBytes());
 //        String resStr = (String) result.getDecodedReturnData();
 //        System.out.println("Balance " + resStr);
 //        Assert.assertTrue(resStr.equals(BigInteger.ZERO.toString()));
@@ -479,7 +479,7 @@ public class ATSTokenContractTest {
         Assert.assertTrue(!res);
 
         //balance should be added as 0
-        result = avmRule.call(deployer,contractAddress, BigInteger.ZERO, encoder.encodeOneString("getBalanceOf").encodeOneAddress(tokenHolder).toBytes());
+        result = avmRule.call(deployer,contractAddress, BigInteger.ZERO, encoder.encodeOneString("balanceOf").encodeOneAddress(tokenHolder).toBytes());
         byte[] resBytes = (byte[]) result.getDecodedReturnData();
         Assert.assertTrue(new BigInteger(resBytes).equals(BigInteger.ZERO));
     }
@@ -571,7 +571,7 @@ public class ATSTokenContractTest {
         Assert.assertTrue(!res);
 
         //balance should be added as 0
-        result = avmRule.call(deployer,contractAddress, BigInteger.ZERO, encoder.encodeOneString("getBalanceOf").encodeOneAddress(tokenHolder).toBytes());
+        result = avmRule.call(deployer,contractAddress, BigInteger.ZERO, encoder.encodeOneString("balanceOf").encodeOneAddress(tokenHolder).toBytes());
         byte[] resBytes = (byte[]) result.getDecodedReturnData();
         Assert.assertTrue(new BigInteger(resBytes).equals(BigInteger.ZERO));
     }
@@ -663,7 +663,7 @@ public class ATSTokenContractTest {
         Assert.assertTrue(!res);
 
         //balance should be added as 0
-        result = avmRule.call(deployer,contractAddress, BigInteger.ZERO, encoder.encodeOneString("getBalanceOf").encodeOneAddress(tokenHolder).toBytes());
+        result = avmRule.call(deployer,contractAddress, BigInteger.ZERO, encoder.encodeOneString("balanceOf").encodeOneAddress(tokenHolder).toBytes());
         byte[] resBytes = (byte[]) result.getDecodedReturnData();
         Assert.assertTrue(new BigInteger(resBytes).equals(BigInteger.ZERO));
     }
@@ -755,7 +755,7 @@ public class ATSTokenContractTest {
         Assert.assertTrue(!res);
 
         //balance should be added as 0
-        result = avmRule.call(deployer,contractAddress, BigInteger.ZERO, encoder.encodeOneString("getBalanceOf").encodeOneAddress(tokenHolder).toBytes());
+        result = avmRule.call(deployer,contractAddress, BigInteger.ZERO, encoder.encodeOneString("balanceOf").encodeOneAddress(tokenHolder).toBytes());
         byte[] resBytes = (byte[]) result.getDecodedReturnData();
         Assert.assertTrue(new BigInteger(resBytes).equals(BigInteger.ZERO));
     }
@@ -838,7 +838,7 @@ public class ATSTokenContractTest {
 
         //check balance
         result = avmRule.call(deployer,contractAddress,BigInteger.ZERO,
-                encoder.encodeOneString("getBalanceOf")
+                encoder.encodeOneString("balanceOf")
                         .encodeOneAddress(deployer)
                         .toBytes());
         Assert.assertTrue(result.getReceiptStatus().isSuccess());
@@ -846,7 +846,7 @@ public class ATSTokenContractTest {
         Assert.assertTrue(new BigInteger(resBytes).equals(new BigInteger(tokenTotalSupply).subtract(BigInteger.valueOf(3).multiply(nAmp))));
 
         result = avmRule.call(deployer,contractAddress,BigInteger.ZERO,
-                encoder.encodeOneString("getBalanceOf")
+                encoder.encodeOneString("balanceOf")
                         .encodeOneAddress(to)
                         .toBytes());
         Assert.assertTrue(result.getReceiptStatus().isSuccess());
@@ -881,7 +881,7 @@ public class ATSTokenContractTest {
 
         //check balance for first tx
         result = avmRule.call(deployer,contractAddress,BigInteger.ZERO,
-                encoder.encodeOneString("getBalanceOf")
+                encoder.encodeOneString("balanceOf")
                         .encodeOneAddress(deployer)
                         .toBytes());
         Assert.assertTrue(result.getReceiptStatus().isSuccess());
@@ -889,7 +889,7 @@ public class ATSTokenContractTest {
         Assert.assertTrue(new BigInteger(resBytes).equals(new BigInteger(tokenTotalSupply).subtract(BigInteger.valueOf(3).multiply(nAmp))));
 
         result = avmRule.call(deployer,contractAddress,BigInteger.ZERO,
-                encoder.encodeOneString("getBalanceOf")
+                encoder.encodeOneString("balanceOf")
                         .encodeOneAddress(to)
                         .toBytes());
         Assert.assertTrue(result.getReceiptStatus().isSuccess());
@@ -918,7 +918,7 @@ public class ATSTokenContractTest {
 
         //check balance for second tx
         result = avmRule.call(deployer,contractAddress,BigInteger.ZERO,
-                encoder.encodeOneString("getBalanceOf")
+                encoder.encodeOneString("balanceOf")
                         .encodeOneAddress(deployer)
                         .toBytes());
         Assert.assertTrue(result.getReceiptStatus().isSuccess());
@@ -926,7 +926,7 @@ public class ATSTokenContractTest {
         Assert.assertTrue(new BigInteger(resBytes).equals(new BigInteger(tokenTotalSupply).subtract(BigInteger.valueOf(3).multiply(nAmp).multiply(BigInteger.TWO))));
 
         result = avmRule.call(deployer,contractAddress,BigInteger.ZERO,
-                encoder.encodeOneString("getBalanceOf")
+                encoder.encodeOneString("balanceOf")
                         .encodeOneAddress(to)
                         .toBytes());
         Assert.assertTrue(result.getReceiptStatus().isSuccess());
@@ -961,7 +961,7 @@ public class ATSTokenContractTest {
 
         //check balance for first tx
         result = avmRule.call(deployer,contractAddress,BigInteger.ZERO,
-                encoder.encodeOneString("getBalanceOf")
+                encoder.encodeOneString("balanceOf")
                         .encodeOneAddress(deployer)
                         .toBytes());
         Assert.assertTrue(result.getReceiptStatus().isSuccess());
@@ -969,7 +969,7 @@ public class ATSTokenContractTest {
         Assert.assertTrue(new BigInteger(resBytes).equals(new BigInteger(tokenTotalSupply).subtract(BigInteger.valueOf(3).multiply(nAmp))));
 
         result = avmRule.call(deployer,contractAddress,BigInteger.ZERO,
-                encoder.encodeOneString("getBalanceOf")
+                encoder.encodeOneString("balanceOf")
                         .encodeOneAddress(to)
                         .toBytes());
         Assert.assertTrue(result.getReceiptStatus().isSuccess());
@@ -1015,7 +1015,7 @@ public class ATSTokenContractTest {
 
         //check balance for second tx
         result = avmRule.call(deployer,contractAddress,BigInteger.ZERO,
-                encoder.encodeOneString("getBalanceOf")
+                encoder.encodeOneString("balanceOf")
                         .encodeOneAddress(deployer)
                         .toBytes());
         Assert.assertTrue(result.getReceiptStatus().isSuccess());
@@ -1025,7 +1025,7 @@ public class ATSTokenContractTest {
 
 
         result = avmRule.call(deployer,contractAddress,BigInteger.ZERO,
-                encoder.encodeOneString("getBalanceOf")
+                encoder.encodeOneString("balanceOf")
                         .encodeOneAddress(to)
                         .toBytes());
         Assert.assertTrue(result.getReceiptStatus().isSuccess());
@@ -1136,7 +1136,7 @@ public class ATSTokenContractTest {
 
         //check balance for first tx
         result = avmRule.call(deployer,contractAddress,BigInteger.ZERO,
-                encoder.encodeOneString("getBalanceOf")
+                encoder.encodeOneString("balanceOf")
                         .encodeOneAddress(deployer)
                         .toBytes());
         Assert.assertTrue(result.getReceiptStatus().isSuccess());
@@ -1144,7 +1144,7 @@ public class ATSTokenContractTest {
         Assert.assertTrue(new BigInteger(resBytes).equals(new BigInteger(tokenTotalSupply).subtract(BigInteger.valueOf(3).multiply(nAmp))));
 
         result = avmRule.call(deployer,contractAddress,BigInteger.ZERO,
-                encoder.encodeOneString("getBalanceOf")
+                encoder.encodeOneString("balanceOf")
                         .encodeOneAddress(to)
                         .toBytes());
         Assert.assertTrue(result.getReceiptStatus().isSuccess());

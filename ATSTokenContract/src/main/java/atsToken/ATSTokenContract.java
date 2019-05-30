@@ -82,9 +82,10 @@ public class ATSTokenContract {
         return tokenTotalSupply.toString();
     }
 
+    //Todo: test on network
     @Callable
     public static String getLiquidSupply() {
-        return tokenTotalSupply.subtract(Blockchain.getBalanceOfThisContract()).toString();
+        return tokenTotalSupply.subtract(new BigInteger(getBalanceOf(Blockchain.getAddress()).getBytes())).toString();
     }
 
     /*********************************************Token Holder*********************************************/
@@ -156,8 +157,6 @@ public class ATSTokenContract {
     }
 
 
-
-
     /******************************************Token Movement*******************************************/
     @Callable
     public static void send(Address to, byte[] amount, byte[] userData) {
@@ -172,13 +171,13 @@ public class ATSTokenContract {
 
     @Callable
     public static void burn(byte[] amount, byte[] holderData) {
-        doBurn(Blockchain.getCaller(),Blockchain.getCaller(), new BigInteger(amount) ,holderData, null);
+        doBurn(Blockchain.getCaller(),Blockchain.getCaller(), new BigInteger(amount) ,holderData, new byte[0]);
     }
 
     @Callable
     public static void operatorBurn(Address tokenHolder, byte[] amount, byte[] holderData, byte[] operatorData) {
         Blockchain.require(isOperatorFor(Blockchain.getCaller(), tokenHolder));
-        doBurn(Blockchain.getCaller(), tokenHolder, new BigInteger(amount), holderData, null);
+        doBurn(Blockchain.getCaller(), tokenHolder, new BigInteger(amount), holderData, new byte[0]);
     }
     private static void doSend(Address operator, Address from, Address to, BigInteger amount, byte[] userData, byte[] operatorData, boolean preventLocking) {
         Blockchain.require(amount.mod(BigInteger.valueOf(tokenGranularity)).equals(BigInteger.ZERO));
@@ -219,8 +218,11 @@ public class ATSTokenContract {
         Blockchain.require(tokenhHolderInfo.getBalanceOf().compareTo(amount) >= -1);
         tokenhHolderInfo.updateBalance(tokenhHolderInfo.getBalanceOf().subtract(amount));
         Blockchain.putStorage(tokenHolder.toByteArray(),tokenhHolderInfo.currentTokenHolderInformation);
+        //Todo: test on real network
         tokenTotalSupply = tokenTotalSupply.subtract(amount);
-        callSender(operator, tokenHolder, new Address(new byte[32]), amount, holderData, operatorData);
+
+        //Todo: Why callSender for burning - ask Yao
+        callSender(operator, tokenHolder, new Address(new byte[32]), amount, holderData, operatorData);//?
         ATSTokenContractEvents.Burned(operator, tokenHolder, amount, holderData, operatorData);
     }
 
@@ -417,6 +419,21 @@ public class ATSTokenContract {
 //        private byte[] getData() {
 //            return this.currentTokenHolderInformation;
 //        }
+    }
+
+    /*********************************************Cross Chain *******************************************/
+    @Callable
+    public static void thaw (Address localRecipient, byte[] amount, byte[] bridgeId, byte[] bridgeData,
+                             byte[] remoteSender, byte[] remoteBridgeId, byte[] remoteData) {
+    }
+
+    @Callable
+    public static void freeze(byte[] remoteRecipient, byte[] amount, byte[] bridgeId, byte[] localData) {
+    }
+
+    @Callable
+    public static void operatorFreeze(Address localSender, byte[] remoteRecipient, byte[] amount, byte[] bridgeId,
+                                      byte[] localData) {
     }
 }
 

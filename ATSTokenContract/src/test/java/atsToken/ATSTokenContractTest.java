@@ -1153,6 +1153,7 @@ public class ATSTokenContractTest {
         assertArrayEquals(LogSizeUtils.truncatePadTopic(operator.toByteArray()), log.getTopics().get(1));
         assertArrayEquals(LogSizeUtils.truncatePadTopic(deployer.toByteArray()), log.getTopics().get(2));
         assertArrayEquals(LogSizeUtils.truncatePadTopic(to.toByteArray()), log.getTopics().get(3));
+        //Todo: Why its 40 bytes instead of 32? - ask Jeff
         assertArrayEquals(AionBuffer.allocate(40).put32ByteInt(BigInteger.valueOf(3).multiply(nAmp)).getArray(),
                 log.getData());
 
@@ -1178,8 +1179,60 @@ public class ATSTokenContractTest {
 
     }
 
+    //is not operator
+    @Test
+    public void testOperatorSend2() {
+        ABIStreamingEncoder encoder = new ABIStreamingEncoder();
+
+        AvmRule.ResultWrapper result = avmRule.call(avmRule.getRandomAddress(BigInteger.TEN.multiply(nAmp)),
+                contractAddress,
+                BigInteger.ZERO,
+                encoder.encodeOneString("operatorSend")
+                        .encodeOneAddress(deployer)
+                        .encodeOneAddress(avmRule.getRandomAddress(BigInteger.TEN.multiply(nAmp)))
+                        .encodeOneByteArray(BigInteger.valueOf(3).multiply(nAmp).toByteArray())
+                        .encodeOneByteArray(new byte[0])
+                        .encodeOneByteArray(new byte[0])
+                        .toBytes());
+        Assert.assertTrue(result.getReceiptStatus().isFailed());
+    }
 
 
+    //token holder doesnt have enough balance
+    @Test
+    public void testBurn1() {
+        ABIStreamingEncoder encoder = new ABIStreamingEncoder();
+        AvmRule.ResultWrapper result = avmRule.call(avmRule.getRandomAddress(BigInteger.TEN.multiply(nAmp)),
+                contractAddress,
+                BigInteger.ZERO,
+                encoder.encodeOneString("burn")
+                        .encodeOneByteArray(BigInteger.valueOf(3).multiply(nAmp).toByteArray())
+                        .encodeOneByteArray(new byte[0])
+                        .toBytes());
+        Assert.assertTrue(result.getReceiptStatus().isFailed());
+    }
+
+    @Test
+    public void testBurn2() {
+        ABIStreamingEncoder encoder = new ABIStreamingEncoder();
+        AvmRule.ResultWrapper result = avmRule.call(deployer, contractAddress, BigInteger.ZERO,
+                 encoder.encodeOneString("burn")
+                        .encodeOneByteArray(BigInteger.valueOf(333).multiply(nAmp).toByteArray())
+                        .encodeOneByteArray(new byte[0])
+                        .toBytes());
+        Assert.assertTrue(result.getReceiptStatus().isSuccess());
+
+        assertEquals(1, result.getLogs().size());
+        IExecutionLog log = result.getLogs().get(0);
+
+        // validate the topics and data
+        assertArrayEquals(LogSizeUtils.truncatePadTopic("Burned".getBytes()), log.getTopics().get(0));
+        assertArrayEquals(LogSizeUtils.truncatePadTopic(deployer.toByteArray()), log.getTopics().get(1));
+        assertArrayEquals(LogSizeUtils.truncatePadTopic(deployer.toByteArray()), log.getTopics().get(2));
+        assertArrayEquals(AionBuffer.allocate(40).put32ByteInt(BigInteger.valueOf(333).multiply(nAmp)).getArray(),
+                log.getData());
+    }
 
 
+    
 }

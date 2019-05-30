@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7203c8ce-24de-47f0-aaad-e583c44dfe2f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../ContractInteraction/deploy.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ContractInteraction/deploy.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ContractInteraction/getBalance.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ContractInteraction/test.js" beforeDir="false" />
-    </list>
+    <list default="true" id="7203c8ce-24de-47f0-aaad-e583c44dfe2f" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -80,8 +76,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="66" column="41" selection-start-line="66" selection-start-column="22" selection-end-line="66" selection-end-column="41" />
+            <state relative-caret-position="198">
+              <caret line="98" column="40" selection-start-line="98" selection-start-column="23" selection-end-line="98" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;method#getBalanceOf#0;class#ATSTokenContract#0" />
@@ -260,7 +256,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559233813775" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559234078629" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -410,7 +406,7 @@
       <workItem from="1559163891056" duration="2988000" />
       <workItem from="1559174611856" duration="562000" />
       <workItem from="1559175198088" duration="19430000" />
-      <workItem from="1559225781591" duration="6543000" />
+      <workItem from="1559225781591" duration="7186000" />
     </task>
     <servers />
   </component>
@@ -447,7 +443,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="138330000" />
+    <option name="totallyTimeSpent" value="138973000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-2" width="1920" height="1082" extended-state="6" />
@@ -691,8 +687,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="66" column="41" selection-start-line="66" selection-start-column="22" selection-end-line="66" selection-end-column="41" />
+        <state relative-caret-position="198">
+          <caret line="98" column="40" selection-start-line="98" selection-start-column="23" selection-end-line="98" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;method#getBalanceOf#0;class#ATSTokenContract#0" />

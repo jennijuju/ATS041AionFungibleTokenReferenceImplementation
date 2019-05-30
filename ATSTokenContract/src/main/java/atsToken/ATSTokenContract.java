@@ -136,7 +136,7 @@ public class ATSTokenContract {
         }
     }
 
-
+    //Todo: token contract as operator?
     @Callable
     public static boolean isOperatorFor(Address operator, Address tokenHolder) {
         if (operator.equals(tokenHolder)) return true;
@@ -161,6 +161,7 @@ public class ATSTokenContract {
         doSend(Blockchain.getCaller(), from, to, new BigInteger(amount), userData, operatorData, true);
     }
 
+    //Todo: Can data be null? -ask Yao
     @Callable
     public static void burn(byte[] amount, byte[] holderData) {
         doBurn(Blockchain.getCaller(),Blockchain.getCaller(), new BigInteger(amount) ,holderData, new byte[0]);
@@ -428,5 +429,7 @@ public class ATSTokenContract {
                                       byte[] localData) {
     }
 }
+
+
 
 

@@ -1,4 +1,3 @@
-atsToken/ATSTokenContract$1.class
-atsToken/ATSTokenContract$TokenHolderInformation.class
-atsToken/ATSTokenContract$ATSTokenContractEvents.class
+atsToken/TokenHolderInformation.class
 atsToken/ATSTokenContract.class
+atsToken/ATSTokenContractEvents.class

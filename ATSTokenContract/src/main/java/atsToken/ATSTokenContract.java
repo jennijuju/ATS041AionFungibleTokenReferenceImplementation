@@ -3,6 +3,7 @@ package atsToken;
 import avm.Address;
 import avm.Blockchain;
 import org.aion.avm.tooling.abi.Callable;
+import org.aion.avm.tooling.abi.Initializable;
 import org.aion.avm.userlib.AionBuffer;
 import org.aion.avm.userlib.abi.ABIDecoder;
 

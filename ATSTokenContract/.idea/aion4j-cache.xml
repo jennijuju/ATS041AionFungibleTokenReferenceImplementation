@@ -13,7 +13,7 @@
         <entry key="balanceOf-avm.Address,">
           <value>
             <list>
-              <option value="-A 0xa048630fff033d214b36879e62231cc77d81f45d348f6590d268b9b8cabb88a9" />
+              <option value="0xa048630fff033d214b36879e62231cc77d81f45d348f6590d268b9b8cabb88a9" />
             </list>
           </value>
         </entry>
@@ -57,6 +57,11 @@
             <list>
               <option value="0xa09e62545e25f5263f21856010c4792be97dcfd17f1f3500f7cbe3382017bf1c" />
             </list>
+          </value>
+        </entry>
+        <entry key="totalSupply-">
+          <value>
+            <list />
           </value>
         </entry>
       </map>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="aion4j">
-    <option name="web3RpcUrl" value="http://localhost:8545" />
+    <option name="web3RpcUrl" value="https://aion.api.nodesmith.io/v1/mastery/jsonrpc?apiKey=ec13c1ff5f65488fa6432f5f79e595f6 " />
     <option name="account" value="" />
-    <option name="pk" value="0xb5d819f4f63f40bb52e09e35c0f09267ccbb8b250f2f09cf62013c00b9b01480ea3b1f6b8612427dd23d68bd69ef89534bb182d924f6fc5e7483979d038c6883" />
+    <option name="pk" value="0xA77abf828e0af71551a439174c31e96f19552247cd1e19b1d6322dd61b3df832e17865bbd3b0490940eea10e34a529881932422cf8a19fe8f85aa8ddfff020e7" />
     <option name="password" value="" />
     <option name="deployNrg" value="5000000" />
     <option name="deployNrgPrice" value="100000000000" />

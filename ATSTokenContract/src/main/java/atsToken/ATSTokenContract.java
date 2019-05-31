@@ -3,7 +3,6 @@ package atsToken;
 import avm.Address;
 import avm.Blockchain;
 import org.aion.avm.tooling.abi.Callable;
-import org.aion.avm.tooling.abi.Initializable;
 import org.aion.avm.userlib.AionBuffer;
 import org.aion.avm.userlib.abi.ABIDecoder;
 
@@ -211,7 +210,7 @@ public class ATSTokenContract {
 
     private static void doBurn(Address operator, Address tokenHolder, BigInteger amount, byte[] holderData,
                                byte[] operatorData) {
-        Blockchain.require(amount.compareTo(BigInteger.ZERO) >= -1); //ToDo: negative number?
+        Blockchain.require(amount.compareTo(BigInteger.ZERO) >= -1);
         Blockchain.require(amount.mod(BigInteger.valueOf(tokenGranularity)).equals(BigInteger.ZERO));
         byte[] tokenHolderInformation = Blockchain.getStorage(tokenHolder.toByteArray());
         Blockchain.require(tokenHolderInformation != null);
@@ -237,8 +236,8 @@ public class ATSTokenContract {
 
     }
 
-    private static void isRegularAccount(Address to) {
-
+    private static boolean isRegularAccount(Address address) {
+        return (Blockchain.getCodeSize(address) > 0) ? true : false;
     }
 
 

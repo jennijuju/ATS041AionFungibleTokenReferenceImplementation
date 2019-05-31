@@ -134,7 +134,6 @@ public class ATSTokenContract {
         }
     }
 
-    //Todo: token contract as operator?
     @Callable
     public static boolean isOperatorFor(Address operator, Address tokenHolder) {
         if (operator.equals(tokenHolder)) {
@@ -191,14 +190,12 @@ public class ATSTokenContract {
 
         byte[] toTokenHolderInformation = Blockchain.getStorage(to.toByteArray());
         if(toTokenHolderInformation == null) {
-            //Blockchain.println("Check point 3.");
 
             Blockchain.putStorage(to.toByteArray(),
                                     AionBuffer.allocate(BIGINTEGER_LENGTH).put32ByteInt(amount).getArray());
             callRecipient(operator, from, to, amount, userData, operatorData, preventLocking);
             ATSTokenContractEvents.Sent(operator, from, to, amount, userData, operatorData);
         } else {
-            //Blockchain.println("Check point 4.");
 
             TokenHolderInformation toInfo = new TokenHolderInformation(Blockchain.getStorage(to.toByteArray()));
             toInfo.updateBalance(toInfo.getBalanceOf().add(amount));
@@ -221,8 +218,7 @@ public class ATSTokenContract {
         //Todo: test on real network
         tokenTotalSupply = tokenTotalSupply.subtract(amount);
 
-        //Todo: Why callSender for burning - ask Yao
-        callSender(operator, tokenHolder, new Address(new byte[32]), amount, holderData, operatorData);//?
+        callSender(operator, tokenHolder, new Address(new byte[32]), amount, holderData, operatorData);
         ATSTokenContractEvents.Burned(operator, tokenHolder, amount, holderData, operatorData);
     }
 
@@ -257,7 +253,6 @@ public class ATSTokenContract {
     }
 
 
-    //Todo: test on network
     @Callable
     public static byte[] getLiquidSupply() {
         return tokenTotalSupply.subtract(new BigInteger(balanceOf(Blockchain.getAddress()))).toByteArray();

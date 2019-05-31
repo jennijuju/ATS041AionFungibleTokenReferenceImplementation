@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7203c8ce-24de-47f0-aaad-e583c44dfe2f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/aion4j-cache.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/aion4j-cache.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/aion4j.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/aion4j.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/aion4jJclwhitelist.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/aion4jJclwhitelist.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/avmJclwhitelist.json" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/avmJclwhitelist.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ATSToken-1.0-SNAPSHOT.abi" beforeDir="false" afterPath="$PROJECT_DIR$/target/ATSToken-1.0-SNAPSHOT.abi" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/original-ATSToken-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/original-ATSToken-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/storage/account_5ab2110527f8ace997153f3916c9f0d798e45e7643c1cebd2d06453ecd258d51/balance" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/storage/account_a025f4fd54064e869f158c1b4eb0ed34820f67e60ee80a53b469f725efc06378/balance" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/storage/account_a092de3423a1e77f4c5f8500564e3601759143b7c0e652a7012d35eb67b283ca/balance" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/storage/account_a092de3423a1e77f4c5f8500564e3601759143b7c0e652a7012d35eb67b283ca/nonce" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -67,8 +55,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3893">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            <state relative-caret-position="2663">
+              <caret line="198" lean-forward="true" selection-start-line="198" selection-end-line="198" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -187,6 +178,7 @@
         <option value="$PROJECT_DIR$/src/test/java/atsToken/ATSTokenContractTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContractEvents.java" />
         <option value="$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContractInterface.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.java" />
         <option value="$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract.java" />
       </list>
     </option>
@@ -279,7 +271,8 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559328957073" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559335202327" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="JAVA" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -435,7 +428,7 @@
       <workItem from="1559225781591" duration="21890000" />
       <workItem from="1559311489753" duration="31000" />
       <workItem from="1559311568320" duration="1176000" />
-      <workItem from="1559314722002" duration="3884000" />
+      <workItem from="1559314722002" duration="5611000" />
     </task>
     <servers />
   </component>
@@ -472,13 +465,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="158768000" />
+    <option name="totallyTimeSpent" value="160495000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1987" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20752628" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20752628" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -488,7 +481,7 @@
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="1" />
       <window_info anchor="bottom" id="Version Control" order="2" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="3" visible="true" weight="0.32937366" />
+      <window_info anchor="bottom" id="Terminal" order="3" weight="0.32937366" />
       <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Find" order="6" visible="true" weight="0.32843652" />
@@ -680,10 +673,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/atsToken/ATSTokenContract.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3893">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        <state relative-caret-position="2663">
+          <caret line="198" lean-forward="true" selection-start-line="198" selection-end-line="198" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

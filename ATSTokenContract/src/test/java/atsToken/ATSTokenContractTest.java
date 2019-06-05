@@ -1,7 +1,6 @@
 package atsToken;
 
 import avm.Address;
-import avm.Blockchain;
 import org.aion.avm.core.util.LogSizeUtils;
 import org.aion.avm.tooling.AvmRule;
 
@@ -12,7 +11,6 @@ import org.aion.vm.api.interfaces.ResultCode;
 import org.junit.*;
 
 import java.math.BigInteger;
-import java.util.Arrays;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;

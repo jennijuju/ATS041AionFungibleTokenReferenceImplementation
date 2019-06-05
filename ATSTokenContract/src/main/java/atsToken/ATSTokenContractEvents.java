@@ -100,4 +100,59 @@ public class ATSTokenContractEvents {
                 new byte[0]);
     }
 
+    protected static void Thawed(Address localRecipient, byte[] bridgeID, byte[] remoteSender, BigInteger amount, byte[] bridgeData, byte[] remoteBridgeID, byte[] remoteData) {
+        if (bridgeID == null){
+            bridgeID = new byte[0];
+        }
+
+        if (remoteSender == null){
+            remoteSender = new byte[0];
+        }
+
+        if (bridgeData == null){
+            bridgeID = new byte[0];
+        }
+
+        if (remoteBridgeID == null){
+            remoteBridgeID = new byte[0];
+        }
+
+        if (remoteData == null){
+            remoteData = new byte[0];
+        }
+        byte[] data = AionBuffer.allocate(BIGINTEGER_LENGTH + Integer.BYTES + bridgeData.length + Integer.BYTES + remoteBridgeID.length + Integer.BYTES + remoteData.length)
+                .put32ByteInt(amount)
+                .putInt(bridgeData.length)
+                .put(bridgeData)
+                .putInt(remoteBridgeID.length)
+                .put(remoteBridgeID)
+                .putInt(remoteData.length)
+                .put(remoteData)
+                .getArray();
+
+        Blockchain.log("Thawed".getBytes(),
+                localRecipient.toByteArray(),
+                bridgeID,
+                remoteSender,
+                data);
+
+    }
+
+    protected static void Froze(Address localSender, byte[] remoteRecipient, byte[] bridgeID, BigInteger amount, byte[] localData){
+
+        byte[] data = AionBuffer.allocate(BIGINTEGER_LENGTH +  Integer.BYTES + localData.length)
+                .put32ByteInt(amount)
+                .putInt(localData.length)
+                .put(localData)
+                .getArray();
+
+        Blockchain.log("Froze".getBytes(),
+                localSender.toByteArray(),
+                remoteRecipient,
+                bridgeID,
+                data);
+    }
+
+
+
 }

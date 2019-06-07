@@ -254,7 +254,7 @@ public class ATSTokenContract {
 
 
     @Callable
-    public static byte[] getLiquidSupply() {
+    public static byte[] liquidSupply() {
         return tokenTotalSupply.subtract(new BigInteger(balanceOf(Blockchain.getAddress()))).toByteArray();
     }
 

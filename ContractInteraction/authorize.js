@@ -1,5 +1,6 @@
 const BN = require('bn.js');
-const Web3 = require("aion-web3");https://aion.api.nodesmith.io/v1/mastery/jsonrpc?apiKey=ec13c1ff5f65488fa6432f5f79e595f6"));
+const Web3 = require("aion-web3");
+const web3 = new Web3(new Web3.providers.HttpProvider(""));
 const privateKey = "";
 const account = web3.eth.accounts.privateKeyToAccount(privateKey);
 console.log(account.address);
@@ -8,7 +9,7 @@ async function authorize() {
     //contract
    
     let operator = "";
-    let ctAddress = " ";
+    let ctAddress = " "
     var userdata = new Array(32).fill(0);
 
     let data = web3.avm.contract.method('authorizeOperator').inputs(['address'],[operator]).encode();

@@ -9,4 +9,3 @@ Following Aion Token Standard: https://github.com/aionnetwork/AIP/tree/master/AI
 
 
 
-Thanks to William for the first draft: https://github.com/aionWilliam/AIP-004-ATS

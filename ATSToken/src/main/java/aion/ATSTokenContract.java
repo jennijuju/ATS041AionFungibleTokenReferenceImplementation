@@ -172,7 +172,7 @@ public class ATSTokenContract {
         doBurn(Blockchain.getCaller(), tokenHolder, new BigInteger(amount), holderData, new byte[0]);
     }
     private static void doSend(Address operator, Address from, Address to, BigInteger amount, byte[] userData, byte[] operatorData, boolean preventLocking) {
-        Blockchain.require(amount.compareTo(BigInteger.ZERO) >= -1);
+        Blockchain.require(amount.compareTo(BigInteger.ZERO) > -1);
         Blockchain.require(amount.mod(BigInteger.valueOf(tokenGranularity)).equals(BigInteger.ZERO));
         callSender(operator, from, to, amount, userData, operatorData);
         Blockchain.require(!to.equals(new Address(new byte[32]))); //forbid sending to 0x0 (=burning)
@@ -182,7 +182,7 @@ public class ATSTokenContract {
         byte[] fromTokenHolderInformation = Blockchain.getStorage(from.toByteArray());
         Blockchain.require(fromTokenHolderInformation != null); //No information at all means no balance, revert tx
         TokenHolderInformation fromInfo = new TokenHolderInformation(fromTokenHolderInformation);
-        Blockchain.require(fromInfo.getBalanceOf().compareTo(amount) >= -1); //`from` doesnt have enough balance,
+        Blockchain.require(fromInfo.getBalanceOf().compareTo(amount) > -1); //`from` doesnt have enough balance,
         // revert tx
         fromInfo.updateBalance(fromInfo.getBalanceOf().subtract(amount));
         Blockchain.putStorage(from.toByteArray(),fromInfo.currentTokenHolderInformation);
@@ -207,12 +207,12 @@ public class ATSTokenContract {
 
     private static void doBurn(Address operator, Address tokenHolder, BigInteger amount, byte[] holderData,
                                byte[] operatorData) {
-        Blockchain.require(amount.compareTo(BigInteger.ZERO) >= -1);
+        Blockchain.require(amount.compareTo(BigInteger.ZERO) > -1);
         Blockchain.require(amount.mod(BigInteger.valueOf(tokenGranularity)).equals(BigInteger.ZERO));
         byte[] tokenHolderInformation = Blockchain.getStorage(tokenHolder.toByteArray());
         Blockchain.require(tokenHolderInformation != null);
         TokenHolderInformation tokenhHolderInfo = new TokenHolderInformation(tokenHolderInformation);
-        Blockchain.require(tokenhHolderInfo.getBalanceOf().compareTo(amount) >= -1);
+        Blockchain.require(tokenhHolderInfo.getBalanceOf().compareTo(amount) > -1);
         tokenhHolderInfo.updateBalance(tokenhHolderInfo.getBalanceOf().subtract(amount));
         Blockchain.putStorage(tokenHolder.toByteArray(),tokenhHolderInfo.currentTokenHolderInformation);
         //Todo: test on real network

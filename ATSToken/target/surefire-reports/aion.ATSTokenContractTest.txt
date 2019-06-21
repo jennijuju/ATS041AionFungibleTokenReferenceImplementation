@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: aion.ATSTokenContractTest
+-------------------------------------------------------------------------------
+Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.378 s - in aion.ATSTokenContractTest

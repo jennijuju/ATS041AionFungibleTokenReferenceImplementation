@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="aion.ATSTokenContractTest" time="14.652" tests="25" errors="6" skipped="0" failures="0">
+  <properties>
+    <property name="sun.desktop" value="gnome"/>
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
+    <property name="java.specification.version" value="11"/>
+    <property name="sun.cpu.isalist" value=""/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/home/jennifer/Integration/ATS/Aion-ATS-Token-Contract-Java/ATSContract/target/test-classes:/home/jennifer/Integration/ATS/Aion-ATS-Token-Contract-Java/ATSContract/target/classes:/home/jennifer/Integration/ATS/Aion-ATS-Token-Contract-Java/ATSContract/lib/org-aion-avm-api.jar:/home/jennifer/Integration/ATS/Aion-ATS-Token-Contract-Java/ATSContract/lib/org-aion-avm-userlib.jar:/home/jennifer/Integration/ATS/Aion-ATS-Token-Contract-Java/ATSContract/lib/org-aion-avm-tooling.jar:/home/jennifer/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/jennifer/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/jennifer/.m2/repository/aion/contract/avm/1.0-SNAPSHOT/avm-1.0-SNAPSHOT.jar:"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="user.timezone" value=""/>
+    <property name="java.vm.specification.version" value="11"/>
+    <property name="os.name" value="Linux"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="/home/jennifer/jdk-11.0.1/lib"/>
+    <property name="sun.java.command" value="/home/jennifer/Integration/ATS/Aion-ATS-Token-Contract-Java/ATSContract/target/surefire/surefirebooter11429626312737338481.jar /home/jennifer/Integration/ATS/Aion-ATS-Token-Contract-Java/ATSContract/target/surefire 2019-06-21T13-26-47_029-jvmRun1 surefire14987805152738237858tmp surefire_03473314577092215874tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/home/jennifer/Integration/ATS/Aion-ATS-Token-Contract-Java/ATSContract/target/test-classes:/home/jennifer/Integration/ATS/Aion-ATS-Token-Contract-Java/ATSContract/target/classes:/home/jennifer/Integration/ATS/Aion-ATS-Token-Contract-Java/ATSContract/lib/org-aion-avm-api.jar:/home/jennifer/Integration/ATS/Aion-ATS-Token-Contract-Java/ATSContract/lib/org-aion-avm-userlib.jar:/home/jennifer/Integration/ATS/Aion-ATS-Token-Contract-Java/ATSContract/lib/org-aion-avm-tooling.jar:/home/jennifer/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/jennifer/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/jennifer/.m2/repository/aion/contract/avm/1.0-SNAPSHOT/avm-1.0-SNAPSHOT.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/home/jennifer"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2018-10-16"/>
+    <property name="java.home" value="/home/jennifer/jdk-11.0.1"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/home/jennifer/Integration/ATS/Aion-ATS-Token-Contract-Java/ATSContract"/>
+    <property name="java.vm.compressedOopsMode" value="32-bit"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="/home/jennifer/Integration/ATS/Aion-ATS-Token-Contract-Java/ATSContract/target/surefire/surefirebooter11429626312737338481.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="11.0.1+13"/>
+    <property name="user.name" value="jennifer"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="4.15.0-51-generic"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="18.9"/>
+    <property name="localRepository" value="/home/jennifer/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="java.version" value="11.0.1"/>
+    <property name="user.dir" value="/home/jennifer/Integration/ATS/Aion-ATS-Token-Contract-Java/ATSContract"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.library.path" value="/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vm.version" value="11.0.1+13"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="55.0"/>
+  </properties>
+  <testcase name="testOperatorSend2" classname="aion.ATSTokenContractTest" time="2.95"/>
+  <testcase name="testBurn1" classname="aion.ATSTokenContractTest" time="0.789"/>
+  <testcase name="testBurn2" classname="aion.ATSTokenContractTest" time="0.867"/>
+  <testcase name="testSend1" classname="aion.ATSTokenContractTest" time="0.883"/>
+  <testcase name="testSend2" classname="aion.ATSTokenContractTest" time="0.757"/>
+  <testcase name="testSend3" classname="aion.ATSTokenContractTest" time="0.998"/>
+  <testcase name="testSend4" classname="aion.ATSTokenContractTest" time="0.758"/>
+  <testcase name="testSend5" classname="aion.ATSTokenContractTest" time="0.628"/>
+  <testcase name="testRevokeOperator1" classname="aion.ATSTokenContractTest" time="0.468"/>
+  <testcase name="testRevokeOperator2" classname="aion.ATSTokenContractTest" time="0.402"/>
+  <testcase name="testRevokeOperator3" classname="aion.ATSTokenContractTest" time="0.756"/>
+  <testcase name="testRevokeOperator4" classname="aion.ATSTokenContractTest" time="0.732"/>
+  <testcase name="testRevokeOperator5" classname="aion.ATSTokenContractTest" time="0.603"/>
+  <testcase name="testRevokeOperator6" classname="aion.ATSTokenContractTest" time="0.626"/>
+  <testcase name="testRevokeOperator7" classname="aion.ATSTokenContractTest" time="0.514"/>
+  <testcase name="testLiquidSupply" classname="aion.ATSTokenContractTest" time="0.441"/>
+  <testcase name="testIsOperatorFor" classname="aion.ATSTokenContractTest" time="0.256"/>
+  <testcase name="testInitialization" classname="aion.ATSTokenContractTest" time="0.338"/>
+  <testcase name="testOperatorSend" classname="aion.ATSTokenContractTest" time="0.569"/>
+  <testcase name="testAutorizeOperator1" classname="aion.ATSTokenContractTest" time="0.057">
+    <error message="Statement MUST be true" type="i.RuntimeAssertionError">i.RuntimeAssertionError: Statement MUST be true
+	at aion.ATSTokenContractTest.deployDapp(ATSTokenContractTest.java:44)
+</error>
+  </testcase>
+  <testcase name="testAutorizeOperator2" classname="aion.ATSTokenContractTest" time="0.054">
+    <error message="Statement MUST be true" type="i.RuntimeAssertionError">i.RuntimeAssertionError: Statement MUST be true
+	at aion.ATSTokenContractTest.deployDapp(ATSTokenContractTest.java:44)
+</error>
+  </testcase>
+  <testcase name="testAutorizeOperator3" classname="aion.ATSTokenContractTest" time="0.049">
+    <error message="Statement MUST be true" type="i.RuntimeAssertionError">i.RuntimeAssertionError: Statement MUST be true
+	at aion.ATSTokenContractTest.deployDapp(ATSTokenContractTest.java:44)
+</error>
+  </testcase>
+  <testcase name="testAutorizeOperator4" classname="aion.ATSTokenContractTest" time="0.046">
+    <error message="Statement MUST be true" type="i.RuntimeAssertionError">i.RuntimeAssertionError: Statement MUST be true
+	at aion.ATSTokenContractTest.deployDapp(ATSTokenContractTest.java:44)
+</error>
+  </testcase>
+  <testcase name="testAutorizeOperator5" classname="aion.ATSTokenContractTest" time="0.024">
+    <error message="Statement MUST be true" type="i.RuntimeAssertionError">i.RuntimeAssertionError: Statement MUST be true
+	at aion.ATSTokenContractTest.deployDapp(ATSTokenContractTest.java:44)
+</error>
+  </testcase>
+  <testcase name="testGetBalanceOfNone" classname="aion.ATSTokenContractTest" time="0.046">
+    <error message="Statement MUST be true" type="i.RuntimeAssertionError">i.RuntimeAssertionError: Statement MUST be true
+	at aion.ATSTokenContractTest.deployDapp(ATSTokenContractTest.java:44)
+</error>
+  </testcase>
+</testsuite>

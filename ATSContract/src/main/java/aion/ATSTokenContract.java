@@ -10,9 +10,6 @@ import java.math.BigInteger;
 
 public class ATSTokenContract {
 
-    /***********************************************Constants***********************************************/
-    private static final int BIGINTEGER_LENGTH = 32;
-
 
     /**************************************Deployment Initialization***************************************/
 
@@ -43,12 +40,9 @@ public class ATSTokenContract {
 
 
     /********************************************Initialization********************************************/
-    /**
-     * The creator of the token contract holds the total supply.
-     * Log the token creation.
-     */
+
     private static void initialize() {
-        Blockchain.putStorage(Blockchain.getCaller().toByteArray(), AionBuffer.allocate(BIGINTEGER_LENGTH).put32ByteInt(tokenTotalSupply).getArray());
+        Blockchain.putStorage(Blockchain.getCaller().toByteArray(), tokenTotalSupply.toByteArray());
         ATSTokenContractEvents.ATSTokenCreated(tokenTotalSupply, Blockchain.getCaller());
     }
 
@@ -76,17 +70,12 @@ public class ATSTokenContract {
     }
 
     /*********************************************Token Holder*********************************************/
-    /**
-     * Return balance in String to make it human readable.
-     *
-     * @param tokenHolder
-     * @return
-     */
+
     @Callable
     public static byte[] balanceOf(Address tokenHolder) {
-        byte[] tokenHolderInformation = Blockchain.getStorage(tokenHolder.toByteArray());
-        return (tokenHolderInformation != null)
-                ? AionBuffer.wrap(tokenHolderInformation).get32ByteInt().toByteArray()
+        byte[] balance = Blockchain.getStorage(tokenHolder.toByteArray());
+        return (balance != null)
+                ? balance
                 : BigInteger.ZERO.toByteArray();
     }
 
@@ -96,40 +85,30 @@ public class ATSTokenContract {
         //Should not assign token holder itself to be the operator. Quickly revert the tx to save energy.
         Blockchain.require(!Blockchain.getCaller().equals(operator));
 
-        Address tokenHolderAddress = Blockchain.getCaller();
-        byte[] tokenHolderInformationBytes = Blockchain.getStorage(tokenHolderAddress.toByteArray());
-        if (tokenHolderInformationBytes == null ) { /*No related information yet.
-                                                    Add balance as 0 first to make sure first 32 bytes of token holder information is balance.
-                                                    Set number of operators to 1.
-                                                    Following by the operator.*/
-            byte[] newInformation = AionBuffer.allocate(BIGINTEGER_LENGTH + Address.LENGTH)
-                    .put32ByteInt(BigInteger.ZERO)
-                    .putAddress(operator)
-                    .getArray();
-            Blockchain.putStorage(tokenHolderAddress.toByteArray(), newInformation);
-            ATSTokenContractEvents.AuthorizedOperator(operator, tokenHolderAddress);
-        } else {
-            TokenHolderInformation tokenHolder = new TokenHolderInformation(tokenHolderInformationBytes);
-            boolean addOperatorSuccess = tokenHolder.tryAddOperator(operator);
-            if(addOperatorSuccess) {
-                Blockchain.putStorage(tokenHolderAddress.toByteArray(), tokenHolder.currentTokenHolderInformation);
-                ATSTokenContractEvents.AuthorizedOperator(operator, tokenHolderAddress);
-            }
+
+        byte[] operatorAndTokenHolder = AionBuffer.allocate(Address.LENGTH * 2)
+                                                  .putAddress(operator).putAddress(Blockchain.getCaller())
+                                                  .getArray();
+
+        if (Blockchain.getStorage(operatorAndTokenHolder) == null) { // is not operator
+            Blockchain.putStorage(operatorAndTokenHolder, new byte[] {0x01});
+            ATSTokenContractEvents.AuthorizedOperator(operator, Blockchain.getCaller());
+
         }
     }
 
     @Callable
     public static void revokeOperator(Address operator) {
+
         if (!Blockchain.getCaller().equals(operator)) {
-            Address tokenHolderAddress = Blockchain.getCaller();
-            byte[] tokenHolderInformation = Blockchain.getStorage(tokenHolderAddress.toByteArray());
-            if(tokenHolderInformation != null && tokenHolderInformation.length > BIGINTEGER_LENGTH) {
-                TokenHolderInformation tokenHolder = new TokenHolderInformation(tokenHolderInformation);
-                boolean tryRevokeOperator = tokenHolder.tryReveokeOperator(operator);
-                if(tryRevokeOperator) {
-                    Blockchain.putStorage(tokenHolderAddress.toByteArray(), tokenHolder.currentTokenHolderInformation);
-                    ATSTokenContractEvents.RevokedOperator(operator, tokenHolderAddress);
-                }
+
+            byte[] operatorAndTokenHolder = AionBuffer.allocate(Address.LENGTH * 2)
+                    .putAddress(operator).putAddress(Blockchain.getCaller())
+                    .getArray();
+
+            if (Blockchain.getStorage(operatorAndTokenHolder) != null) { // is operator
+                Blockchain.putStorage(operatorAndTokenHolder, null);
+                ATSTokenContractEvents.RevokedOperator(operator, Blockchain.getCaller());
             }
         }
     }
@@ -139,13 +118,14 @@ public class ATSTokenContract {
         if (operator.equals(tokenHolder)) {
             return true;
         }
-        byte[] tokenHolderInformation = Blockchain.getStorage(tokenHolder.toByteArray());
-        if(tokenHolderInformation != null && tokenHolderInformation.length > BIGINTEGER_LENGTH) {
-            TokenHolderInformation tokenHolderInfo = new TokenHolderInformation(tokenHolderInformation);
-            return tokenHolderInfo.isOperatorFor(operator,tokenHolderInformation);
-        } else {
-            return false;
-        }
+
+        byte[] operatorAndTokenHolder = AionBuffer.allocate(Address.LENGTH * 2)
+                .putAddress(operator).putAddress(Blockchain.getCaller())
+                .getArray();
+
+        return (Blockchain.getStorage(operatorAndTokenHolder) != null)
+                ? true
+                : false;
 
     }
 
@@ -171,55 +151,46 @@ public class ATSTokenContract {
         Blockchain.require(isOperatorFor(Blockchain.getCaller(), tokenHolder));
         doBurn(Blockchain.getCaller(), tokenHolder, new BigInteger(amount), holderData, new byte[0]);
     }
+
     private static void doSend(Address operator, Address from, Address to, BigInteger amount, byte[] userData, byte[] operatorData, boolean preventLocking) {
-        Blockchain.require(amount.compareTo(BigInteger.ZERO) > -1);
-        Blockchain.require(amount.mod(BigInteger.valueOf(tokenGranularity)).equals(BigInteger.ZERO));
+        Blockchain.require(amount.compareTo(BigInteger.ZERO) > -1); //Amount is not negative value
+        Blockchain.require(amount.mod(BigInteger.valueOf(tokenGranularity)).equals(BigInteger.ZERO)); //Check granularity
+        Blockchain.require(!to.equals(new Address(new byte[32]))); //Forbid sending to 0x0 (=burning)
+        Blockchain.require(!to.equals(Blockchain.getAddress())); //Forbid sending to this contract
+
         callSender(operator, from, to, amount, userData, operatorData);
-        Blockchain.require(!to.equals(new Address(new byte[32]))); //forbid sending to 0x0 (=burning)
-        Blockchain.require(!to.equals(Blockchain.getAddress())); //forbid sending to this contract
+
+        byte[] fromBalance = Blockchain.getStorage(from.toByteArray());
+        Blockchain.require(fromBalance != null); //Revert transaction if sender does not have a balance at all quickly to save energy
+        Blockchain.require(new BigInteger(fromBalance).compareTo(amount) > -1); // Sender has sufficient balance
+        Blockchain.putStorage(from.toByteArray(), new BigInteger(fromBalance).subtract(amount).toByteArray()); // Update the sender balance
 
 
-        byte[] fromTokenHolderInformation = Blockchain.getStorage(from.toByteArray());
-        Blockchain.require(fromTokenHolderInformation != null); //No information at all means no balance, revert tx
-        TokenHolderInformation fromInfo = new TokenHolderInformation(fromTokenHolderInformation);
-        Blockchain.require(fromInfo.getBalanceOf().compareTo(amount) > -1); //`from` doesnt have enough balance,
-        // revert tx
-        fromInfo.updateBalance(fromInfo.getBalanceOf().subtract(amount));
-        Blockchain.putStorage(from.toByteArray(),fromInfo.currentTokenHolderInformation);
-
-
-        byte[] toTokenHolderInformation = Blockchain.getStorage(to.toByteArray());
-        if(toTokenHolderInformation == null) {
-
-            Blockchain.putStorage(to.toByteArray(),
-                                    AionBuffer.allocate(BIGINTEGER_LENGTH).put32ByteInt(amount).getArray());
+        byte[] toBalance = Blockchain.getStorage(to.toByteArray());
+        if(toBalance != null) { //Receiver has a balnace
+            Blockchain.putStorage(to.toByteArray(), new BigInteger(toBalance).add(amount).toByteArray());
             callRecipient(operator, from, to, amount, userData, operatorData, preventLocking);
             ATSTokenContractEvents.Sent(operator, from, to, amount, userData, operatorData);
-        } else {
 
-            TokenHolderInformation toInfo = new TokenHolderInformation(Blockchain.getStorage(to.toByteArray()));
-            toInfo.updateBalance(toInfo.getBalanceOf().add(amount));
-            Blockchain.putStorage(to.toByteArray(), toInfo.currentTokenHolderInformation);
+        } else { //Receiver is a new token holder
+            Blockchain.putStorage(to.toByteArray(), new BigInteger(toBalance).toByteArray());
             callRecipient(operator, from, to, amount, userData, operatorData, preventLocking);
             ATSTokenContractEvents.Sent(operator, from, to, amount, userData, operatorData);
         }
     }
 
-    private static void doBurn(Address operator, Address tokenHolder, BigInteger amount, byte[] holderData,
-                               byte[] operatorData) {
-        Blockchain.require(amount.compareTo(BigInteger.ZERO) > -1);
+    private static void doBurn(Address operator, Address tokenHolder, BigInteger amount, byte[] holderData, byte[] operatorData) {
+        Blockchain.require(amount.compareTo(BigInteger.ZERO) > -1); //Amount is not a negative number
         Blockchain.require(amount.mod(BigInteger.valueOf(tokenGranularity)).equals(BigInteger.ZERO));
-        byte[] tokenHolderInformation = Blockchain.getStorage(tokenHolder.toByteArray());
-        Blockchain.require(tokenHolderInformation != null);
-        TokenHolderInformation tokenhHolderInfo = new TokenHolderInformation(tokenHolderInformation);
-        Blockchain.require(tokenhHolderInfo.getBalanceOf().compareTo(amount) > -1);
-        tokenhHolderInfo.updateBalance(tokenhHolderInfo.getBalanceOf().subtract(amount));
-        Blockchain.putStorage(tokenHolder.toByteArray(),tokenhHolderInfo.currentTokenHolderInformation);
-        //Todo: test on real network
+
+        byte[] balance = Blockchain.getStorage(tokenHolder.toByteArray());
+        Blockchain.require(balance != null); //Token holder has sufficient balance to burn
+        Blockchain.require(new BigInteger(balance).compareTo(BigInteger.ZERO) > -1); //Token Holder has sufficient balance to burn
+        Blockchain.putStorage(tokenHolder.toByteArray(), new BigInteger(balance).subtract(amount).toByteArray()); //Update balance
+
         tokenTotalSupply = tokenTotalSupply.subtract(amount);
 
-        callSender(operator, tokenHolder, new Address(new byte[32]), amount, holderData, operatorData);
-        ATSTokenContractEvents.Burned(operator, tokenHolder, amount, holderData, operatorData);
+        callSender(operator, tokenHolder, new Address(new byte[32]), amount, holderData, operatorData);ATSTokenContractEvents.Burned(operator, tokenHolder, amount, holderData, operatorData);
     }
 
     //ToDO: register to AIR
@@ -234,22 +205,6 @@ public class ATSTokenContract {
 
     private static boolean isRegularAccount(Address address) {
         return (Blockchain.getCodeSize(address) > 0) ? true : false;
-    }
-
-
-    /*********************************************Cross Chain *******************************************/
-    @Callable
-    public static void thaw (Address localRecipient, byte[] amount, byte[] bridgeId, byte[] bridgeData,
-                             byte[] remoteSender, byte[] remoteBridgeId, byte[] remoteData) {
-    }
-
-    @Callable
-    public static void freeze(byte[] remoteRecipient, byte[] amount, byte[] bridgeId, byte[] localData) {
-    }
-
-    @Callable
-    public static void operatorFreeze(Address localSender, byte[] remoteRecipient, byte[] amount, byte[] bridgeId,
-                                      byte[] localData) {
     }
 
 

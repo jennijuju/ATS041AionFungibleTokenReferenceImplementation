@@ -1,28 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: aion.ATSTokenContractTest
 -------------------------------------------------------------------------------
-Tests run: 25, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 14.652 s <<< FAILURE! - in aion.ATSTokenContractTest
-testAutorizeOperator1(aion.ATSTokenContractTest)  Time elapsed: 0.057 s  <<< ERROR!
-i.RuntimeAssertionError: Statement MUST be true
-	at aion.ATSTokenContractTest.deployDapp(ATSTokenContractTest.java:44)
-
-testAutorizeOperator2(aion.ATSTokenContractTest)  Time elapsed: 0.054 s  <<< ERROR!
-i.RuntimeAssertionError: Statement MUST be true
-	at aion.ATSTokenContractTest.deployDapp(ATSTokenContractTest.java:44)
-
-testAutorizeOperator3(aion.ATSTokenContractTest)  Time elapsed: 0.049 s  <<< ERROR!
-i.RuntimeAssertionError: Statement MUST be true
-	at aion.ATSTokenContractTest.deployDapp(ATSTokenContractTest.java:44)
-
-testAutorizeOperator4(aion.ATSTokenContractTest)  Time elapsed: 0.046 s  <<< ERROR!
-i.RuntimeAssertionError: Statement MUST be true
-	at aion.ATSTokenContractTest.deployDapp(ATSTokenContractTest.java:44)
-
-testAutorizeOperator5(aion.ATSTokenContractTest)  Time elapsed: 0.024 s  <<< ERROR!
-i.RuntimeAssertionError: Statement MUST be true
-	at aion.ATSTokenContractTest.deployDapp(ATSTokenContractTest.java:44)
-
-testGetBalanceOfNone(aion.ATSTokenContractTest)  Time elapsed: 0.046 s  <<< ERROR!
-i.RuntimeAssertionError: Statement MUST be true
-	at aion.ATSTokenContractTest.deployDapp(ATSTokenContractTest.java:44)
-
+Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.033 s - in aion.ATSTokenContractTest

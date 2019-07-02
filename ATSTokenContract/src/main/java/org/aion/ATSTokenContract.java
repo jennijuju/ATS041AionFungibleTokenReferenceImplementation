@@ -214,6 +214,21 @@ public class ATSTokenContract {
         return tokenTotalSupply.subtract(new BigInteger(balanceOf(Blockchain.getAddress()))).toByteArray();
     }
 
+    /*********************************************Cross Chain *******************************************/
+    @Callable
+    public static void thaw (Address localRecipient, byte[] amount, byte[] bridgeId, byte[] bridgeData,
+                             byte[] remoteSender, byte[] remoteBridgeId, byte[] remoteData) {
+    }
+
+    @Callable
+    public static void freeze(byte[] remoteRecipient, byte[] amount, byte[] bridgeId, byte[] localData) {
+    }
+
+    @Callable
+    public static void operatorFreeze(Address localSender, byte[] remoteRecipient, byte[] amount, byte[] bridgeId,
+                                      byte[] localData) {
+    }
+
 }
 
 

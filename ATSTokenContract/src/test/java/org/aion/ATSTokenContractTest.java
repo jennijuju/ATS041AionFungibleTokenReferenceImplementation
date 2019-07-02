@@ -1090,6 +1090,16 @@ public class ATSTokenContractTest {
                         .encodeOneByteArray(new byte[0])
                         .toBytes());
         Assert.assertTrue(result.getReceiptStatus().isFailed());
+
+
+        //negative value
+        result = avmRule.call(deployer,contractAddress,BigInteger.ZERO,
+                encoder.encodeOneString("send")
+                        .encodeOneAddress(avmRule.getRandomAddress(BigInteger.ZERO))
+                        .encodeOneByteArray(BigInteger.valueOf(-7).multiply(nAmp).toByteArray())
+                        .encodeOneByteArray(new byte[0])
+                        .toBytes());
+        Assert.assertTrue(result.getReceiptStatus().isFailed());
     }
 
     @Test

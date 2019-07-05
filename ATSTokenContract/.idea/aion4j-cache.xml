@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="aion4j-cache">
+    <option name="deployArgs">
+      <map>
+        <entry key="ATSTokenContract.args" value="" />
+        <entry key="ATSTokenContract.dontask" value="false" />
+      </map>
+    </option>
+  </component>
+</project>

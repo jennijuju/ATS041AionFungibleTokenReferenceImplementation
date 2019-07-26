@@ -3,7 +3,6 @@ package org.aion;
 import avm.Address;
 import avm.Blockchain;
 import org.aion.avm.userlib.AionBuffer;
-import org.aion.avm.userlib.abi.ABIDecoder;
 
 import java.math.BigInteger;
 import java.util.Arrays;
@@ -15,13 +14,13 @@ public class ATSToken implements ATSInterface {
 
     /**************************************Deployment Initialization***************************************/
 
-    private static String tokenName;
+    private String tokenName;
 
-    private static String tokenSymbol;
+    private String tokenSymbol;
 
-    private static int tokenGranularity;
+    private int tokenGranularity;
 
-    private static BigInteger tokenTotalSupply;
+    private BigInteger tokenTotalSupply;
 
     ATSToken(String tokenName, String tokenSymbol, int tokenGranularity, BigInteger tokenTotalSupply) {
 
@@ -29,12 +28,14 @@ public class ATSToken implements ATSInterface {
        this.tokenSymbol = tokenSymbol;
        this.tokenGranularity = tokenGranularity;
        this.tokenTotalSupply = tokenTotalSupply;
+
+       initialize();
     }
 
 
     /********************************************Initialization********************************************/
 
-    public static void initialize() {
+    private void initialize() {
         Blockchain.putStorage(Blockchain.getOrigin().toByteArray(), tokenTotalSupply.toByteArray());
         ATSTokenContractEvents.ATSTokenCreated(tokenTotalSupply, Blockchain.getOrigin());
     }
@@ -135,7 +136,7 @@ public class ATSToken implements ATSInterface {
         doBurn(Blockchain.getOrigin(), tokenHolder, new BigInteger(amount), holderData, new byte[0]);
     }
 
-    private static void doSend(Address operator, Address from, Address to, BigInteger amount, byte[] userData, byte[] operatorData, boolean preventLocking) {
+    private void doSend(Address operator, Address from, Address to, BigInteger amount, byte[] userData, byte[] operatorData, boolean preventLocking) {
         Blockchain.require(amount.compareTo(BigInteger.ZERO) > -1); //Amount is not negative value
         Blockchain.require(amount.mod(BigInteger.valueOf(tokenGranularity)).equals(BigInteger.ZERO)); //Check granularity
         Blockchain.require(!to.equals(new Address(new byte[32]))); //Forbid sending to 0x0 (=burning)
@@ -162,7 +163,7 @@ public class ATSToken implements ATSInterface {
         }
     }
 
-    private static void doBurn(Address operator, Address tokenHolder, BigInteger amount, byte[] holderData, byte[] operatorData) {
+    private void doBurn(Address operator, Address tokenHolder, BigInteger amount, byte[] holderData, byte[] operatorData) {
         Blockchain.require(amount.compareTo(BigInteger.ZERO) > -1); //Amount is not a negative number
         Blockchain.require(amount.mod(BigInteger.valueOf(tokenGranularity)).equals(BigInteger.ZERO));
 
@@ -176,13 +177,12 @@ public class ATSToken implements ATSInterface {
         callSender(operator, tokenHolder, new Address(new byte[32]), amount, holderData, operatorData);ATSTokenContractEvents.Burned(operator, tokenHolder, amount, holderData, operatorData);
     }
 
-    //ToDO: register to AIR
-    private static void callSender(Address operator, Address from, Address to, BigInteger amount, byte[] userData, byte[] operatorData) {
+    //TODO: check if its an account or contract
+    private void callSender(Address operator, Address from, Address to, BigInteger amount, byte[] userData, byte[] operatorData) {
 
     }
 
-    //ToDO: register to AIR
-    private static void callRecipient(Address operator, Address from, Address to, BigInteger amount, byte[] userData, byte[] operatorData, boolean preventLocking) {
+    private void callRecipient(Address operator, Address from, Address to, BigInteger amount, byte[] userData, byte[] operatorData, boolean preventLocking) {
 
     }
 

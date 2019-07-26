@@ -35,7 +35,6 @@ public  class MyATSContract {
         Blockchain.require(tokenTotalSupply.compareTo(BigInteger.ZERO) == 1);
 
         ats = new ATSToken(tokenName, tokenSymbol, tokenGranularity, tokenTotalSupply);
-        ats.initialize();
     }
     
 

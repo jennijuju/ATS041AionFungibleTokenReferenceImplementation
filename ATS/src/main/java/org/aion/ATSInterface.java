@@ -1,7 +1,7 @@
 package org.aion;
 import avm.Address;
 
-interface ATSInterface {
+public interface ATSInterface {
     /**********************************************Token Info**********************************************/
     public String name();
 

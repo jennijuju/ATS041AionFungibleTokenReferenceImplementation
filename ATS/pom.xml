@@ -2,10 +2,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.aion</groupId>
-    <artifactId>ATS</artifactId>
+    <artifactId>ATSTokenContract</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <name>ATS</name>
+    <name>ATSTokenContract</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -16,7 +16,7 @@
         <aion4j.plugin.version>0.6.7</aion4j.plugin.version>
         <avm.lib.dir>${project.basedir}/lib</avm.lib.dir>
 
-        <contract.main.class>org.aion.ATSToken</contract.main.class>
+        <contract.main.class>org.aion.HelloAvm</contract.main.class>
     </properties>
 
     <dependencies>
@@ -52,7 +52,7 @@
         <!-- Don't change the following dependency. This is required to compile & run test cases. The avm.jar for the project will be
         installed into the local maven repository during mvn initialize phase. -->
         <dependency>
-            <groupId>org.aion.ATS</groupId>
+            <groupId>org.aion.ATSTokenContract</groupId>
             <artifactId>avm</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>test</scope>
@@ -116,7 +116,7 @@
                             <goal>install-file</goal>
                         </goals>
                         <configuration>
-                            <groupId>org.aion.ATS</groupId>
+                            <groupId>org.aion.ATSTokenContract</groupId>
                             <artifactId>avm</artifactId>
                             <version>1.0-SNAPSHOT</version>
                             <packaging>jar</packaging>

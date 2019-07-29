@@ -17,7 +17,7 @@ import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
 
-public class ATSTokenTest {
+public class ATSTokenContractTest {
     @Rule
     public AvmRule avmRule = new AvmRule(true);
 
@@ -42,7 +42,7 @@ public class ATSTokenTest {
                                 .encodeOneInteger(tokenGranularity)
                                 .encodeOneByteArray(tokenTotalSupply)
                                 .toBytes();
-        byte[] contractData = avmRule.getDappBytes(MyATSContract.class, data, ATSTokenContractEvents.class,ATSToken.class, ATSInterface.class);
+        byte[] contractData = avmRule.getDappBytes(ATSTokenContract.class, data, ATSTokenContractEvents.class, ATSStorage.class);
         contractAddress = avmRule.deploy(deployer, BigInteger.ZERO, contractData).getDappAddress();
     }
 
@@ -1220,5 +1220,14 @@ public class ATSTokenTest {
                 log.getData());
     }
 
+    @Test
+    public void testLiquidSupply() {
+        ABIStreamingEncoder encoder = new ABIStreamingEncoder();
+        AvmRule.ResultWrapper result = avmRule.call(deployer, contractAddress, BigInteger.ZERO,
+                encoder.encodeOneString("liquidSupply")
+                        .toBytes());
+        byte[] resBytes = (byte[]) result.getDecodedReturnData();
+        System.out.println("liquid" + new BigInteger(resBytes));
+    }
 
 }

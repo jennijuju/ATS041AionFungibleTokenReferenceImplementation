@@ -9,7 +9,10 @@ import java.util.Arrays;
 
 
 
-public class ATSToken implements ATSInterface {
+public class ATSToken
+
+
+        implements ATSInterface {
 
 
     /**************************************Deployment Initialization***************************************/

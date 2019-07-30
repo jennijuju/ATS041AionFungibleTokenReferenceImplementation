@@ -2,11 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c7794b2f-6e17-4fcd-a6db-b61e07fbd541" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/aion4jJclwhitelist.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/aion4jJclwhitelist.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/avmJclwhitelist.json" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/avmJclwhitelist.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/aion4j.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/aion/ATSTokenContract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/aion/ATSTokenContract.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/aion/ATSStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/aion/ATSStorage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/aion/ATSTokenContractEvents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/aion/ATSTokenContractEvents.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/aion/ATSTokenContractTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/aion/ATSTokenContractTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/ATSTokenContract.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/ATSTokenContract.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/aion/ATSTokenContract.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/ATSTokenContractEvents.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/aion/ATSTokenContractEvents.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/ATSTokenInterface.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/META-INF/ATSTokenContract.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/org/aion/ATSTokenContractTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/org/aion/ATSTokenContractTest.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,8 +36,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/aion/ATSStorage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="27" column="85" selection-start-line="27" selection-start-column="85" selection-end-line="27" selection-end-column="85" />
+            <state relative-caret-position="752">
+              <caret line="53" selection-start-line="53" selection-end-line="53" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#853#854#0" expanded="true" />
@@ -40,11 +47,20 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" column="54" selection-start-line="18" selection-start-column="54" selection-end-line="18" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/aion/ATSTokenContractEvents.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="86" column="5" lean-forward="true" selection-start-line="86" selection-start-column="5" selection-end-line="86" selection-end-column="5" />
+            <state relative-caret-position="217">
+              <caret line="106" column="72" selection-start-line="106" selection-start-column="72" selection-end-line="106" selection-end-column="72" />
             </state>
           </provider>
         </entry>
@@ -52,17 +68,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/org/aion/ATSTokenContractTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="44" column="127" selection-start-line="44" selection-start-column="127" selection-end-line="44" selection-end-column="127" />
+            <state relative-caret-position="289">
+              <caret line="73" column="40" selection-start-line="73" selection-start-column="40" selection-end-line="73" selection-end-column="40" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/aion/ATSTokenContract.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="471">
-              <caret line="182" lean-forward="true" selection-start-line="182" selection-end-line="182" />
+            <state relative-caret-position="485">
+              <caret line="182" selection-start-line="182" selection-end-line="182" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -85,6 +101,7 @@
       <find>public</find>
       <find>putStorage</find>
       <find>event</find>
+      <find>liquid</find>
     </findStrings>
     <replaceStrings>
       <replace>getOrigin</replace>
@@ -97,7 +114,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/org/aion/ATSStandard.java" />
         <option value="$PROJECT_DIR$/src/test/java/org/aion/ATSTokenTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/aion/MyATSContract.java" />
@@ -105,10 +121,11 @@
         <option value="$PROJECT_DIR$/src/main/java/org/aion/ATSToken.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/aion/ATSKeyNamespace.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/aion/ATStorage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/aion/ATSTokenContract.java" />
         <option value="$PROJECT_DIR$/src/test/java/org/aion/ATSTokenContractTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/aion/ATSStorage.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/aion/ATSTokenContractEvents.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/aion/ATSTokenContract.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -186,6 +203,11 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="aion" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="ATS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ATS" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -196,7 +218,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1564439633838" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1564513345817" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -290,17 +312,11 @@
       <workItem from="1564173580924" duration="1069000" />
       <workItem from="1564428447958" duration="4924000" />
       <workItem from="1564434593120" duration="5387000" />
-      <workItem from="1564509279755" duration="168000" />
+      <workItem from="1564509279755" duration="1896000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ATSTokenTest_testBurn2 - 2019.07.25 at 22h 01m 39s.xml">
-      <configuration name="ATSTokenTest.testBurn2" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ATSTokenTest_testBurn2 - 2019.07.25 at 22h 03m 08s.xml">
-      <configuration name="ATSTokenTest.testBurn2" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="ATSTokenTest_testBurn2 - 2019.07.25 at 22h 03m 15s.xml">
       <configuration name="ATSTokenTest.testBurn2" configurationId="JUnit" />
     </history-entry>
@@ -325,9 +341,15 @@
     <history-entry file="ATSTokenContractTest - 2019.07.29 at 18h 33m 51s.xml">
       <configuration name="ATSTokenContractTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="ATSTokenContractTest - 2019.07.30 at 14h 59m 29s.xml">
+      <configuration name="ATSTokenContractTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ATSTokenContractTest - 2019.07.30 at 15h 00m 06s.xml">
+      <configuration name="ATSTokenContractTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19841000" />
+    <option name="totallyTimeSpent" value="21569000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1987" y="25" width="1853" height="1055" extended-state="6" />
@@ -350,9 +372,9 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32937366" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="12" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32937366" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -398,49 +420,28 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/aion/ATSTokenContract.java</url>
+          <line>165</line>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/org/aion/MyATSContract.java" />
     <entry file="file://$PROJECT_DIR$/src/test/java/org/aion/ATSTokenTest.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/org/aion/ATSToken.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/org/aion/ATSInterface.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/org/aion/ATSKeyNamespace.java" />
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/org/aion/ATSTokenContractTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="44" column="127" selection-start-line="44" selection-start-column="127" selection-end-line="44" selection-end-column="127" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/aion/ATS/avm/1.0-SNAPSHOT/avm-1.0-SNAPSHOT.jar!/org/aion/avm/core/AvmImpl.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
           <caret line="32" column="47" selection-start-line="32" selection-start-column="47" selection-end-line="32" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/aion/ATSStorage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="27" column="85" selection-start-line="27" selection-start-column="85" selection-end-line="27" selection-end-column="85" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#853#854#0" expanded="true" />
-            <element signature="e#925#926#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/aion/ATSTokenContractEvents.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="86" column="5" lean-forward="true" selection-start-line="86" selection-start-column="5" selection-end-line="86" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -453,11 +454,44 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/aion/ATSTokenContract.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
-          <caret line="182" lean-forward="true" selection-start-line="182" selection-end-line="182" />
+        <state relative-caret-position="485">
+          <caret line="182" selection-start-line="182" selection-end-line="182" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/aion/ATSStorage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="752">
+          <caret line="53" selection-start-line="53" selection-end-line="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#853#854#0" expanded="true" />
+            <element signature="e#925#926#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/aion/ATSTokenContractEvents.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="106" column="72" selection-start-line="106" selection-start-column="72" selection-end-line="106" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/aion/ATSTokenContractTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="73" column="40" selection-start-line="73" selection-start-column="40" selection-end-line="73" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="54" selection-start-line="18" selection-start-column="54" selection-end-line="18" selection-end-column="54" />
         </state>
       </provider>
     </entry>

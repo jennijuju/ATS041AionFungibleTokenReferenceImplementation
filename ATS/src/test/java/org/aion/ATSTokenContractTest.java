@@ -1220,14 +1220,4 @@ public class ATSTokenContractTest {
                 log.getData());
     }
 
-    @Test
-    public void testLiquidSupply() {
-        ABIStreamingEncoder encoder = new ABIStreamingEncoder();
-        AvmRule.ResultWrapper result = avmRule.call(deployer, contractAddress, BigInteger.ZERO,
-                encoder.encodeOneString("liquidSupply")
-                        .toBytes());
-        byte[] resBytes = (byte[]) result.getDecodedReturnData();
-        System.out.println("liquid" + new BigInteger(resBytes));
-    }
-
 }

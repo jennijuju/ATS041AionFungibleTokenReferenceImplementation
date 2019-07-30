@@ -51,7 +51,4 @@ public class ATSStorage {
                                             .putAddress(tokenHolder)
                                             .getArray());
     }
-
-
-
 }

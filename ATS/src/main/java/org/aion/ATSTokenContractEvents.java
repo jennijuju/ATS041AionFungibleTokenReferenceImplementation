@@ -12,7 +12,7 @@ public class ATSTokenContractEvents {
 
     protected static void ATSTokenCreated(BigInteger totalSupply, Address creator) {
         Blockchain.log("ATSTokenCreated".getBytes(),
-                totalSupply.toByteArray(),
+                padding(totalSupply),
                 creator.toByteArray(),
                 new byte[0]);
     }
@@ -98,6 +98,14 @@ public class ATSTokenContractEvents {
                 operator.toByteArray(),
                 tokenHolder.toByteArray(),
                 new byte[0]);
+    }
+
+    private static byte[] padding(BigInteger value) {
+        byte[] valueArray = value.toByteArray();
+        byte[] paddedArray = new byte[32];
+        System.arraycopy(new byte[32-valueArray.length] , 0, paddedArray, 0, 32-valueArray.length);
+        System.arraycopy(valueArray, 0, paddedArray,32-valueArray.length, valueArray.length);
+        return paddedArray;
     }
 
 }

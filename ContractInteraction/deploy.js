@@ -8,7 +8,7 @@ console.log(account.address);
 async function deploy() {
 
     //contract
-    let jarPath = path.join(__dirname,'jar','ATSToken-1.0-SNAPSHOT.jar');
+    let jarPath = path.join(__dirname,'jar','ATSTokenContract-1.0-SNAPSHOT.jar');
     var namp = new BN("1000000000000000000");
     var supply = new BN("333333333");
     let totalSupply = namp.mul(supply);

@@ -179,12 +179,10 @@ public class ATSTokenContract {
         callSender(operator, tokenHolder, new Address(new byte[32]), amount, holderData, operatorData);ATSTokenContractEvents.Burned(operator, tokenHolder, amount, holderData, operatorData);
     }
 
-    //ToDO: register to AIR
     private static void callSender(Address operator, Address from, Address to, BigInteger amount, byte[] userData, byte[] operatorData) {
 
     }
 
-    //ToDO: register to AIR
     private static void callRecipient(Address operator, Address from, Address to, BigInteger amount, byte[] userData, byte[] operatorData, boolean preventLocking) {
 
     }
@@ -192,28 +190,6 @@ public class ATSTokenContract {
     private static boolean isRegularAccount(Address address) {
         return (Blockchain.getCodeSize(address) > 0) ? true : false;
     }
-
-
-    @Callable
-    public static byte[] liquidSupply() {
-        return tokenTotalSupply.subtract(new BigInteger(balanceOf(Blockchain.getAddress()))).toByteArray();
-    }
-
-    /*********************************************Cross Chain *******************************************/
-    @Callable
-    public static void thaw (Address localRecipient, byte[] amount, byte[] bridgeId, byte[] bridgeData,
-                             byte[] remoteSender, byte[] remoteBridgeId, byte[] remoteData) {
-    }
-
-    @Callable
-    public static void freeze(byte[] remoteRecipient, byte[] amount, byte[] bridgeId, byte[] localData) {
-    }
-
-    @Callable
-    public static void operatorFreeze(Address localSender, byte[] remoteRecipient, byte[] amount, byte[] bridgeId,
-                                      byte[] localData) {
-    }
-
 }
 
 

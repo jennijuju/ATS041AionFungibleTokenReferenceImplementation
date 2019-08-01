@@ -1,8 +1,8 @@
 const BN = require('bn.js');
 const Web3 = require("aion-web3");
 let path = require('path');
-const web3 = new Web3(new Web3.providers.HttpProvider(""));
-const privateKey = "";
+const web3 = new Web3(new Web3.providers.HttpProvider("https://aion.api.nodesmith.io/v1/mastery/jsonrpc?apiKey=ec13c1ff5f65488fa6432f5f79e595f6"));
+const privateKey = "0xA77abf828e0af71551a439174c31e96f19552247cd1e19b1d6322dd61b3df832e17865bbd3b0490940eea10e34a529881932422cf8a19fe8f85aa8ddfff020e7";
 const account = web3.eth.accounts.privateKeyToAccount(privateKey);
 console.log(account.address);
 async function deploy() {

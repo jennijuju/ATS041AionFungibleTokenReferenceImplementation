@@ -9,6 +9,8 @@
     <option name="contractTxnNrg" value="2000000" />
     <option name="contractTxnNrgPrice" value="100000000000" />
     <option name="mvnProfile" value="remote" />
+    <option name="preserveDebugMode" value="true" />
+    <option name="verboseContractError" value="true" />
     <option name="avmStoragePath" value="" />
     <option name="localDefaultAccount" value="" />
   </component>

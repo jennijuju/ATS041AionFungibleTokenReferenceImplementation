@@ -2,7 +2,6 @@ package org.aion;
 
 import avm.Address;
 import avm.Blockchain;
-import org.aion.avm.tooling.AddressUtil;
 import org.aion.avm.userlib.AionBuffer;
 
 import java.math.BigInteger;

@@ -1,15 +1,15 @@
-0.0
+1
 org.aion.ATSTokenContract
-Clinit: ()
+Clinit: (String, String, int, BigInteger)
 public static String name()
 public static String symbol()
 public static int granularity()
-public static byte[] totalSupply()
-public static byte[] balanceOf(Address)
+public static BigInteger totalSupply()
+public static BigInteger balanceOf(Address)
 public static void authorizeOperator(Address)
 public static void revokeOperator(Address)
 public static boolean isOperatorFor(Address, Address)
-public static void send(Address, byte[], byte[])
-public static void operatorSend(Address, Address, byte[], byte[], byte[])
-public static void burn(byte[], byte[])
-public static void operatorBurn(Address, byte[], byte[], byte[])
+public static void send(Address, BigInteger, byte[])
+public static void operatorSend(Address, Address, BigInteger, byte[], byte[])
+public static void burn(BigInteger, byte[])
+public static void operatorBurn(Address, BigInteger, byte[], byte[])

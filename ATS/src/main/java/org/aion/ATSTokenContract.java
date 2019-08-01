@@ -1,8 +1,9 @@
 package org.aion;
 
-import avm.Address;
 import avm.Blockchain;
+import avm.Address;
 import org.aion.avm.tooling.abi.Callable;
+import org.aion.avm.tooling.abi.Initializable;
 import org.aion.avm.userlib.abi.ABIDecoder;
 
 import java.math.BigInteger;
@@ -12,26 +13,23 @@ public class ATSTokenContract {
 
 
     /**************************************Deployment Initialization***************************************/
-
+    @Initializable
     private static String tokenName;
 
+    @Initializable
     private static String tokenSymbol;
 
+    @Initializable
     private static int tokenGranularity;
 
+    @Initializable
     private static BigInteger tokenTotalSupply;
 
     static {
 
-        ABIDecoder decoder = new ABIDecoder(Blockchain.getData());
-
-        tokenName = decoder.decodeOneString();
         Blockchain.require(tokenName.length() > 0);
-        tokenSymbol = decoder.decodeOneString();
         Blockchain.require(tokenSymbol.length() > 0);
-        tokenGranularity = decoder.decodeOneInteger();
         Blockchain.require(tokenGranularity >= 1);
-        tokenTotalSupply = new BigInteger(decoder.decodeOneByteArray());
         Blockchain.require(tokenTotalSupply.compareTo(BigInteger.ZERO) == 1);
 
         initialize();
@@ -64,18 +62,18 @@ public class ATSTokenContract {
     }
 
     @Callable
-    public static byte[] totalSupply() {
-        return tokenTotalSupply.toByteArray();
+    public static BigInteger totalSupply() {
+        return tokenTotalSupply;
     }
 
     /*********************************************Token Holder*********************************************/
 
     @Callable
-    public static byte[] balanceOf(Address tokenHolder) {
+    public static BigInteger balanceOf(Address tokenHolder) {
         byte[] balance = ATSStorage.getBalance(tokenHolder);
         return (balance != null)
-                ? balance
-                : BigInteger.ZERO.toByteArray();
+                ? new BigInteger(balance)
+                : BigInteger.ZERO;
     }
 
     @Callable
@@ -117,25 +115,26 @@ public class ATSTokenContract {
 
     /******************************************Token Movement*******************************************/
     @Callable
-    public static void send(Address to, byte[] amount, byte[] userData) {
-        doSend(Blockchain.getCaller(), Blockchain.getCaller(), to, new BigInteger(amount), userData, new byte[0], true);
+    public static void send(Address to, BigInteger amount, byte[] userData) {
+        doSend(Blockchain.getCaller(), Blockchain.getCaller(), to, amount, userData, new byte[0], true);
     }
 
     @Callable
-    public static void operatorSend(Address from, Address to, byte[] amount, byte[] userData, byte[] operatorData) {
+    public static void operatorSend(Address from, Address to, BigInteger amount, byte[] userData, byte[] operatorData) {
         Blockchain.require(isOperatorFor(Blockchain.getCaller(),from));
-        doSend(Blockchain.getCaller(), from, to, new BigInteger(amount), userData, operatorData, true);
+        doSend(Blockchain.getCaller(), from, to, amount, userData, operatorData, true);
     }
 
     @Callable
-    public static void burn(byte[] amount, byte[] holderData) {
-        doBurn(Blockchain.getCaller(),Blockchain.getCaller(), new BigInteger(amount) ,holderData, new byte[0]);
+    public static void burn(BigInteger amount, byte[] holderData) {
+        doBurn(Blockchain.getCaller(),Blockchain.getCaller(), amount ,holderData, new byte[0]);
     }
 
+
     @Callable
-    public static void operatorBurn(Address tokenHolder, byte[] amount, byte[] holderData, byte[] operatorData) {
+    public static void operatorBurn(Address tokenHolder, BigInteger amount, byte[] holderData, byte[] operatorData) {
         Blockchain.require(isOperatorFor(Blockchain.getCaller(), tokenHolder));
-        doBurn(Blockchain.getCaller(), tokenHolder, new BigInteger(amount), holderData, new byte[0]);
+        doBurn(Blockchain.getCaller(), tokenHolder, amount, holderData, new byte[0]);
     }
 
     private static void doSend(Address operator, Address from, Address to, BigInteger amount, byte[] userData, byte[] operatorData, boolean preventLocking) {

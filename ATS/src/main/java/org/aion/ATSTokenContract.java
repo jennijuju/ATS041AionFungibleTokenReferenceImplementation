@@ -14,7 +14,7 @@ public class ATSTokenContract {
 
     /**************************************Deployment Initialization***************************************/
     @Initializable
-    private static String tokenName;
+    private static String tokenName ;
 
     @Initializable
     private static String tokenSymbol;
@@ -189,6 +189,7 @@ public class ATSTokenContract {
     private static boolean isRegularAccount(Address address) {
         return (Blockchain.getCodeSize(address) > 0) ? true : false;
     }
+
 }
 
 

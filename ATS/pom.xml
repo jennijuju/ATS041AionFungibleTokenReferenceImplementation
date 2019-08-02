@@ -16,7 +16,7 @@
         <aion4j.plugin.version>0.7.1-SNAPSHOT</aion4j.plugin.version>
         <avm.lib.dir>${project.basedir}/lib</avm.lib.dir>
 
-        <contract.main.class>org.aion.ATSTokenContract</contract.main.class>
+        <contract.main.class>org.aion.AIP041Standard</contract.main.class>
     </properties>
 
     <dependencies>
@@ -55,6 +55,12 @@
             <groupId>org.aion.ATSTokenContract</groupId>
             <artifactId>avm</artifactId>
             <version>1.0-SNAPSHOT</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>RELEASE</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -116,7 +122,7 @@
                             <goal>install-file</goal>
                         </goals>
                         <configuration>
-                            <groupId>org.aion.ATSTokenContract</groupId>
+                            <groupId>org.aion.AIP041Standard</groupId>
                             <artifactId>avm</artifactId>
                             <version>1.0-SNAPSHOT</version>
                             <packaging>jar</packaging>

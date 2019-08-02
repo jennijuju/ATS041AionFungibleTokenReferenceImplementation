@@ -6,7 +6,7 @@ import org.aion.avm.userlib.AionBuffer;
 
 import java.math.BigInteger;
 
-public class ATSTokenContractEvents {
+public class AIP041Event {
 
     private static int BIGINTEGER_LENGTH = 32;
 

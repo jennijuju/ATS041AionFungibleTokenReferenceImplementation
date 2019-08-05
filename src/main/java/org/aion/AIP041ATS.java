@@ -145,13 +145,10 @@ public class AIP041ATS {
      */
     @Callable
     public static void authorizeOperator(Address operator) {
-        AIP041KeyValueStorage.getIsOperatorKey(operator,Blockchain.getCaller());
-        Blockchain.getStorage(AIP041KeyValueStorage.getIsOperatorKey(operator,Blockchain.getCaller()));
-        if ((Blockchain.getStorage(AIP041KeyValueStorage.getIsOperatorKey(operator,Blockchain.getCaller())) == null) ||
-             Blockchain.getCaller().equals(operator)) {
-            Blockchain.putStorage(AIP041KeyValueStorage.getIsOperatorKey(operator,Blockchain.getCaller()), new byte[] {0x01});
-            AIP041Event.AuthorizedOperator(operator, Blockchain.getCaller());
-        }
+
+        Blockchain.putStorage(AIP041KeyValueStorage.getIsOperatorKey(operator,Blockchain.getCaller()), new byte[] {0x01});
+        AIP041Event.AuthorizedOperator(operator, Blockchain.getCaller());
+
     }
 
     @Callable

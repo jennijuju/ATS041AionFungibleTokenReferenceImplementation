@@ -8,7 +8,7 @@ import org.aion.avm.tooling.abi.Initializable;
 import java.math.BigInteger;
 import java.util.Arrays;
 
-public class AIP041Standard {
+public class AIP041ATS {
 
 
     /**************************************Deployment Initialization***************************************/

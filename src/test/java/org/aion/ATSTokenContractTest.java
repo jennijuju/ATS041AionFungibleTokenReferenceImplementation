@@ -37,7 +37,7 @@ public class ATSTokenContractTest {
                                 .encodeOneInteger(tokenGranularity)
                                 .encodeOneBigInteger(tokenTotalSupply)
                                 .toBytes();
-        byte[] contractData = avmRule.getDappBytes(AIP041Standard.class, data, 1, AIP041Event.class, AIP041KeyValueStorage.class);
+        byte[] contractData = avmRule.getDappBytes(AIP041ATS.class, data, 1, AIP041Event.class, AIP041KeyValueStorage.class);
         contractAddress = avmRule.deploy(tokenOwner, BigInteger.ZERO, contractData).getDappAddress();
     }
 

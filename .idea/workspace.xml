@@ -2,61 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10dba99c-5ac8-45f8-8d07-1fc27fd89035" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/aion4j-cache.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/aion4j.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/aion4jJclwhitelist.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/aion4jJclwhitelist.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/avmJclwhitelist.json" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/avmJclwhitelist.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_11.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_aion_ATS_avm_1_0_SNAPSHOT.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ATS.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/aion/AIP041ATS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/aion/AIP041ATS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ATS-1.0-SNAPSHOT.abi" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ATS-1.0-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/.aion4j.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/AIP041ATS.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/aion/AIP041ATS.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionBuffer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionList$AionListIterator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionList$AionSubList$AionSubListIterator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionList$AionSubList.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionList.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$AionAbstractCollection.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$AionMapEntry.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$AionMapEntryIterator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$AionMapEntrySet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$AionMapIterator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$AionMapKeyIterator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$AionMapKeySet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$AionMapValueIterator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$AionMapValues.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$BInternalNode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$BLeafNode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$BNode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionSet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/CodeAndArguments.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/abi/ABIDecoder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/abi/ABIEncoder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/abi/ABIException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/abi/ABIStreamingEncoder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/abi/ABIToken.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/original-ATS-1.0-SNAPSHOT.jar" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -68,11 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="31" column="48" selection-start-line="31" selection-start-column="48" selection-end-line="31" selection-end-column="48" />
+            <state relative-caret-position="306">
+              <caret line="18" column="47" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -95,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/aion/AIP041ATS.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="149" column="8" selection-start-line="149" selection-start-column="8" selection-end-line="149" selection-end-column="8" />
+            <state relative-caret-position="241">
+              <caret line="149" column="73" lean-forward="true" selection-start-line="149" selection-start-column="73" selection-end-line="149" selection-end-column="73" />
             </state>
           </provider>
         </entry>
@@ -112,8 +58,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/org/aion/AIP041ATS.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -204,7 +150,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1565048657436" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1565048811173" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -252,7 +198,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565048470448</updated>
-      <workItem from="1565048474392" duration="179000" />
+      <workItem from="1565048474392" duration="333000" />
     </task>
     <servers />
   </component>
@@ -265,7 +211,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="179000" />
+    <option name="totallyTimeSpent" value="333000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1533" height="875" extended-state="6" />
@@ -276,7 +222,7 @@
       <window_info id="UI Designer" />
       <window_info id="Capture Tool" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24949563" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24949563" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Messages" weight="0.3297587" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
@@ -286,7 +232,7 @@
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3297587" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3297587" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -306,13 +252,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="31" column="48" selection-start-line="31" selection-start-column="48" selection-end-line="31" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/org/aion/ATSTokenContractTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="301">
@@ -329,8 +268,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/aion/AIP041ATS.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="149" column="8" selection-start-line="149" selection-start-column="8" selection-end-line="149" selection-end-column="8" />
+        <state relative-caret-position="241">
+          <caret line="149" column="73" lean-forward="true" selection-start-line="149" selection-start-column="73" selection-end-line="149" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="47" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
         </state>
       </provider>
     </entry>

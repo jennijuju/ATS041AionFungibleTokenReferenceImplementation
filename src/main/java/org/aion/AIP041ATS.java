@@ -151,8 +151,6 @@ public class AIP041ATS {
              Blockchain.getCaller().equals(operator)) {
             Blockchain.putStorage(AIP041KeyValueStorage.getIsOperatorKey(operator,Blockchain.getCaller()), new byte[] {0x01});
             AIP041Event.AuthorizedOperator(operator, Blockchain.getCaller());
-        } else {//A token holder MAY authorize an already authorized operator. An AuthorizedOperator MUST be emitted each time.
-            AIP041Event.AuthorizedOperator(operator, Blockchain.getCaller());
         }
     }
 

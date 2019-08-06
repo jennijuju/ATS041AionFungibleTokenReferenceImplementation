@@ -80,61 +80,61 @@ public class TokenContract {
     /**********************************************Token Info**********************************************/
     @Callable
     public static String name() {
-        return AIP041ATS.name();
+        return AIP041ATS.AIP041Name();
     }
 
     @Callable
     public static String symbol() {
-        return AIP041ATS.symbol();
+        return AIP041ATS.AIP041Symbol();
     }
 
     @Callable
     public static int granularity() {
-        return AIP041ATS.granularity();
+        return AIP041ATS.AIP041Granularity();
     }
 
     @Callable
     public static BigInteger totalSupply() {
-        return AIP041ATS.totalSupply();
+        return AIP041ATS.AIP041TotalSupply();
     }
 
     @Callable
     public static BigInteger balanceOf(Address tokenHolder) {
-        return  AIP041ATS.balanceOf(tokenHolder);
+        return  AIP041ATS.AIP041BalanceOf(tokenHolder);
     }
 
     @Callable
     public static void authorizeOperator(Address operator) {
-        AIP041ATS.authorizeOperator(operator);
+        AIP041ATS.AIP041AuthorizeOperator(operator);
     }
 
     @Callable
     public static void revokeOperator(Address operator) {
-        AIP041ATS.revokeOperator(operator);
+        AIP041ATS.AIP041RevokeOperator(operator);
     }
 
     @Callable
     public static boolean isOperatorFor(Address operator, Address tokenHolder) {
-        return AIP041ATS.isOperatorFor(operator, tokenHolder);
+        return AIP041ATS.AIP041IsOperatorFor(operator, tokenHolder);
     }
 
     @Callable
     public static void send(Address to, BigInteger amount, byte[] userData) {
-        AIP041ATS.send(to, amount, userData);
+        AIP041ATS.AIP041Send(to, amount, userData);
     }
 
     @Callable
     public static void operatorSend(Address from, Address to, BigInteger amount, byte[] userData, byte[] operatorData) {
-        AIP041ATS.operatorSend(from, to, amount, userData, operatorData);
+        AIP041ATS.AIP041OperatorSend(from, to, amount, userData, operatorData);
     }
 
     @Callable
     public static void burn(BigInteger amount, byte[] holderData) {
-        AIP041ATS.burn(amount, holderData);
+        AIP041ATS.AIP041Burn(amount, holderData);
     }
 
     @Callable
     public static void operatorBurn(Address tokenHolder, BigInteger amount, byte[] holderData, byte[] operatorData) {
-       AIP041ATS.operatorBurn(tokenHolder, amount, holderData, operatorData);
+       AIP041ATS.AIP041OperatorBurn(tokenHolder, amount, holderData, operatorData);
     }
 }

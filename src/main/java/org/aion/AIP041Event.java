@@ -10,7 +10,7 @@ public class AIP041Event {
 
     private static int BIGINTEGER_LENGTH = 32;
 
-    protected static void ATSTokenCreated(BigInteger totalSupply, Address creator) {
+    protected static void AIP041ATSTokenCreated(BigInteger totalSupply, Address creator) {
         Blockchain.log("ATSTokenCreated".getBytes(),
                 padding(totalSupply),
                 creator.toByteArray(),
@@ -62,7 +62,7 @@ public class AIP041Event {
      * @param holderData
      * @param operatorData
      */
-    protected static void Burned(Address operator, Address from, BigInteger amount, byte[] holderData, byte[] operatorData) {
+    protected static void AIP041Burned(Address operator, Address from, BigInteger amount, byte[] holderData, byte[] operatorData) {
 
         if (holderData == null){
             holderData = new byte[0];
@@ -86,14 +86,14 @@ public class AIP041Event {
                 data);
     }
 
-    protected static void AuthorizedOperator(Address operator, Address tokenHolder) {
+    protected static void AIP041AuthorizedOperator(Address operator, Address tokenHolder) {
         Blockchain.log("AuthorizedOperator".getBytes(),
                 operator.toByteArray(),
                 tokenHolder.toByteArray(),
                 new byte[0]);
     }
 
-    protected static void RevokedOperator(Address operator, Address tokenHolder) {
+    protected static void AIP041RevokedOperator(Address operator, Address tokenHolder) {
         Blockchain.log("RevokedOperator".getBytes(),
                 operator.toByteArray(),
                 tokenHolder.toByteArray(),

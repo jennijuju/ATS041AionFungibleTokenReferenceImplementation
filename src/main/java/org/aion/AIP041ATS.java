@@ -47,8 +47,8 @@ public class AIP041ATS {
      * "ATSTokenCreated" event is emitted upon deployment.
      */
     protected static void initialize() {
-        Blockchain.putStorage(AIP041KeyValueStorage.getBalanceKey(Blockchain.getCaller()), tokenTotalSupply.toByteArray());
-        AIP041Event.ATSTokenCreated(tokenTotalSupply, Blockchain.getCaller());
+        Blockchain.putStorage(AIP041KeyValueStorage.AIP041GetBalanceKey(Blockchain.getCaller()), tokenTotalSupply.toByteArray());
+        AIP041Event.AIP041ATSTokenCreated(tokenTotalSupply, Blockchain.getCaller());
     }
 
 
@@ -58,7 +58,7 @@ public class AIP041ATS {
      * Get the name of the token.
      * @return The name of the token.
      */
-    protected static String name() {
+    protected static String AIP041Name() {
         return tokenName;
     }
 
@@ -66,7 +66,7 @@ public class AIP041ATS {
      * Get the symbol of the token.
      * @return The symbol of the token.
      */
-    protected static String symbol() {
+    protected static String AIP041Symbol() {
         return tokenSymbol;
     }
 
@@ -74,7 +74,7 @@ public class AIP041ATS {
      * Get the granularity of the token.
      * @return The granularity of the token.
      */
-    protected static int granularity() {
+    protected static int AIP041Granularity() {
         return tokenGranularity;
     }
 
@@ -82,7 +82,7 @@ public class AIP041ATS {
      * Get the total supply of the token.
      * @return The total supply of the token.
      */
-    protected static BigInteger totalSupply() {
+    protected static BigInteger AIP041TotalSupply() {
         return tokenTotalSupply;
     }
 
@@ -93,8 +93,8 @@ public class AIP041ATS {
      * @param tokenHolder An account that has ownership over a token balance.
      * @return The token balance of the account.
      */
-    protected static BigInteger balanceOf(Address tokenHolder) {
-        byte[] balance = Blockchain.getStorage(AIP041KeyValueStorage.getBalanceKey(tokenHolder));
+    protected static BigInteger AIP041BalanceOf(Address tokenHolder) {
+        byte[] balance = Blockchain.getStorage(AIP041KeyValueStorage.AIP041GetBalanceKey(tokenHolder));
         return (balance != null)
                 ? new BigInteger(balance)
                 : BigInteger.ZERO;
@@ -108,9 +108,9 @@ public class AIP041ATS {
      *
      */
 
-    protected static void authorizeOperator(Address operator) {
-        Blockchain.putStorage(AIP041KeyValueStorage.getIsOperatorKey(operator,Blockchain.getCaller()), new byte[] {0x01});
-        AIP041Event.AuthorizedOperator(operator, Blockchain.getCaller());
+    protected static void AIP041AuthorizeOperator(Address operator) {
+        Blockchain.putStorage(AIP041KeyValueStorage.AIP041GetIsOperatorKey(operator,Blockchain.getCaller()), new byte[] {0x01});
+        AIP041Event.AIP041AuthorizedOperator(operator, Blockchain.getCaller());
     }
 
     /**
@@ -119,11 +119,11 @@ public class AIP041ATS {
      * A RevokeOperator MUST be emitted each time.
      * @param operator  Address to rescind as an operator for Blockchain.getCaller().
      */
-    protected static void revokeOperator(Address operator) {
+    protected static void AIP041RevokeOperator(Address operator) {
         Blockchain.require(!operator.equals(Blockchain.getCaller()));
-        if (Blockchain.getStorage(AIP041KeyValueStorage.getIsOperatorKey(operator,Blockchain.getCaller())) != null) {
-            Blockchain.putStorage(AIP041KeyValueStorage.getIsOperatorKey(operator,Blockchain.getCaller()), null);
-            AIP041Event.RevokedOperator(operator, Blockchain.getCaller());
+        if (Blockchain.getStorage(AIP041KeyValueStorage.AIP041GetIsOperatorKey(operator,Blockchain.getCaller())) != null) {
+            Blockchain.putStorage(AIP041KeyValueStorage.AIP041GetIsOperatorKey(operator,Blockchain.getCaller()), null);
+            AIP041Event.AIP041RevokedOperator(operator, Blockchain.getCaller());
         }
 
     }
@@ -135,12 +135,12 @@ public class AIP041ATS {
      * @param tokenHolder Address of a token holder which may have the operator address as an operator.
      * @return true if operator is an operator of tokenHolder and false otherwise.
      */
-    protected static boolean isOperatorFor(Address operator, Address tokenHolder) {
+    protected static boolean AIP041IsOperatorFor(Address operator, Address tokenHolder) {
         if (operator.equals(tokenHolder)) {
             return true;
         }
 
-        return (Arrays.equals(Blockchain.getStorage(AIP041KeyValueStorage.getIsOperatorKey(operator, tokenHolder)), new byte[] {0x01}))
+        return (Arrays.equals(Blockchain.getStorage(AIP041KeyValueStorage.AIP041GetIsOperatorKey(operator, tokenHolder)), new byte[] {0x01}))
                 ? true
                 : false;
 
@@ -155,7 +155,7 @@ public class AIP041ATS {
      * @param amount Number of tokens to send.
      * @param userData Information attached to the send, and intended for the recipient (to).
      */
-    protected static void send(Address to, BigInteger amount, byte[] userData) {
+    protected static void AIP041Send(Address to, BigInteger amount, byte[] userData) {
         doSend(Blockchain.getCaller(), Blockchain.getCaller(), to, amount, userData, new byte[0], true);
     }
 
@@ -169,11 +169,11 @@ public class AIP041ATS {
      * @param userData Information attached to the send, and intended for the recipient (to).
      * @param operatorData Information attached to the send by the operator.
      */
-    protected static void operatorSend(Address from, Address to, BigInteger amount, byte[] userData, byte[] operatorData) {
+    protected static void AIP041OperatorSend(Address from, Address to, BigInteger amount, byte[] userData, byte[] operatorData) {
         if (from.equals(new Address(new byte[32]))) {
             doSend(Blockchain.getCaller(), Blockchain.getCaller(), to, amount, userData, operatorData, true);
         } else {
-            Blockchain.require(isOperatorFor(Blockchain.getCaller(),from));
+            Blockchain.require(AIP041IsOperatorFor(Blockchain.getCaller(),from));
             doSend(Blockchain.getCaller(), from, to, amount, userData, operatorData, true);
         }
     }
@@ -184,7 +184,7 @@ public class AIP041ATS {
      * @param amount Number of tokens to burn.
      * @param holderData Information attached to the burn by the token holder.
      */
-    protected static void burn(BigInteger amount, byte[] holderData) {
+    protected static void AIP041Burn(BigInteger amount, byte[] holderData) {
         doBurn(Blockchain.getCaller(),Blockchain.getCaller(), amount ,holderData, new byte[0]);
     }
 
@@ -198,11 +198,11 @@ public class AIP041ATS {
      * @param holderData Information attached to the burn by the token holder.
      * @param operatorData Information attached to the burn by the operator.
      */
-    protected static void operatorBurn(Address tokenHolder, BigInteger amount, byte[] holderData, byte[] operatorData) {
+    protected static void AIP041OperatorBurn(Address tokenHolder, BigInteger amount, byte[] holderData, byte[] operatorData) {
         if (tokenHolder.equals(new Address(new byte[32]))) {
             doBurn(Blockchain.getCaller(), Blockchain.getCaller(), amount, holderData,operatorData);
         } else {
-            Blockchain.require(isOperatorFor(Blockchain.getCaller(), tokenHolder));
+            Blockchain.require(AIP041IsOperatorFor(Blockchain.getCaller(), tokenHolder));
             doBurn(Blockchain.getCaller(), tokenHolder, amount, holderData, operatorData);
         }
     }
@@ -216,20 +216,20 @@ public class AIP041ATS {
 
         callSender(operator, from, to, amount, userData, operatorData);
 
-        byte[] fromBalance = Blockchain.getStorage(AIP041KeyValueStorage.getBalanceKey(from));
+        byte[] fromBalance = Blockchain.getStorage(AIP041KeyValueStorage.AIP041GetBalanceKey(from));
         Blockchain.require(fromBalance != null); //Revert transaction if sender does not have a balance at all quickly to save energy
         Blockchain.require(new BigInteger(fromBalance).compareTo(amount) > -1); // Sender has sufficient balance
-        Blockchain.putStorage(AIP041KeyValueStorage.getBalanceKey(from), new BigInteger(fromBalance).subtract(amount).toByteArray());
+        Blockchain.putStorage(AIP041KeyValueStorage.AIP041GetBalanceKey(from), new BigInteger(fromBalance).subtract(amount).toByteArray());
 
 
-        byte[] toBalance = Blockchain.getStorage(AIP041KeyValueStorage.getBalanceKey(to));
+        byte[] toBalance = Blockchain.getStorage(AIP041KeyValueStorage.AIP041GetBalanceKey(to));
         if(toBalance != null) { //Receiver has a balanace
-            Blockchain.putStorage(AIP041KeyValueStorage.getBalanceKey(to), new BigInteger(toBalance).add(amount).toByteArray());
+            Blockchain.putStorage(AIP041KeyValueStorage.AIP041GetBalanceKey(to), new BigInteger(toBalance).add(amount).toByteArray());
             callRecipient(operator, from, to, amount, userData, operatorData, preventLocking);
             AIP041Event.Sent(operator, from, to, amount, userData, operatorData);
 
         } else { //Receiver is a new token holder
-            Blockchain.putStorage(AIP041KeyValueStorage.getBalanceKey(to), amount.toByteArray());
+            Blockchain.putStorage(AIP041KeyValueStorage.AIP041GetBalanceKey(to), amount.toByteArray());
 
             callRecipient(operator, from, to, amount, userData, operatorData, preventLocking);
             AIP041Event.Sent(operator, from, to, amount, userData, operatorData);
@@ -240,15 +240,15 @@ public class AIP041ATS {
         Blockchain.require(amount.compareTo(BigInteger.ZERO) > -1); //Amount is not a negative number
         Blockchain.require(amount.mod(BigInteger.valueOf(tokenGranularity)).equals(BigInteger.ZERO));
 
-        byte[] balance =Blockchain.getStorage(AIP041KeyValueStorage.getBalanceKey(tokenHolder));
+        byte[] balance =Blockchain.getStorage(AIP041KeyValueStorage.AIP041GetBalanceKey(tokenHolder));
         Blockchain.require(balance != null); //Token holder has sufficient balance to burn
         Blockchain.require(new BigInteger(balance).compareTo(BigInteger.ZERO) > -1); //Token Holder has sufficient balance to burn
-        Blockchain.putStorage(AIP041KeyValueStorage.getBalanceKey(tokenHolder), new BigInteger(balance).subtract(amount).toByteArray());
+        Blockchain.putStorage(AIP041KeyValueStorage.AIP041GetBalanceKey(tokenHolder), new BigInteger(balance).subtract(amount).toByteArray());
 
         tokenTotalSupply = tokenTotalSupply.subtract(amount);
 
         callSender(operator, tokenHolder, new Address(new byte[32]), amount, holderData, operatorData);
-        AIP041Event.Burned(operator, tokenHolder, amount, holderData, operatorData);
+        AIP041Event.AIP041Burned(operator, tokenHolder, amount, holderData, operatorData);
     }
 
     private static void callSender(Address operator, Address from, Address to, BigInteger amount, byte[] userData, byte[] operatorData) {

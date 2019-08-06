@@ -1,0 +1,5 @@
+org/aion/AIP041KeyValueStorage$Keys.class
+org/aion/TokenContract.class
+org/aion/AIP041Event.class
+org/aion/AIP041ATS.class
+org/aion/AIP041KeyValueStorage.class

@@ -41,100 +41,100 @@ public class TokenContract {
      * tokenName: Name of the token.
      */
     @Initializable
-    private static String tokenName ;
+    private static String AIP041TokenName ;
 
     /**
      * tokenSymbol: Symbol of the token.
      */
     @Initializable
-    private static String tokenSymbol;
+    private static String AIP041TokenSymbol;
 
     /**
      * tokenGranularity: Granularity of the token.
      * The granularity is the smallest number of tokens (in the basic unit, which is 10^-18) which MAY be minted, sent and burned in any transaction.
      */
     @Initializable
-    private static int tokenGranularity;
+    private static int AIP041TokenGranularity;
 
     /**
      * totalSupply: Total number of the minted token upon token creation.
      */
     @Initializable
-    private static BigInteger tokenTotalSupply;
+    private static BigInteger AIP041TokenTotalSupply;
 
     /**
      * Initialization upon deployment.
      */
     static {
-        Blockchain.require(tokenName.length() > 0);
-        Blockchain.require(tokenSymbol.length() > 0);
-        Blockchain.require(tokenGranularity >= 1);
-        Blockchain.require(tokenTotalSupply.compareTo(BigInteger.ZERO) == 1);
-        AIP041ATS.tokenName = tokenName;
-        AIP041ATS.tokenSymbol = tokenSymbol;
-        AIP041ATS.tokenGranularity = tokenGranularity;
-        AIP041ATS.tokenTotalSupply = tokenTotalSupply;
+        Blockchain.require(AIP041TokenName.length() > 0);
+        Blockchain.require(AIP041TokenSymbol.length() > 0);
+        Blockchain.require(AIP041TokenGranularity >= 1);
+        Blockchain.require(AIP041TokenTotalSupply.compareTo(BigInteger.ZERO) == 1);
+        AIP041ATS.tokenName = AIP041TokenName;
+        AIP041ATS.tokenSymbol = AIP041TokenSymbol;
+        AIP041ATS.tokenGranularity = AIP041TokenGranularity;
+        AIP041ATS.tokenTotalSupply = AIP041TokenTotalSupply;
         AIP041ATS.initialize();
     }
 
     /**********************************************Token Info**********************************************/
     @Callable
-    public static String name() {
+    public static String AIP041Name() {
         return AIP041ATS.AIP041Name();
     }
 
     @Callable
-    public static String symbol() {
+    public static String AIP041Symbol() {
         return AIP041ATS.AIP041Symbol();
     }
 
     @Callable
-    public static int granularity() {
+    public static int AIP041Granularity() {
         return AIP041ATS.AIP041Granularity();
     }
 
     @Callable
-    public static BigInteger totalSupply() {
+    public static BigInteger AIP041TotalSupply() {
         return AIP041ATS.AIP041TotalSupply();
     }
 
     @Callable
-    public static BigInteger balanceOf(Address tokenHolder) {
+    public static BigInteger AIP041BalanceOf(Address tokenHolder) {
         return  AIP041ATS.AIP041BalanceOf(tokenHolder);
     }
 
     @Callable
-    public static void authorizeOperator(Address operator) {
+    public static void AIP041AuthorizeOperator(Address operator) {
         AIP041ATS.AIP041AuthorizeOperator(operator);
     }
 
     @Callable
-    public static void revokeOperator(Address operator) {
+    public static void AIP041RevokeOperator(Address operator) {
         AIP041ATS.AIP041RevokeOperator(operator);
     }
 
     @Callable
-    public static boolean isOperatorFor(Address operator, Address tokenHolder) {
+    public static boolean AIP041IsOperatorFor(Address operator, Address tokenHolder) {
         return AIP041ATS.AIP041IsOperatorFor(operator, tokenHolder);
     }
 
     @Callable
-    public static void send(Address to, BigInteger amount, byte[] userData) {
+    public static void AIP041Send(Address to, BigInteger amount, byte[] userData) {
         AIP041ATS.AIP041Send(to, amount, userData);
     }
 
     @Callable
-    public static void operatorSend(Address from, Address to, BigInteger amount, byte[] userData, byte[] operatorData) {
+    public static void AIP041OperatorSend(Address from, Address to, BigInteger amount, byte[] userData, byte[] operatorData) {
         AIP041ATS.AIP041OperatorSend(from, to, amount, userData, operatorData);
     }
 
     @Callable
-    public static void burn(BigInteger amount, byte[] holderData) {
+    public static void AIP041Burn(BigInteger amount, byte[] holderData) {
         AIP041ATS.AIP041Burn(amount, holderData);
     }
 
     @Callable
-    public static void operatorBurn(Address tokenHolder, BigInteger amount, byte[] holderData, byte[] operatorData) {
+    public static void AIP041OperatorBurn(Address tokenHolder, BigInteger amount, byte[] holderData, byte[] operatorData) {
        AIP041ATS.AIP041OperatorBurn(tokenHolder, amount, holderData, operatorData);
     }
 }

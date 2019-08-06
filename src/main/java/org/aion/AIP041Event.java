@@ -27,7 +27,7 @@ public class AIP041Event {
      * @param holderData
      * @param operatorData
      */
-    protected static void Sent(Address operator, Address from, Address to, BigInteger amount, byte[] holderData, byte[] operatorData) {
+    protected static void AIP041Sent(Address operator, Address from, Address to, BigInteger amount, byte[] holderData, byte[] operatorData) {
 
         if (holderData == null){
             holderData = new byte[0];

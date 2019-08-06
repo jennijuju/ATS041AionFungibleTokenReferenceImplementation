@@ -226,13 +226,13 @@ public class AIP041ATS {
         if(toBalance != null) { //Receiver has a balanace
             Blockchain.putStorage(AIP041KeyValueStorage.AIP041GetBalanceKey(to), new BigInteger(toBalance).add(amount).toByteArray());
             callRecipient(operator, from, to, amount, userData, operatorData, preventLocking);
-            AIP041Event.Sent(operator, from, to, amount, userData, operatorData);
+            AIP041Event.AIP041Sent(operator, from, to, amount, userData, operatorData);
 
         } else { //Receiver is a new token holder
             Blockchain.putStorage(AIP041KeyValueStorage.AIP041GetBalanceKey(to), amount.toByteArray());
 
             callRecipient(operator, from, to, amount, userData, operatorData, preventLocking);
-            AIP041Event.Sent(operator, from, to, amount, userData, operatorData);
+            AIP041Event.AIP041Sent(operator, from, to, amount, userData, operatorData);
         }
     }
 

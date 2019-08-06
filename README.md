@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/jennijuju/ATS041AionFungibleTokenReferenceImplementation.svg?branch=master)](https://travis-ci.com/jennijuju/ATS041AionFungibleTokenReferenceImplementation)
+
 # :warning: Pending Audit - Do Not Use For Production :warning:
 # ATS041 - Aion Fungible Token Reference Implementation
 

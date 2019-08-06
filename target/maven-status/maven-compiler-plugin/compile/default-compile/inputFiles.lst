@@ -1,4 +1,4 @@
-/home/jennifer/Integration/ATS/AionFungibleTokenContractTemplate/src/main/java/org/aion/AIP041ATS.java
-/home/jennifer/Integration/ATS/AionFungibleTokenContractTemplate/src/main/java/org/aion/AIP041Event.java
-/home/jennifer/Integration/ATS/AionFungibleTokenContractTemplate/src/main/java/org/aion/TokenContract.java
-/home/jennifer/Integration/ATS/AionFungibleTokenContractTemplate/src/main/java/org/aion/AIP041KeyValueStorage.java
+/home/jennifer/Integration/ATS/AIP041ATSAionFungibleTokenReferenceImplementation/src/main/java/org/aion/ATS041KeyValueStorage.java
+/home/jennifer/Integration/ATS/AIP041ATSAionFungibleTokenReferenceImplementation/src/main/java/org/aion/ATS041Event.java
+/home/jennifer/Integration/ATS/AIP041ATSAionFungibleTokenReferenceImplementation/src/main/java/org/aion/ATS041Implementation.java
+/home/jennifer/Integration/ATS/AIP041ATSAionFungibleTokenReferenceImplementation/src/main/java/org/aion/ATS041TokenContract.java

@@ -2,56 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="12cd4bd0-8cf5-4b2e-97a2-0f9959bfe790" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/AIP041ATSAionFungibleTokenReferenceImplementation.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Aion-ATS-Token-Contract-Java.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/aion/ATS041Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/aion/ATS041Event.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/aion/ATSTokenContractTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/aion/ATSTokenContractTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ATS-1.0-SNAPSHOT.abi" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ATS-1.0-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionBuffer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionList$AionListIterator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionList$AionSubList$AionSubListIterator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionList$AionSubList.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionList.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$AionAbstractCollection.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$AionMapEntry.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$AionMapEntryIterator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$AionMapEntrySet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$AionMapIterator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$AionMapKeyIterator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$AionMapKeySet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$AionMapValueIterator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$AionMapValues.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$BInternalNode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$BLeafNode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$BNode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionSet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/CodeAndArguments.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/abi/ABIDecoder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/abi/ABIEncoder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/abi/ABIException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/abi/ABIStreamingEncoder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/abi/ABIToken.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/original-ATS-1.0-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/2019-08-06T14-45-28_169.dumpstream" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-org.aion.ATSTokenContractTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/org.aion.ATSTokenContractTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/org/aion/ATSTokenContractTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/org/aion/ATSTokenContractTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -81,14 +34,35 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/org/aion/ATSTokenContractTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
+            <state relative-caret-position="1046">
               <caret line="494" column="63" selection-start-line="494" selection-start-column="63" selection-end-line="494" selection-end-column="63" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="-555">
+                <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/LICENSE">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -118,6 +92,8 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/org/aion/ATS041Event.java" />
         <option value="$PROJECT_DIR$/src/test/java/org/aion/ATSTokenContractTest.java" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/LICENSE" />
       </list>
     </option>
   </component>
@@ -129,10 +105,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2087" />
-    <option name="y" value="220" />
-    <option name="width" value="1149" />
-    <option name="height" value="654" />
+    <option name="x" value="1920" />
+    <option name="y" value="-2" />
+    <option name="width" value="1920" />
+    <option name="height" value="1082" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -146,11 +122,6 @@
             <path>
               <item name="AS041Token" type="b2602c69:ProjectViewProjectNode" />
               <item name="ATS041AionFungibleTokenReferenceImplementation" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AS041Token" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ATS041AionFungibleTokenReferenceImplementation" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AS041Token" type="b2602c69:ProjectViewProjectNode" />
@@ -209,7 +180,8 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1565120667510" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1565127100878" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../IntelliJ/BI" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -263,7 +235,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565120039235</updated>
-      <workItem from="1565120043939" duration="624000" />
+      <workItem from="1565120043939" duration="6087000" />
     </task>
     <servers />
   </component>
@@ -277,9 +249,12 @@
     <history-entry file="ATSTokenContractTest - 2019.08.06 at 15h 44m 20s.xml">
       <configuration name="ATSTokenContractTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="ATSTokenContractTest - 2019.08.06 at 15h 44m 45s.xml">
+      <configuration name="ATSTokenContractTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="624000" />
+    <option name="totallyTimeSpent" value="6087000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1987" y="25" width="1853" height="1055" extended-state="6" />
@@ -290,17 +265,17 @@
       <window_info id="UI Designer" />
       <window_info id="Capture Tool" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.24958494" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.257886" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Messages" weight="0.32937366" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.32397407" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32937366" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32937366" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32937366" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -381,11 +356,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/org/aion/ATSTokenContractTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
+        <state relative-caret-position="1046">
           <caret line="494" column="63" selection-start-line="494" selection-start-column="63" selection-end-line="494" selection-end-column="63" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="-555">
+            <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LICENSE">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
         </state>
       </provider>
     </entry>

@@ -35,52 +35,18 @@ import java.util.Arrays;
 public class AIP041ATS {
 
 
-    /**************************************Deployment Initialization***************************************/
 
-    /**
-     * tokenName: Name of the token.
-     */
-    @Initializable
-    private static String tokenName ;
-
-    /**
-     * tokenSymbol: Symbol of the token.
-     */
-    @Initializable
-    private static String tokenSymbol;
-
-    /**
-     * tokenGranularity: Granularity of the token.
-     * The granularity is the smallest number of tokens (in the basic unit, which is 10^-18) which MAY be minted, sent and burned in any transaction.
-     */
-    @Initializable
-    private static int tokenGranularity;
-
-    /**
-     * totalSupply: Total number of the minted token upon token creation.
-     */
-    @Initializable
-    private static BigInteger tokenTotalSupply;
-
-    /**
-     * Initialization upon deployment.
-     */
-    static {
-        Blockchain.require(tokenName.length() > 0);
-        Blockchain.require(tokenSymbol.length() > 0);
-        Blockchain.require(tokenGranularity >= 1);
-        Blockchain.require(tokenTotalSupply.compareTo(BigInteger.ZERO) == 1);
-
-        initialize();
-    }
-
+    protected static String tokenName ;
+    protected static String tokenSymbol;
+    protected static int tokenGranularity;
+    protected static BigInteger tokenTotalSupply;
 
     /********************************************Initialization********************************************/
     /**
      * Total number of the minted token upon token creation is initialized under the token creator's account.
      * "ATSTokenCreated" event is emitted upon deployment.
      */
-    private static void initialize() {
+    protected static void initialize() {
         Blockchain.putStorage(AIP041KeyValueStorage.getBalanceKey(Blockchain.getCaller()), tokenTotalSupply.toByteArray());
         AIP041Event.ATSTokenCreated(tokenTotalSupply, Blockchain.getCaller());
     }
@@ -92,8 +58,7 @@ public class AIP041ATS {
      * Get the name of the token.
      * @return The name of the token.
      */
-    @Callable
-    public static String name() {
+    protected static String name() {
         return tokenName;
     }
 
@@ -101,8 +66,7 @@ public class AIP041ATS {
      * Get the symbol of the token.
      * @return The symbol of the token.
      */
-    @Callable
-    public static String symbol() {
+    protected static String symbol() {
         return tokenSymbol;
     }
 
@@ -110,8 +74,7 @@ public class AIP041ATS {
      * Get the granularity of the token.
      * @return The granularity of the token.
      */
-    @Callable
-    public static int granularity() {
+    protected static int granularity() {
         return tokenGranularity;
     }
 
@@ -119,8 +82,7 @@ public class AIP041ATS {
      * Get the total supply of the token.
      * @return The total supply of the token.
      */
-    @Callable
-    public static BigInteger totalSupply() {
+    protected static BigInteger totalSupply() {
         return tokenTotalSupply;
     }
 
@@ -131,8 +93,7 @@ public class AIP041ATS {
      * @param tokenHolder An account that has ownership over a token balance.
      * @return The token balance of the account.
      */
-    @Callable
-    public static BigInteger balanceOf(Address tokenHolder) {
+    protected static BigInteger balanceOf(Address tokenHolder) {
         byte[] balance = Blockchain.getStorage(AIP041KeyValueStorage.getBalanceKey(tokenHolder));
         return (balance != null)
                 ? new BigInteger(balance)
@@ -146,8 +107,8 @@ public class AIP041ATS {
      * @param operator  Address to set as an operator for Blockchain.getCaller()
      *
      */
-    @Callable
-    public static void authorizeOperator(Address operator) {
+
+    protected static void authorizeOperator(Address operator) {
         Blockchain.putStorage(AIP041KeyValueStorage.getIsOperatorKey(operator,Blockchain.getCaller()), new byte[] {0x01});
         AIP041Event.AuthorizedOperator(operator, Blockchain.getCaller());
     }
@@ -158,8 +119,7 @@ public class AIP041ATS {
      * A RevokeOperator MUST be emitted each time.
      * @param operator  Address to rescind as an operator for Blockchain.getCaller().
      */
-    @Callable
-    public static void revokeOperator(Address operator) {
+    protected static void revokeOperator(Address operator) {
         Blockchain.require(!operator.equals(Blockchain.getCaller()));
         if (Blockchain.getStorage(AIP041KeyValueStorage.getIsOperatorKey(operator,Blockchain.getCaller())) != null) {
             Blockchain.putStorage(AIP041KeyValueStorage.getIsOperatorKey(operator,Blockchain.getCaller()), null);
@@ -175,8 +135,7 @@ public class AIP041ATS {
      * @param tokenHolder Address of a token holder which may have the operator address as an operator.
      * @return true if operator is an operator of tokenHolder and false otherwise.
      */
-    @Callable
-    public static boolean isOperatorFor(Address operator, Address tokenHolder) {
+    protected static boolean isOperatorFor(Address operator, Address tokenHolder) {
         if (operator.equals(tokenHolder)) {
             return true;
         }
@@ -196,8 +155,7 @@ public class AIP041ATS {
      * @param amount Number of tokens to send.
      * @param userData Information attached to the send, and intended for the recipient (to).
      */
-    @Callable
-    public static void send(Address to, BigInteger amount, byte[] userData) {
+    protected static void send(Address to, BigInteger amount, byte[] userData) {
         doSend(Blockchain.getCaller(), Blockchain.getCaller(), to, amount, userData, new byte[0], true);
     }
 
@@ -211,8 +169,7 @@ public class AIP041ATS {
      * @param userData Information attached to the send, and intended for the recipient (to).
      * @param operatorData Information attached to the send by the operator.
      */
-    @Callable
-    public static void operatorSend(Address from, Address to, BigInteger amount, byte[] userData, byte[] operatorData) {
+    protected static void operatorSend(Address from, Address to, BigInteger amount, byte[] userData, byte[] operatorData) {
         if (from.equals(new Address(new byte[32]))) {
             doSend(Blockchain.getCaller(), Blockchain.getCaller(), to, amount, userData, operatorData, true);
         } else {
@@ -227,8 +184,7 @@ public class AIP041ATS {
      * @param amount Number of tokens to burn.
      * @param holderData Information attached to the burn by the token holder.
      */
-    @Callable
-    public static void burn(BigInteger amount, byte[] holderData) {
+    protected static void burn(BigInteger amount, byte[] holderData) {
         doBurn(Blockchain.getCaller(),Blockchain.getCaller(), amount ,holderData, new byte[0]);
     }
 
@@ -242,8 +198,7 @@ public class AIP041ATS {
      * @param holderData Information attached to the burn by the token holder.
      * @param operatorData Information attached to the burn by the operator.
      */
-    @Callable
-    public static void operatorBurn(Address tokenHolder, BigInteger amount, byte[] holderData, byte[] operatorData) {
+    protected static void operatorBurn(Address tokenHolder, BigInteger amount, byte[] holderData, byte[] operatorData) {
         if (tokenHolder.equals(new Address(new byte[32]))) {
             doBurn(Blockchain.getCaller(), Blockchain.getCaller(), amount, holderData,operatorData);
         } else {
@@ -252,7 +207,7 @@ public class AIP041ATS {
         }
     }
 
-    
+
     private static void doSend(Address operator, Address from, Address to, BigInteger amount, byte[] userData, byte[] operatorData, boolean preventLocking) {
         Blockchain.require(amount.compareTo(BigInteger.ZERO) > -1); //Amount is not negative value
         Blockchain.require(amount.mod(BigInteger.valueOf(tokenGranularity)).equals(BigInteger.ZERO)); //Check granularity

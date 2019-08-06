@@ -13,14 +13,14 @@ public class AIP041KeyValueStorage {
         IS_OPERATOR
     }
 
-    public static byte[] getBalanceKey(Address tokenHolder) {
+    protected static byte[] getBalanceKey(Address tokenHolder) {
         return Blockchain.blake2b(AionBuffer.allocate(Integer.BYTES + Address.LENGTH)
                                             .putInt(Keys.BALANCE.hashCode())
                                             .putAddress(tokenHolder)
                                             .getArray());
     }
 
-    public static byte[] getIsOperatorKey(Address operator, Address tokenHolder) {
+    protected static byte[] getIsOperatorKey(Address operator, Address tokenHolder) {
         return Blockchain.blake2b(AionBuffer.allocate(Integer.BYTES + Address.LENGTH * 2)
                                             .putInt(Keys.IS_OPERATOR.hashCode())
                                             .putAddress(operator)

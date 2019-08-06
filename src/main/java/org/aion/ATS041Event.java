@@ -11,7 +11,7 @@ public class ATS041Event {
     private static int BIGINTEGER_LENGTH = 32;
 
     protected static void ATS041ATSTokenCreated(BigInteger totalSupply, Address creator) {
-        Blockchain.log("ATSTokenCreated".getBytes(),
+        Blockchain.log("ATS041TokenCreated".getBytes(),
                 padding(totalSupply),
                 creator.toByteArray(),
                 new byte[0]);
@@ -45,7 +45,7 @@ public class ATS041Event {
                 .put(operatorData)
                 .getArray();
 
-        Blockchain.log("Sent".getBytes(),
+        Blockchain.log("ATS041Sent".getBytes(),
                 operator.toByteArray(),
                 from.toByteArray(),
                 to.toByteArray(),
@@ -80,21 +80,21 @@ public class ATS041Event {
                 .put(operatorData)
                 .getArray();
 
-        Blockchain.log("Burned".getBytes(),
+        Blockchain.log("ATS041Burned".getBytes(),
                 operator.toByteArray(),
                 from.toByteArray(),
                 data);
     }
 
     protected static void ATS041AuthorizedOperator(Address operator, Address tokenHolder) {
-        Blockchain.log("AuthorizedOperator".getBytes(),
+        Blockchain.log("ATS041AuthorizedOperator".getBytes(),
                 operator.toByteArray(),
                 tokenHolder.toByteArray(),
                 new byte[0]);
     }
 
     protected static void ATS041RevokedOperator(Address operator, Address tokenHolder) {
-        Blockchain.log("RevokedOperator".getBytes(),
+        Blockchain.log("ATS041RevokedOperator".getBytes(),
                 operator.toByteArray(),
                 tokenHolder.toByteArray(),
                 new byte[0]);

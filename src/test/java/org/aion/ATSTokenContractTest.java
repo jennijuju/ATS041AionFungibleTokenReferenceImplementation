@@ -1,6 +1,7 @@
 package org.aion;
 
 import avm.Address;
+
 import org.aion.avm.core.util.LogSizeUtils;
 import org.aion.avm.embed.AvmRule;
 import org.aion.avm.userlib.AionBuffer;
@@ -117,8 +118,9 @@ public class ATSTokenContractTest {
                         .toBytes());
         Assert.assertTrue(result.getReceiptStatus().isSuccess());
         assertEquals(1, result.getTransactionResult().logs.size());
-        assertArrayEquals(LogSizeUtils.truncatePadTopic("AuthorizedOperator".getBytes()), result.getTransactionResult().logs.get(0).copyOfTopics().get(0));
+        assertArrayEquals(LogSizeUtils.truncatePadTopic("ATS041AuthorizedOperator".getBytes()), result.getTransactionResult().logs.get(0).copyOfTopics().get(0));
         assertArrayEquals(LogSizeUtils.truncatePadTopic(operator.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(1));
+        assertArrayEquals(LogSizeUtils.truncatePadTopic(tokenHolder.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(2));
         assertArrayEquals(LogSizeUtils.truncatePadTopic(tokenHolder.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(2));
         assertArrayEquals(new byte[0], result.getTransactionResult().logs.get(0).copyOfData());
 
@@ -166,7 +168,7 @@ public class ATSTokenContractTest {
                         .toBytes());
         Assert.assertTrue(result.getReceiptStatus().isSuccess());
         assertEquals(1, result.getTransactionResult().logs.size());
-        assertArrayEquals(LogSizeUtils.truncatePadTopic("AuthorizedOperator".getBytes()), result.getTransactionResult().logs.get(0).copyOfTopics().get(0));
+        assertArrayEquals(LogSizeUtils.truncatePadTopic("ATS041AuthorizedOperator".getBytes()), result.getTransactionResult().logs.get(0).copyOfTopics().get(0));
         assertArrayEquals(LogSizeUtils.truncatePadTopic(operator.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(1));
         assertArrayEquals(LogSizeUtils.truncatePadTopic(tokenHolder.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(2));
         assertArrayEquals(new byte[0], result.getTransactionResult().logs.get(0).copyOfData());
@@ -185,7 +187,7 @@ public class ATSTokenContractTest {
                         .toBytes());
         Assert.assertTrue(result.getReceiptStatus().isSuccess());
         assertEquals(1, result.getTransactionResult().logs.size());
-        assertArrayEquals(LogSizeUtils.truncatePadTopic("AuthorizedOperator".getBytes()), result.getTransactionResult().logs.get(0).copyOfTopics().get(0));
+        assertArrayEquals(LogSizeUtils.truncatePadTopic("ATS041AuthorizedOperator".getBytes()), result.getTransactionResult().logs.get(0).copyOfTopics().get(0));
         assertArrayEquals(LogSizeUtils.truncatePadTopic(operator.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(1));
         assertArrayEquals(LogSizeUtils.truncatePadTopic(tokenHolder.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(2));
         assertArrayEquals(new byte[0], result.getTransactionResult().logs.get(0).copyOfData());
@@ -201,7 +203,7 @@ public class ATSTokenContractTest {
                         .toBytes());
         Assert.assertTrue(result.getReceiptStatus().isSuccess());
         assertEquals(1, result.getTransactionResult().logs.size());
-        assertArrayEquals(LogSizeUtils.truncatePadTopic("AuthorizedOperator".getBytes()), result.getTransactionResult().logs.get(0).copyOfTopics().get(0));
+        assertArrayEquals(LogSizeUtils.truncatePadTopic("ATS041AuthorizedOperator".getBytes()), result.getTransactionResult().logs.get(0).copyOfTopics().get(0));
         assertArrayEquals(LogSizeUtils.truncatePadTopic(tokenHolder.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(1));
         assertArrayEquals(LogSizeUtils.truncatePadTopic(tokenHolder.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(2));
         assertArrayEquals(new byte[0], result.getTransactionResult().logs.get(0).copyOfData());
@@ -266,7 +268,7 @@ public class ATSTokenContractTest {
                         .toBytes());
         Assert.assertTrue(result.getReceiptStatus().isSuccess());
         assertEquals(1, result.getTransactionResult().logs.size());
-        assertArrayEquals(LogSizeUtils.truncatePadTopic("RevokedOperator".getBytes()), result.getTransactionResult().logs.get(0).copyOfTopics().get(0));
+        assertArrayEquals(LogSizeUtils.truncatePadTopic("ATS041RevokedOperator".getBytes()), result.getTransactionResult().logs.get(0).copyOfTopics().get(0));
         assertArrayEquals(LogSizeUtils.truncatePadTopic(operator.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(1));
         assertArrayEquals(LogSizeUtils.truncatePadTopic(tokenHolder.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(2));
         assertArrayEquals(new byte[0], result.getTransactionResult().logs.get(0).copyOfData());
@@ -319,7 +321,7 @@ public class ATSTokenContractTest {
         assertEquals(1, result.getTransactionResult().logs.size());
 
         // validate the topics and data
-        assertArrayEquals(LogSizeUtils.truncatePadTopic("Sent".getBytes()), result.getTransactionResult().logs.get(0).copyOfTopics().get(0));
+        assertArrayEquals(LogSizeUtils.truncatePadTopic("ATS041Sent".getBytes()), result.getTransactionResult().logs.get(0).copyOfTopics().get(0));
         assertArrayEquals(LogSizeUtils.truncatePadTopic(tokenOwner.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(1));
         assertArrayEquals(LogSizeUtils.truncatePadTopic(tokenOwner.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(2));
         assertArrayEquals(LogSizeUtils.truncatePadTopic(to.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(3));
@@ -427,7 +429,7 @@ public class ATSTokenContractTest {
         assertEquals(1, result.getTransactionResult().logs.size());
 
         // validate the topics and data
-        assertArrayEquals(LogSizeUtils.truncatePadTopic("AuthorizedOperator".getBytes()), result.getTransactionResult().logs.get(0).copyOfTopics().get(0));
+        assertArrayEquals(LogSizeUtils.truncatePadTopic("ATS041AuthorizedOperator".getBytes()), result.getTransactionResult().logs.get(0).copyOfTopics().get(0));
         assertArrayEquals(LogSizeUtils.truncatePadTopic(operator.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(1));
         assertArrayEquals(LogSizeUtils.truncatePadTopic(tokenOwner.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(2));
         assertArrayEquals(new byte[0], result.getTransactionResult().logs.get(0).copyOfData());
@@ -445,7 +447,7 @@ public class ATSTokenContractTest {
         assertEquals(1, result.getTransactionResult().logs.size());
 
         // validate the topics and data
-        assertArrayEquals(LogSizeUtils.truncatePadTopic("Sent".getBytes()), result.getTransactionResult().logs.get(0).copyOfTopics().get(0));
+        assertArrayEquals(LogSizeUtils.truncatePadTopic("ATS041Sent".getBytes()), result.getTransactionResult().logs.get(0).copyOfTopics().get(0));
         assertArrayEquals(LogSizeUtils.truncatePadTopic(operator.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(1));
         assertArrayEquals(LogSizeUtils.truncatePadTopic(tokenOwner.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(2));
         assertArrayEquals(LogSizeUtils.truncatePadTopic(to.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(3));
@@ -490,7 +492,7 @@ public class ATSTokenContractTest {
         assertEquals(1, result.getTransactionResult().logs.size());
 
         // validate the topics and data
-        assertArrayEquals(LogSizeUtils.truncatePadTopic("Sent".getBytes()), result.getTransactionResult().logs.get(0).copyOfTopics().get(0));
+        assertArrayEquals(LogSizeUtils.truncatePadTopic("ATS041Sent".getBytes()), result.getTransactionResult().logs.get(0).copyOfTopics().get(0));
         assertArrayEquals(LogSizeUtils.truncatePadTopic(tokenOwner.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(1));
         assertArrayEquals(LogSizeUtils.truncatePadTopic(tokenOwner.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(2));
         assertArrayEquals(LogSizeUtils.truncatePadTopic(to.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(3));
@@ -530,7 +532,7 @@ public class ATSTokenContractTest {
         assertEquals(1, result.getTransactionResult().logs.size());
 
         // validate the topics and data
-        assertArrayEquals(LogSizeUtils.truncatePadTopic("Sent".getBytes()), result.getTransactionResult().logs.get(0).copyOfTopics().get(0));
+        assertArrayEquals(LogSizeUtils.truncatePadTopic("ATS041Sent".getBytes()), result.getTransactionResult().logs.get(0).copyOfTopics().get(0));
         assertArrayEquals(LogSizeUtils.truncatePadTopic(tokenOwner.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(1));
         assertArrayEquals(LogSizeUtils.truncatePadTopic(tokenOwner.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(2));
         assertArrayEquals(LogSizeUtils.truncatePadTopic(to.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(3));
@@ -577,7 +579,7 @@ public class ATSTokenContractTest {
         Assert.assertTrue(result.getReceiptStatus().isSuccess());
         assertEquals(1, result.getTransactionResult().logs.size());
 
-        assertArrayEquals(LogSizeUtils.truncatePadTopic("Burned".getBytes()), result.getTransactionResult().logs.get(0).copyOfTopics().get(0));
+        assertArrayEquals(LogSizeUtils.truncatePadTopic("ATS041Burned".getBytes()), result.getTransactionResult().logs.get(0).copyOfTopics().get(0));
         assertArrayEquals(LogSizeUtils.truncatePadTopic(tokenOwner.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(1));
         assertArrayEquals(LogSizeUtils.truncatePadTopic(tokenOwner.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(2));
         assertArrayEquals(AionBuffer.allocate(40).put32ByteInt(BigInteger.valueOf(3).multiply(nAmp)).getArray(),
@@ -651,7 +653,7 @@ public class ATSTokenContractTest {
         Assert.assertTrue(result.getReceiptStatus().isSuccess());
         assertEquals(1, result.getTransactionResult().logs.size());
 
-        assertArrayEquals(LogSizeUtils.truncatePadTopic("Burned".getBytes()), result.getTransactionResult().logs.get(0).copyOfTopics().get(0));
+        assertArrayEquals(LogSizeUtils.truncatePadTopic("ATS041Burned".getBytes()), result.getTransactionResult().logs.get(0).copyOfTopics().get(0));
         assertArrayEquals(LogSizeUtils.truncatePadTopic(tokenOwner.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(1));
         assertArrayEquals(LogSizeUtils.truncatePadTopic(tokenOwner.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(2));
         assertArrayEquals(AionBuffer.allocate(40).put32ByteInt(BigInteger.valueOf(333_333_333_333L).multiply(nAmp)).getArray(),

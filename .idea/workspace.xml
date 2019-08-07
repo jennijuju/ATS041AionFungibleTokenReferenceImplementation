@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fe9cacb-d785-43c9-b1e4-dbe8e50b5c14" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/aion/ATS041Implementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/aion/ATS041Implementation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/aion/ATSTokenContractTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/aion/ATSTokenContractTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ATS041Standard.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -50,7 +50,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/aion/ATS041Implementation.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="391">
@@ -59,6 +59,18 @@
                 <element signature="e#3619#3620#0" expanded="true" />
                 <element signature="e#3671#3672#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ATS041Standard.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="864">
+                <caret line="488" column="97" selection-start-line="488" selection-start-column="97" selection-end-line="488" selection-end-column="97" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -84,6 +96,7 @@
         <option value="$PROJECT_DIR$/src/main/java/org/aion/ATS041TokenContract.java" />
         <option value="$PROJECT_DIR$/src/test/java/org/aion/ATSTokenContractTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/aion/ATS041Implementation.java" />
+        <option value="$PROJECT_DIR$/ATS041Standard.md" />
       </list>
     </option>
   </component>
@@ -171,7 +184,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1565217042079" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1565217106375" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Libraries" />
@@ -290,7 +303,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565214850341</updated>
-      <workItem from="1565214854965" duration="2184000" />
+      <workItem from="1565214854965" duration="2247000" />
     </task>
     <servers />
   </component>
@@ -327,7 +340,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2184000" />
+    <option name="totallyTimeSpent" value="2247000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="265" width="1920" height="1082" extended-state="6" />
@@ -338,7 +351,7 @@
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
-      <window_info content_ui="combo" id="Project" order="5" weight="0.2497332" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.2497332" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="1" />
@@ -413,13 +426,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/org/aion/ATSTokenContractTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="141" selection-start-line="141" selection-end-line="141" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/aion/ATS041TokenContract.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="618">
@@ -443,6 +449,23 @@
             <element signature="e#3619#3620#0" expanded="true" />
             <element signature="e#3671#3672#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/aion/ATSTokenContractTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="141" selection-start-line="141" selection-end-line="141" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ATS041Standard.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="864">
+            <caret line="488" column="97" selection-start-line="488" selection-start-column="97" selection-end-line="488" selection-end-column="97" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>

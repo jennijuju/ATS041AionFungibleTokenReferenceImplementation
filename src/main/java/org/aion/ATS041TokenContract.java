@@ -118,7 +118,7 @@ public class ATS041TokenContract {
 
     @Callable
     public static boolean ATS041IsTokenIssuer(Address issuer) {
-        return ATS041Implementation.ATS041GetTokenIssuers(issuer);
+        return ATS041Implementation.ATS041IsTokenIssuer(issuer);
     }
 
     @Callable

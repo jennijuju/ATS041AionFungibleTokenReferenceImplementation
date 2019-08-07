@@ -67,11 +67,40 @@ public class ATSTokenContractTest {
         Address resAddress = (Address) result.getDecodedReturnData();
         Assert.assertTrue(resAddress.equals(tokenOwner));
 
-        result = avmRule.call(tokenOwner, contractAddress, BigInteger.ZERO, encoder.encodeOneString("ATS041GetTokenIssuers").toBytes());
-        Address[] resAddressArray = (Address[]) result.getDecodedReturnData();
-        System.out.println("Issuer" +  resAddressArray);
-        Assert.assertTrue((new Address[]{tokenOwner}).equals(resAddressArray));
+        result = avmRule.call(tokenOwner, contractAddress, BigInteger.ZERO, encoder.encodeOneString("ATS041IsTokenIssuer").encodeOneAddress(tokenOwner).toBytes());
+        Boolean resBool = (Boolean) result.getDecodedReturnData();
+        Assert.assertTrue(resBool);
 
+    }
+
+    @Test
+    public void testAddTokenIssuer() {
+        Address newIssuer = avmRule.getRandomAddress(BigInteger.TEN);
+        ABIStreamingEncoder encoder = new ABIStreamingEncoder();
+        AvmRule.ResultWrapper result = avmRule.call(tokenOwner, contractAddress, BigInteger.ZERO,
+                encoder.encodeOneString("ATS041AddTokenIssuer")
+                        .encodeOneAddress(newIssuer)
+                        .toBytes());
+        Assert.assertTrue(result.getReceiptStatus().isSuccess());
+        assertEquals(1, result.getTransactionResult().logs.size());
+        assertArrayEquals(LogSizeUtils.truncatePadTopic("ATS041AddedTokenIssuer".getBytes()), result.getTransactionResult().logs.get(0).copyOfTopics().get(0));
+        assertArrayEquals(LogSizeUtils.truncatePadTopic(newIssuer.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(1));
+        assertArrayEquals(new byte[0], result.getTransactionResult().logs.get(0).copyOfData());
+
+        result = avmRule.call(tokenOwner, contractAddress, BigInteger.ZERO, encoder.encodeOneString("ATS041IsTokenIssuer").encodeOneAddress(newIssuer).toBytes());
+        Boolean resBool = (Boolean) result.getDecodedReturnData();
+        Assert.assertTrue(resBool);
+    }
+
+    @Test
+    public void testAddTokenIssuerByNotTokenCreator() {
+        Address newIssuer = avmRule.getRandomAddress(BigInteger.TEN);
+        ABIStreamingEncoder encoder = new ABIStreamingEncoder();
+        AvmRule.ResultWrapper result = avmRule.call(avmRule.getRandomAddress(BigInteger.TEN.multiply(nAmp)), contractAddress, BigInteger.ZERO,
+                encoder.encodeOneString("ATS041AddTokenIssuer")
+                        .encodeOneAddress(newIssuer)
+                        .toBytes());
+        Assert.assertTrue(result.getReceiptStatus().isFailed());
     }
 
     @Test

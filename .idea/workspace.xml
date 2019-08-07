@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fe9cacb-d785-43c9-b1e4-dbe8e50b5c14" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/aion/ATS041TokenContract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/aion/ATS041TokenContract.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/aion/ATSTokenContractTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/aion/ATSTokenContractTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -20,8 +19,8 @@
             <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/src/test/java/org/aion/ATSTokenContractTest.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="374">
-                    <caret line="94" column="5" selection-start-line="94" selection-start-column="5" selection-end-line="94" selection-end-column="5" />
+                  <state relative-caret-position="731">
+                    <caret line="141" column="4" selection-start-line="141" selection-start-column="4" selection-end-line="141" selection-end-column="4" />
                   </state>
                 </provider>
               </entry>
@@ -50,7 +49,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/aion/ATS041Implementation.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="101">
@@ -59,10 +58,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/aion/ATS041Event.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1819">
+            <state relative-caret-position="1666">
               <caret line="111" column="73" selection-start-line="111" selection-start-column="73" selection-end-line="111" selection-end-column="73" />
             </state>
           </provider>
@@ -167,7 +166,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1565216264427" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1565216522593" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Libraries" />
@@ -186,7 +185,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ATSTokenContractTest.testAddTokenIssuerByNotTokenCreator">
+  <component name="RunManager" selected="JUnit.ATSTokenContractTest.testAddTokenIssuerThatIsAlreadyExisting">
     <configuration name="ATSTokenContractTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ATS041FungibleToken" />
       <extension name="coverage">
@@ -234,6 +233,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ATSTokenContractTest.testAddTokenIssuerThatIsAlreadyExisting" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ATS041FungibleToken" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.aion.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.aion" />
+      <option name="MAIN_CLASS_NAME" value="org.aion.ATSTokenContractTest" />
+      <option name="METHOD_NAME" value="testAddTokenIssuerThatIsAlreadyExisting" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ATSTokenContractTest.testTokenCreation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ATS041FungibleToken" />
       <extension name="coverage">
@@ -252,6 +267,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ATSTokenContractTest.testAddTokenIssuerThatIsAlreadyExisting" />
         <item itemvalue="JUnit.ATSTokenContractTest.testAddTokenIssuerByNotTokenCreator" />
         <item itemvalue="JUnit.ATSTokenContractTest.testAddTokenIssuer" />
         <item itemvalue="JUnit.ATSTokenContractTest" />
@@ -269,14 +285,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565214850341</updated>
-      <workItem from="1565214854965" duration="1407000" />
+      <workItem from="1565214854965" duration="1665000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ATSTokenContractTest_testTokenCreation - 2019.08.07 at 17h 59m 47s.xml">
-      <configuration name="ATSTokenContractTest.testTokenCreation" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="ATSTokenContractTest_testTokenCreation - 2019.08.07 at 18h 01m 40s.xml">
       <configuration name="ATSTokenContractTest.testTokenCreation" configurationId="JUnit" />
     </history-entry>
@@ -304,9 +317,12 @@
     <history-entry file="ATSTokenContractTest_testAddTokenIssuerByNotTokenCreator - 2019.08.07 at 18h 17m 37s.xml">
       <configuration name="ATSTokenContractTest.testAddTokenIssuerByNotTokenCreator" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="ATSTokenContractTest_testAddTokenIssuerThatIsAlreadyExisting - 2019.08.07 at 18h 20m 51s.xml">
+      <configuration name="ATSTokenContractTest.testAddTokenIssuerThatIsAlreadyExisting" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1407000" />
+    <option name="totallyTimeSpent" value="1665000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="265" width="1920" height="1082" extended-state="6" />
@@ -369,6 +385,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/aion/ATS041Event.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1666">
+          <caret line="111" column="73" selection-start-line="111" selection-start-column="73" selection-end-line="111" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/aion/ATS041Implementation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="101">
@@ -378,15 +401,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/org/aion/ATSTokenContractTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="94" column="5" selection-start-line="94" selection-start-column="5" selection-end-line="94" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/aion/ATS041Event.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1819">
-          <caret line="111" column="73" selection-start-line="111" selection-start-column="73" selection-end-line="111" selection-end-column="73" />
+        <state relative-caret-position="731">
+          <caret line="141" column="4" selection-start-line="141" selection-start-column="4" selection-end-line="141" selection-end-column="4" />
         </state>
       </provider>
     </entry>

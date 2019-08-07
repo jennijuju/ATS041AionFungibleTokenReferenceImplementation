@@ -92,6 +92,36 @@ public class ATSTokenContractTest {
         Assert.assertTrue(resBool);
     }
 
+
+    @Test
+    public void testAddTokenIssuerThatIsAlreadyExisting() {
+        Address newIssuer = avmRule.getRandomAddress(BigInteger.TEN);
+        ABIStreamingEncoder encoder = new ABIStreamingEncoder();
+        AvmRule.ResultWrapper result = avmRule.call(tokenOwner, contractAddress, BigInteger.ZERO,
+                encoder.encodeOneString("ATS041AddTokenIssuer")
+                        .encodeOneAddress(newIssuer)
+                        .toBytes());
+        Assert.assertTrue(result.getReceiptStatus().isSuccess());
+        assertEquals(1, result.getTransactionResult().logs.size());
+        assertArrayEquals(LogSizeUtils.truncatePadTopic("ATS041AddedTokenIssuer".getBytes()), result.getTransactionResult().logs.get(0).copyOfTopics().get(0));
+        assertArrayEquals(LogSizeUtils.truncatePadTopic(newIssuer.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(1));
+        assertArrayEquals(new byte[0], result.getTransactionResult().logs.get(0).copyOfData());
+
+        result = avmRule.call(tokenOwner, contractAddress, BigInteger.ZERO, encoder.encodeOneString("ATS041IsTokenIssuer").encodeOneAddress(newIssuer).toBytes());
+        Boolean resBool = (Boolean) result.getDecodedReturnData();
+        Assert.assertTrue(resBool);
+
+        result = avmRule.call(tokenOwner, contractAddress, BigInteger.ZERO,
+                encoder.encodeOneString("ATS041AddTokenIssuer")
+                        .encodeOneAddress(newIssuer)
+                        .toBytes());
+        Assert.assertTrue(result.getReceiptStatus().isSuccess());
+        assertEquals(1, result.getTransactionResult().logs.size());
+        assertArrayEquals(LogSizeUtils.truncatePadTopic("ATS041AddedTokenIssuer".getBytes()), result.getTransactionResult().logs.get(0).copyOfTopics().get(0));
+        assertArrayEquals(LogSizeUtils.truncatePadTopic(newIssuer.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(1));
+        assertArrayEquals(new byte[0], result.getTransactionResult().logs.get(0).copyOfData());
+    }
+
     @Test
     public void testAddTokenIssuerByNotTokenCreator() {
         Address newIssuer = avmRule.getRandomAddress(BigInteger.TEN);
@@ -102,6 +132,15 @@ public class ATSTokenContractTest {
                         .toBytes());
         Assert.assertTrue(result.getReceiptStatus().isFailed());
     }
+
+    //TODO: Add test for mint
+
+    //TODO: Add test for mint an amount that disobeys granularity
+
+    //TODO: A non issuer try to mint
+
+    
+
 
     @Test
     public void testInitializeBalanceToDeployer() {

@@ -28,7 +28,7 @@ public class ATSTokenContractTest {
     private String tokenName = "JENNIJUJU";
     private String tokenSymbol = "J3N";
     private int tokenGranularity = 3;
-    private BigInteger tokenTotalSupply = BigInteger.valueOf(333_333_333_333_333_333L).multiply(nAmp);
+    private BigInteger tokenTotalSupply = BigInteger.ZERO;
 
     @Before
     public void deployDapp() {
@@ -36,7 +36,6 @@ public class ATSTokenContractTest {
         byte[] data = encoder.encodeOneString(tokenName)
                 .encodeOneString(tokenSymbol)
                 .encodeOneInteger(tokenGranularity)
-                .encodeOneBigInteger(tokenTotalSupply)
                 .toBytes();
         byte[] contractData = avmRule.getDappBytes(ATS041TokenContract.class, data, 1, ATS041Implementation.class, ATS041Event.class, ATS041KeyValueStorage.class);
         contractAddress = avmRule.deploy(tokenOwner, BigInteger.ZERO, contractData).getDappAddress();

@@ -10,13 +10,21 @@ public class ATS041Event {
 
     private static int BIGINTEGER_LENGTH = 32;
 
-    protected static void ATS041ATSTokenCreated(BigInteger totalSupply, Address creator) {
+    protected static void ATS041ATSTokenCreated(String tokenName, String tokenSymbol, int tokenGranularity, Address creator) {
         Blockchain.log("ATS041TokenCreated".getBytes(),
-                padding(totalSupply),
-                creator.toByteArray(),
-                new byte[0]);
+                tokenName.getBytes(),
+                tokenSymbol.getBytes(),
+                padding(BigInteger.valueOf(tokenGranularity)),
+                creator.toByteArray());
     }
 
+    protected static void ATS041ATSTokenMinted(Address issuer, Address to, BigInteger amount, byte[] issuerData) {
+        Blockchain.log("ATS041TokenMinted".getBytes(),
+                        issuer.toByteArray(),
+                        to.toByteArray(),
+                        padding(amount),
+                        issuerData);
+    }
     /**
      * Store byte[] sizes for collecting data
      *
@@ -98,6 +106,14 @@ public class ATS041Event {
                 operator.toByteArray(),
                 tokenHolder.toByteArray(),
                 new byte[0]);
+    }
+
+    protected static void ATS041AddedTokenIssuer(Address newTokenIssuer) {
+        Blockchain.log("ATS041AddedTokenIssuer".getBytes(), newTokenIssuer.toByteArray(), new byte[0]);
+    }
+
+    protected static void ATS041RemovedTokenIssuer(Address oldTokenIssuer) {
+        Blockchain.log("ATS041RemovedTokenIssuer".getBytes(), oldTokenIssuer.toByteArray(), new byte[0]);
     }
 
     private static byte[] padding(BigInteger value) {

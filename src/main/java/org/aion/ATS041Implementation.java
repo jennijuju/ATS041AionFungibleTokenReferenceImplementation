@@ -2,6 +2,7 @@ package org.aion;
 
 import avm.Blockchain;
 import avm.Address;
+import org.aion.avm.userlib.AionSet;
 
 import java.math.BigInteger;
 import java.util.Arrays;
@@ -37,18 +38,9 @@ public class ATS041Implementation {
     protected static String tokenName ;
     protected static String tokenSymbol;
     protected static int tokenGranularity;
-    protected static BigInteger tokenTotalSupply;
-
-    /********************************************Initialization********************************************/
-    /**
-     * Total number of the minted token upon token creation is initialized under the token creator's account.
-     * "ATSTokenCreated" event is emitted upon deployment.
-     */
-    protected static void initialize() {
-        Blockchain.putStorage(ATS041KeyValueStorage.ATS041GetBalanceKey(Blockchain.getCaller()), tokenTotalSupply.toByteArray());
-        ATS041Event.ATS041ATSTokenCreated(tokenTotalSupply, Blockchain.getCaller());
-    }
-
+    protected static BigInteger tokenTotalSupply = BigInteger.ZERO;
+    protected static Address tokenCreator;
+    protected static AionSet<Address> tokenIssuers = new AionSet<>();
 
     /**********************************************Token Info**********************************************/
 
@@ -82,6 +74,33 @@ public class ATS041Implementation {
      */
     protected static BigInteger ATS041TotalSupply() {
         return tokenTotalSupply;
+    }
+
+    /**********************************************Token Contract Info**********************************************/
+
+    protected static Address ATS041GetTokenCreator() {
+        return tokenCreator;
+    }
+
+    protected static void ATS041AddTokenIssuer(Address newIssuer) {
+        onlyTokenCreator();
+        tokenIssuers.add(newIssuer);
+        ATS041Event.ATS041AddedTokenIssuer(newIssuer);
+    }
+
+    protected static void ATS041RemoveTokenIssuer(Address oldIssuer) {
+        onlyTokenCreator();
+        tokenIssuers.remove(oldIssuer);
+        ATS041Event.ATS041RemovedTokenIssuer(oldIssuer);
+    }
+
+    protected static Address[] getATS041TokenIssuers() {
+        Address[] issuers = new Address[tokenIssuers.size()];
+        int i = 0;
+        for (Address issuer: tokenIssuers) {
+            issuers[i] = issuer;
+        }
+        return issuers;
     }
 
     /*********************************************Token Holder*********************************************/
@@ -146,6 +165,10 @@ public class ATS041Implementation {
 
     /******************************************Token Movement*******************************************/
 
+    protected static void ATS041Mint(Address to, BigInteger amount, byte[] issuerData) {
+        doMint(to, amount, issuerData);
+    }
+
     /**
      * Send the amount of tokens from the address Blockchain.getCaller() to the address to.
      * The operator and the token holder MUST both be the Blockchain.getCaller().
@@ -206,6 +229,18 @@ public class ATS041Implementation {
     }
 
 
+    private static void doMint(Address to, BigInteger amount, byte[] issuerData) {
+        onlyTokenIssuer();
+        Blockchain.require(amount.compareTo(BigInteger.ZERO) > -1);
+        Blockchain.require(amount.mod(BigInteger.valueOf(tokenGranularity)).compareTo(BigInteger.ZERO) == 0);
+
+        tokenTotalSupply.add(amount);
+        Blockchain.putStorage(ATS041KeyValueStorage.ATS041GetBalanceKey(to),
+                ATS041BalanceOf(to).add(amount).toByteArray());
+        ATS041Event.ATS041ATSTokenMinted(Blockchain.getCaller(), to, amount, issuerData);
+        //ToDO: callRecipient here?
+    }
+
     private static void doSend(Address operator, Address from, Address to, BigInteger amount, byte[] userData, byte[] operatorData, boolean preventLocking) {
         Blockchain.require(amount.compareTo(BigInteger.ZERO) > -1); //Amount is not negative value
         Blockchain.require(amount.mod(BigInteger.valueOf(tokenGranularity)).equals(BigInteger.ZERO)); //Check granularity
@@ -228,7 +263,6 @@ public class ATS041Implementation {
 
         } else { //Receiver is a new token holder
             Blockchain.putStorage(ATS041KeyValueStorage.ATS041GetBalanceKey(to), amount.toByteArray());
-
             callRecipient(operator, from, to, amount, userData, operatorData, preventLocking);
             ATS041Event.ATS041Sent(operator, from, to, amount, userData, operatorData);
         }
@@ -250,15 +284,36 @@ public class ATS041Implementation {
     }
 
     private static void callSender(Address operator, Address from, Address to, BigInteger amount, byte[] userData, byte[] operatorData) {
+        if(isContractAddress(to)) {
+            /*
+            Put your desired implementation here!
+            For example:
+            Result result = Blockchain.call(to, ...)
+             */
+        }
 
     }
 
     private static void callRecipient(Address operator, Address from, Address to, BigInteger amount, byte[] userData, byte[] operatorData, boolean preventLocking) {
-
+        if(isContractAddress(to)) {
+            /*
+            Put your desired implementation here!
+            For example:
+            Result result = Blockchain.call(to, ...)
+             */
+        }
     }
 
-    private static boolean isRegularAccount(Address address) {
+    private static boolean isContractAddress(Address address) {
         return (Blockchain.getCodeSize(address) > 0) ? true : false;
+    }
+
+    private static void onlyTokenCreator() {
+        Blockchain.require(Blockchain.getCaller().equals(tokenCreator));
+    }
+
+    private static void onlyTokenIssuer() {
+        Blockchain.require(tokenIssuers.contains(Blockchain.getCaller()));
     }
 
 }

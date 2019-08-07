@@ -22,8 +22,8 @@ import java.math.BigInteger;
  * Jeff Disher(https://github.com/jeff-aion);
  * Aayush Rajasekaran(https://github.com/arajasek)
  *
- *            _____ ____  _   _   ______                 _ _     _        _______    _
- *     /\   |_   _/ __ \| \ | |  |  ____|               (_) |   | |    |__   __|  | |
+ *            _____ ____  _   _   ______                 _ _     _      _______    _
+ *     /\   |_   _/ __ \| \ | |  |  ____|               (_) |   | |    |_    __|  | |
  *    /  \    | || |  | |  \| |  | |__ _   _ _ __   __ _ _| |__ | | ___   | | ___ | | _____ _ __
  *   / /\ \   | || |  | | . ` |  |  __| | | | '_ \ / _` | | '_ \| |/ _ \  | |/ _ \| |/ / _ \ '_ \
  *  / ____ \ _| || |__| | |\  |  | |  | |_| | | | | (_| | | |_) | |  __/  | | (_) |   <  __/ | | |
@@ -50,16 +50,10 @@ public class ATS041TokenContract {
 
     /**
      * tokenGranularity: Granularity of the token.
-     * The granularity is the smallest number of tokens (in the basic unit, which is 10^-18) which MAY be minted, sent and burned in any transaction.
+     * The granularity is the smallest number of tokens (in the basic unit, nAmp) which MAY be minted, sent and burned in any transaction.
      */
     @Initializable
     private static int ATS041TokenGranularity;
-
-    /**
-     * totalSupply: Total number of the minted token upon token creation.
-     */
-    @Initializable
-    private static BigInteger ATS041TokenTotalSupply;
 
     /**
      * Initialization upon deployment.
@@ -68,12 +62,12 @@ public class ATS041TokenContract {
         Blockchain.require(ATS041TokenName.length() > 0);
         Blockchain.require(ATS041TokenSymbol.length() > 0);
         Blockchain.require(ATS041TokenGranularity >= 1);
-        Blockchain.require(ATS041TokenTotalSupply.compareTo(BigInteger.ZERO) == 1);
         ATS041Implementation.tokenName = ATS041TokenName;
         ATS041Implementation.tokenSymbol = ATS041TokenSymbol;
         ATS041Implementation.tokenGranularity = ATS041TokenGranularity;
-        ATS041Implementation.tokenTotalSupply = ATS041TokenTotalSupply;
-        ATS041Implementation.initialize();
+        ATS041Implementation.tokenCreator = Blockchain.getCaller();
+        ATS041Implementation.tokenIssuers.add(Blockchain.getCaller());
+        ATS041Event.ATS041ATSTokenCreated(ATS041TokenName, ATS041TokenSymbol, ATS041TokenGranularity, Blockchain.getCaller());
     }
 
     /**********************************************Token Info**********************************************/

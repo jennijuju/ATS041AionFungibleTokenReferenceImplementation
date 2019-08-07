@@ -139,7 +139,7 @@ public class ATSTokenContractTest {
 
     //TODO: A non issuer try to mint
 
-    
+
 
 
     @Test

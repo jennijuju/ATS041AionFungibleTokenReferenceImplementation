@@ -39,8 +39,8 @@ public class ATS041Implementation {
     protected static String tokenSymbol;
     protected static int tokenGranularity;
     protected static BigInteger tokenTotalSupply = BigInteger.ZERO;
-    protected static Address tokenCreator;
-    protected static AionSet<Address> tokenIssuers = new AionSet<>();
+    protected static Address tokenCreator; //The creator of the token.
+    protected static AionSet<Address> tokenIssuers = new AionSet<>(); // Address that can mint new tokens.
 
     /**********************************************Token Info**********************************************/
 
@@ -76,25 +76,44 @@ public class ATS041Implementation {
         return tokenTotalSupply;
     }
 
-
-    /**********************************************Token Contract Info**********************************************/
-
+    /**
+     * Get the creator of the token.
+     * @return The address of the creator of the token.
+     */
     protected static Address ATS041GetTokenCreator() {
         return tokenCreator;
     }
+    /**********************************************Token Contract Info**********************************************/
 
+
+    /**
+     * Add a new issuer for the token issuer list.
+     * Only the creator of the token can take this action. A current issuer may be added again.
+     * ATS041AddesTokenIssuer event has to be emitted.
+     * @param newIssuer
+     */
     protected static void ATS041AddTokenIssuer(Address newIssuer) {
         onlyTokenCreator();
         tokenIssuers.add(newIssuer);
         ATS041Event.ATS041AddedTokenIssuer(newIssuer);
     }
 
+    /**
+     * Remove an issuer from the token issuer list.
+     * Only the creator of the token can take this action. A removed issuer may be removed again.
+     * ATS041RemovedTokenIssuer event has to be emitted.
+     * @param oldIssuer
+     */
     protected static void ATS041RemoveTokenIssuer(Address oldIssuer) {
         onlyTokenCreator();
         tokenIssuers.remove(oldIssuer);
         ATS041Event.ATS041RemovedTokenIssuer(oldIssuer);
     }
 
+    /**
+     * Get the list of token issuers.
+     * @return List of token issuers.
+     */
     protected static Address[] ATS041GetTokenIssuers() {
         Address[] issuers = new Address[tokenIssuers.size()];
         int i = 0;
@@ -104,6 +123,11 @@ public class ATS041Implementation {
         return issuers;
     }
 
+    /**
+     * Check if an account is an issuer of the token.
+     * @param issuer An account that may be an issuer of the token.
+     * @return true if is an issuer of the token, otherwise return false.
+     */
     protected static boolean ATS041IsTokenIssuer(Address issuer) {
         return tokenIssuers.contains(issuer);
     }

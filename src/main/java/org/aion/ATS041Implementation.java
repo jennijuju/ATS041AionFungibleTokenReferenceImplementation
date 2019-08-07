@@ -76,6 +76,7 @@ public class ATS041Implementation {
         return tokenTotalSupply;
     }
 
+
     /**********************************************Token Contract Info**********************************************/
 
     protected static Address ATS041GetTokenCreator() {
@@ -94,7 +95,7 @@ public class ATS041Implementation {
         ATS041Event.ATS041RemovedTokenIssuer(oldIssuer);
     }
 
-    protected static Address[] getATS041TokenIssuers() {
+    protected static Address[] ATS041GetTokenIssuers() {
         Address[] issuers = new Address[tokenIssuers.size()];
         int i = 0;
         for (Address issuer: tokenIssuers) {
@@ -102,6 +103,11 @@ public class ATS041Implementation {
         }
         return issuers;
     }
+
+    protected static boolean ATS041IsTokenIssuer(Address issuer) {
+        return tokenIssuers.contains(issuer);
+    }
+
 
     /*********************************************Token Holder*********************************************/
 

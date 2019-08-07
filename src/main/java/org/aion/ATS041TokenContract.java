@@ -70,7 +70,6 @@ public class ATS041TokenContract {
         ATS041Event.ATS041ATSTokenCreated(ATS041TokenName, ATS041TokenSymbol, ATS041TokenGranularity, Blockchain.getCaller());
     }
 
-    /**********************************************Token Info**********************************************/
     @Callable
     public static String ATS041Name() {
         return ATS041Implementation.ATS041Name();
@@ -97,6 +96,32 @@ public class ATS041TokenContract {
     }
 
     @Callable
+    public static Address ATS041GetTokenCreator() {
+        return ATS041Implementation.ATS041GetTokenCreator();
+    }
+
+    @Callable
+    public static void ATS041AddTokenIssuer(Address newIssuer) {
+         ATS041Implementation.ATS041AddTokenIssuer(newIssuer);
+    }
+
+    @Callable
+    public static void ATS041RemoveTokenIssuer(Address oldIssuer) {
+        ATS041Implementation.ATS041RemoveTokenIssuer(oldIssuer);
+
+    }
+
+    @Callable
+    public static Address[] ATS041GetTokenIssuers() {
+        return ATS041Implementation.ATS041GetTokenIssuers();
+    }
+
+    @Callable
+    public static boolean ATS041IsTokenIssuer(Address issuer) {
+        return ATS041Implementation.ATS041GetTokenIssuers(issuer);
+    }
+
+    @Callable
     public static void ATS041AuthorizeOperator(Address operator) {
         ATS041Implementation.ATS041AuthorizeOperator(operator);
     }
@@ -111,6 +136,10 @@ public class ATS041TokenContract {
         return ATS041Implementation.ATS041IsOperatorFor(operator, tokenHolder);
     }
 
+    @Callable
+    public static void ATS041Mint(Address to, BigInteger amount, byte[] issuerData) {
+        ATS041Mint(to, amount, issuerData);
+    }
     @Callable
     public static void ATS041Send(Address to, BigInteger amount, byte[] userData) {
         ATS041Implementation.ATS041Send(to, amount, userData);

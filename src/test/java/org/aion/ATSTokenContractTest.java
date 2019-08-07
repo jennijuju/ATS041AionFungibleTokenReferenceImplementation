@@ -12,6 +12,7 @@ import org.junit.Rule;
 import org.junit.Test;
 
 import java.math.BigInteger;
+import java.util.Arrays;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
@@ -43,7 +44,7 @@ public class ATSTokenContractTest {
 
 
     @Test
-    public void testInitialization() {
+    public void testTokenCreation() {
         ABIStreamingEncoder encoder = new ABIStreamingEncoder();
         AvmRule.ResultWrapper result = avmRule.call(tokenOwner, contractAddress, BigInteger.ZERO, encoder.encodeOneString("ATS041Name").toBytes());
 
@@ -61,6 +62,16 @@ public class ATSTokenContractTest {
         result = avmRule.call(tokenOwner, contractAddress, BigInteger.ZERO, encoder.encodeOneString("ATS041TotalSupply").toBytes());
         BigInteger resBytes = (BigInteger) result.getDecodedReturnData();
         Assert.assertTrue(resBytes.compareTo(tokenTotalSupply) == 0);
+
+        result = avmRule.call(tokenOwner, contractAddress, BigInteger.ZERO, encoder.encodeOneString("ATS041GetTokenCreator").toBytes());
+        Address resAddress = (Address) result.getDecodedReturnData();
+        Assert.assertTrue(resAddress.equals(tokenOwner));
+
+        result = avmRule.call(tokenOwner, contractAddress, BigInteger.ZERO, encoder.encodeOneString("ATS041GetTokenIssuers").toBytes());
+        Address[] resAddressArray = (Address[]) result.getDecodedReturnData();
+        System.out.println("Issuer" +  resAddressArray);
+        Assert.assertTrue((new Address[]{tokenOwner}).equals(resAddressArray));
+
     }
 
     @Test

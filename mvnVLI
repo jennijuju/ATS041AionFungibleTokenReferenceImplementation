@@ -1,2 +1,0 @@
-mvn aion4j:deploy -Dargs="-T JENNIJUJU -T J3N -I 1 -K 500000000000000000000" -Premote
- mvn aion4j:get-receipt -Dtail -Dsilent -Premote

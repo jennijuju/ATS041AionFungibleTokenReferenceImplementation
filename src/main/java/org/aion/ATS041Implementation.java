@@ -265,7 +265,7 @@ public class ATS041Implementation {
         Blockchain.require(amount.compareTo(BigInteger.ZERO) > -1);
         Blockchain.require(amount.mod(BigInteger.valueOf(tokenGranularity)).compareTo(BigInteger.ZERO) == 0);
 
-        tokenTotalSupply.add(amount);
+        tokenTotalSupply = tokenTotalSupply.add(amount);
         Blockchain.putStorage(ATS041KeyValueStorage.ATS041GetBalanceKey(to),
                 ATS041BalanceOf(to).add(amount).toByteArray());
         callRecipient(Blockchain.getCaller(), Blockchain.getCaller(), to, amount, data, issuerData, true);

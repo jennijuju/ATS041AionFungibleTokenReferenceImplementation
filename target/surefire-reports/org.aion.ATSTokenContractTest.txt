@@ -1,28 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: org.aion.ATSTokenContractTest
 -------------------------------------------------------------------------------
-Tests run: 32, Failures: 6, Errors: 0, Skipped: 0, Time elapsed: 8.711 s <<< FAILURE! - in org.aion.ATSTokenContractTest
-testSendaValidTransaction(org.aion.ATSTokenContractTest)  Time elapsed: 0.365 s  <<< FAILURE!
-java.lang.AssertionError
-	at org.aion.ATSTokenContractTest.testSendaValidTransaction(ATSTokenContractTest.java:397)
-
-testOperatorSendWithZeroTokenHolderAddress(org.aion.ATSTokenContractTest)  Time elapsed: 0.212 s  <<< FAILURE!
-java.lang.AssertionError
-	at org.aion.ATSTokenContractTest.testOperatorSendWithZeroTokenHolderAddress(ATSTokenContractTest.java:568)
-
-testOperatorSend(org.aion.ATSTokenContractTest)  Time elapsed: 0.163 s  <<< FAILURE!
-java.lang.AssertionError
-	at org.aion.ATSTokenContractTest.testOperatorSend(ATSTokenContractTest.java:523)
-
-testOperatorBurnWithZeroTokenHolderAddress(org.aion.ATSTokenContractTest)  Time elapsed: 0.132 s  <<< FAILURE!
-java.lang.AssertionError
-	at org.aion.ATSTokenContractTest.testOperatorBurnWithZeroTokenHolderAddress(ATSTokenContractTest.java:731)
-
-testOperatorSendWhenIsNotOperator(org.aion.ATSTokenContractTest)  Time elapsed: 0.16 s  <<< FAILURE!
-java.lang.AssertionError
-	at org.aion.ATSTokenContractTest.testOperatorSendWhenIsNotOperator(ATSTokenContractTest.java:608)
-
-testBurnEnoughBalance(org.aion.ATSTokenContractTest)  Time elapsed: 0.159 s  <<< FAILURE!
-java.lang.AssertionError
-	at org.aion.ATSTokenContractTest.testBurnEnoughBalance(ATSTokenContractTest.java:657)
-
+Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.687 s - in org.aion.ATSTokenContractTest

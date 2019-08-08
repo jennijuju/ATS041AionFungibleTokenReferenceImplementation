@@ -2,6 +2,7 @@ package org.aion;
 
 import avm.Address;
 
+import avm.Blockchain;
 import org.aion.avm.core.util.LogSizeUtils;
 import org.aion.avm.embed.AvmRule;
 import org.aion.avm.userlib.AionBuffer;
@@ -133,20 +134,56 @@ public class ATSTokenContractTest {
         Assert.assertTrue(result.getReceiptStatus().isFailed());
     }
 
-    //TODO: Add test for mint
+    @Test
+    public void testMint() {
+        Address to =  avmRule.getRandomAddress(BigInteger.TEN);
+        ABIStreamingEncoder encoder =new ABIStreamingEncoder();
+        AvmRule.ResultWrapper result = avmRule.call(tokenOwner, contractAddress, BigInteger.ZERO,
+                                                    encoder.encodeOneString("ATS041Mint")
+                                                            .encodeOneAddress(to).encodeOneBigInteger(BigInteger.valueOf(3).multiply(nAmp))
+                                                            .encodeOneByteArray(new byte[0])
+                                                            .encodeOneByteArray(new byte[0])
+                                                            .toBytes());
+        Assert.assertTrue(result.getReceiptStatus().isSuccess());
+        assertEquals(1, result.getTransactionResult().logs.size());
+        assertArrayEquals(LogSizeUtils.truncatePadTopic("ATS041Minted".getBytes()), result.getTransactionResult().logs.get(0).copyOfTopics().get(0));
+        assertArrayEquals(LogSizeUtils.truncatePadTopic(tokenOwner.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(1));
+        assertArrayEquals(LogSizeUtils.truncatePadTopic(to.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(2));
+        assertArrayEquals(LogSizeUtils.truncatePadTopic(padding(BigInteger.valueOf(3).multiply(nAmp))), result.getTransactionResult().logs.get(0).copyOfTopics().get(3));
 
-    //TODO: Add test for mint an amount that disobeys granularity
+        result = avmRule.call(tokenOwner, contractAddress, BigInteger.ZERO, encoder.encodeOneString("ATS041TotalSupply").toBytes());
+        BigInteger resBI = (BigInteger) result.getDecodedReturnData();
+        Assert.assertTrue(resBI.compareTo(BigInteger.valueOf(3).multiply(nAmp)) == 0);
 
-    //TODO: A non issuer try to mint
-
-
-
+        result = avmRule.call(tokenOwner, contractAddress, BigInteger.ZERO, new ABIStreamingEncoder().encodeOneString("ATS041BalanceOf").encodeOneAddress(to).toBytes());
+        resBI = (BigInteger) result.getDecodedReturnData();
+        Assert.assertTrue(resBI.compareTo(BigInteger.valueOf(3).multiply(nAmp)) == 0);
+    }
 
     @Test
-    public void testInitializeBalanceToDeployer() {
-        AvmRule.ResultWrapper result = avmRule.call(tokenOwner, contractAddress, BigInteger.ZERO, new ABIStreamingEncoder().encodeOneString("ATS041BalanceOf").encodeOneAddress(tokenOwner).toBytes());
-        BigInteger res = (BigInteger) result.getDecodedReturnData();
-        Assert.assertTrue(res.compareTo(tokenTotalSupply) == 0);
+    public void testMintDisobeyGranularity() {
+        Address to =  avmRule.getRandomAddress(BigInteger.TEN);
+        ABIStreamingEncoder encoder =new ABIStreamingEncoder();
+        AvmRule.ResultWrapper result = avmRule.call(tokenOwner, contractAddress, BigInteger.ZERO,
+                encoder.encodeOneString("ATS041Mint")
+                        .encodeOneAddress(to).encodeOneBigInteger(BigInteger.valueOf(4).multiply(nAmp))
+                        .encodeOneByteArray(new byte[0])
+                        .encodeOneByteArray(new byte[0])
+                        .toBytes());
+        Assert.assertTrue(result.getReceiptStatus().isFailed());
+    }
+
+    @Test
+    public void testMintByAnNonIssuer() {
+        Address to =  avmRule.getRandomAddress(BigInteger.TEN);
+        ABIStreamingEncoder encoder =new ABIStreamingEncoder();
+        AvmRule.ResultWrapper result = avmRule.call(avmRule.getRandomAddress(BigInteger.TEN.multiply(nAmp)), contractAddress, BigInteger.ZERO,
+                encoder.encodeOneString("ATS041Mint")
+                        .encodeOneAddress(to).encodeOneBigInteger(BigInteger.valueOf(3).multiply(nAmp))
+                        .encodeOneByteArray(new byte[0])
+                        .encodeOneByteArray(new byte[0])
+                        .toBytes());
+        Assert.assertTrue(result.getReceiptStatus().isFailed());
     }
 
 
@@ -284,7 +321,6 @@ public class ATSTokenContractTest {
         assertArrayEquals(LogSizeUtils.truncatePadTopic("ATS041AuthorizedOperator".getBytes()), result.getTransactionResult().logs.get(0).copyOfTopics().get(0));
         assertArrayEquals(LogSizeUtils.truncatePadTopic(tokenHolder.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(1));
         assertArrayEquals(LogSizeUtils.truncatePadTopic(tokenHolder.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(2));
-        assertArrayEquals(new byte[0], result.getTransactionResult().logs.get(0).copyOfData());
 
         result = avmRule.call(avmRule.getRandomAddress(BigInteger.TEN.multiply(nAmp)), contractAddress, BigInteger.ZERO,
                 encoder.encodeOneString("ATS041IsOperatorFor")
@@ -293,6 +329,8 @@ public class ATSTokenContractTest {
                         .toBytes());
         Boolean res = (boolean) result.getDecodedReturnData();
         Assert.assertTrue(res);
+
+
     }
 
     @Test
@@ -387,8 +425,21 @@ public class ATSTokenContractTest {
     public void testSendaValidTransaction() {
         ABIStreamingEncoder encoder = new ABIStreamingEncoder();
 
-        Address to = avmRule.getRandomAddress(BigInteger.ZERO);
         AvmRule.ResultWrapper result = avmRule.call(tokenOwner, contractAddress, BigInteger.ZERO,
+                encoder.encodeOneString("ATS041Mint")
+                        .encodeOneAddress(tokenOwner).encodeOneBigInteger(BigInteger.valueOf(6).multiply(nAmp))
+                        .encodeOneByteArray(new byte[0])
+                        .encodeOneByteArray(new byte[0])
+                        .toBytes());
+        Assert.assertTrue(result.getReceiptStatus().isSuccess());
+        assertEquals(1, result.getTransactionResult().logs.size());
+        assertArrayEquals(LogSizeUtils.truncatePadTopic("ATS041Minted".getBytes()), result.getTransactionResult().logs.get(0).copyOfTopics().get(0));
+        assertArrayEquals(LogSizeUtils.truncatePadTopic(tokenOwner.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(1));
+        assertArrayEquals(LogSizeUtils.truncatePadTopic(tokenOwner.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(2));
+        assertArrayEquals(LogSizeUtils.truncatePadTopic(padding(BigInteger.valueOf(6).multiply(nAmp))), result.getTransactionResult().logs.get(0).copyOfTopics().get(3));
+
+        Address to = avmRule.getRandomAddress(BigInteger.ZERO);
+        result = avmRule.call(tokenOwner, contractAddress, BigInteger.ZERO,
                 encoder.encodeOneString("ATS041Send")
                         .encodeOneAddress(to)
                         .encodeOneBigInteger(BigInteger.valueOf(3).multiply(nAmp))
@@ -412,14 +463,6 @@ public class ATSTokenContractTest {
                         .toBytes());
         Assert.assertTrue(result.getReceiptStatus().isSuccess());
         BigInteger res = (BigInteger) result.getDecodedReturnData();
-        Assert.assertTrue(res.compareTo(tokenTotalSupply.subtract(BigInteger.valueOf(3).multiply(nAmp))) == 0);
-
-        result = avmRule.call(tokenOwner, contractAddress, BigInteger.ZERO,
-                encoder.encodeOneString("ATS041BalanceOf")
-                        .encodeOneAddress(to)
-                        .toBytes());
-        Assert.assertTrue(result.getReceiptStatus().isSuccess());
-        res = (BigInteger) result.getDecodedReturnData();
         Assert.assertTrue(res.compareTo(BigInteger.valueOf(3).multiply(nAmp)) == 0);
     }
 
@@ -492,13 +535,27 @@ public class ATSTokenContractTest {
 
     @Test
     public void testOperatorSend() {
+
         ABIStreamingEncoder encoder = new ABIStreamingEncoder();
+
+        AvmRule.ResultWrapper result = avmRule.call(tokenOwner, contractAddress, BigInteger.ZERO,
+                encoder.encodeOneString("ATS041Mint")
+                        .encodeOneAddress(tokenOwner).encodeOneBigInteger(BigInteger.valueOf(6).multiply(nAmp))
+                        .encodeOneByteArray(new byte[0])
+                        .encodeOneByteArray(new byte[0])
+                        .toBytes());
+        Assert.assertTrue(result.getReceiptStatus().isSuccess());
+        assertEquals(1, result.getTransactionResult().logs.size());
+        assertArrayEquals(LogSizeUtils.truncatePadTopic("ATS041Minted".getBytes()), result.getTransactionResult().logs.get(0).copyOfTopics().get(0));
+        assertArrayEquals(LogSizeUtils.truncatePadTopic(tokenOwner.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(1));
+        assertArrayEquals(LogSizeUtils.truncatePadTopic(tokenOwner.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(2));
+        assertArrayEquals(LogSizeUtils.truncatePadTopic(padding(BigInteger.valueOf(6).multiply(nAmp))), result.getTransactionResult().logs.get(0).copyOfTopics().get(3));
 
         Address to = avmRule.getRandomAddress(BigInteger.valueOf(3).multiply(nAmp));
 
         //authorize operator
         Address operator = avmRule.getRandomAddress(BigInteger.TEN.multiply(nAmp));
-        AvmRule.ResultWrapper result = avmRule.call(tokenOwner, contractAddress, BigInteger.ZERO,
+        result = avmRule.call(tokenOwner, contractAddress, BigInteger.ZERO,
                 encoder.encodeOneString("ATS041AuthorizeOperator")
                         .encodeOneAddress(operator)
                         .toBytes());
@@ -538,7 +595,7 @@ public class ATSTokenContractTest {
                         .toBytes());
         Assert.assertTrue(result.getReceiptStatus().isSuccess());
         BigInteger resBI = (BigInteger) result.getDecodedReturnData();
-        Assert.assertTrue(resBI.compareTo(tokenTotalSupply.subtract(BigInteger.valueOf(3).multiply(nAmp))) == 0);
+        Assert.assertTrue(resBI.compareTo((BigInteger.valueOf(3).multiply(nAmp))) == 0);
 
         result = avmRule.call(tokenOwner, contractAddress, BigInteger.ZERO,
                 encoder.encodeOneString("ATS041BalanceOf")
@@ -554,10 +611,23 @@ public class ATSTokenContractTest {
     public void testOperatorSendWithZeroTokenHolderAddress() {
         ABIStreamingEncoder encoder = new ABIStreamingEncoder();
 
+        AvmRule.ResultWrapper result = avmRule.call(tokenOwner, contractAddress, BigInteger.ZERO,
+                encoder.encodeOneString("ATS041Mint")
+                        .encodeOneAddress(tokenOwner).encodeOneBigInteger(BigInteger.valueOf(6).multiply(nAmp))
+                        .encodeOneByteArray(new byte[0])
+                        .encodeOneByteArray(new byte[0])
+                        .toBytes());
+        Assert.assertTrue(result.getReceiptStatus().isSuccess());
+        assertEquals(1, result.getTransactionResult().logs.size());
+        assertArrayEquals(LogSizeUtils.truncatePadTopic("ATS041Minted".getBytes()), result.getTransactionResult().logs.get(0).copyOfTopics().get(0));
+        assertArrayEquals(LogSizeUtils.truncatePadTopic(tokenOwner.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(1));
+        assertArrayEquals(LogSizeUtils.truncatePadTopic(tokenOwner.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(2));
+        assertArrayEquals(LogSizeUtils.truncatePadTopic(padding(BigInteger.valueOf(6).multiply(nAmp))), result.getTransactionResult().logs.get(0).copyOfTopics().get(3));
+
         Address to = avmRule.getRandomAddress(BigInteger.valueOf(3).multiply(nAmp));
 
 
-        AvmRule.ResultWrapper result = avmRule.call(tokenOwner, contractAddress, BigInteger.ZERO,
+        result = avmRule.call(tokenOwner, contractAddress, BigInteger.ZERO,
                 encoder.encodeOneString("ATS041OperatorSend")
                         .encodeOneAddress(new Address(new byte[32]))
                         .encodeOneAddress(to)
@@ -583,7 +653,7 @@ public class ATSTokenContractTest {
                         .toBytes());
         Assert.assertTrue(result.getReceiptStatus().isSuccess());
         BigInteger resBI = (BigInteger) result.getDecodedReturnData();
-        Assert.assertTrue(resBI.compareTo(tokenTotalSupply.subtract(BigInteger.valueOf(3).multiply(nAmp))) == 0);
+        Assert.assertTrue(resBI.compareTo(BigInteger.valueOf(3).multiply(nAmp)) == 0);
 
         result = avmRule.call(tokenOwner, contractAddress, BigInteger.ZERO,
                 encoder.encodeOneString("ATS041BalanceOf")
@@ -598,8 +668,21 @@ public class ATSTokenContractTest {
     public void testOperatorSendWhenIsNotOperator() {
         ABIStreamingEncoder encoder = new ABIStreamingEncoder();
 
-        Address to = avmRule.getRandomAddress(BigInteger.ZERO);
         AvmRule.ResultWrapper result = avmRule.call(tokenOwner, contractAddress, BigInteger.ZERO,
+                encoder.encodeOneString("ATS041Mint")
+                        .encodeOneAddress(tokenOwner).encodeOneBigInteger(BigInteger.valueOf(6).multiply(nAmp))
+                        .encodeOneByteArray(new byte[0])
+                        .encodeOneByteArray(new byte[0])
+                        .toBytes());
+        Assert.assertTrue(result.getReceiptStatus().isSuccess());
+        assertEquals(1, result.getTransactionResult().logs.size());
+        assertArrayEquals(LogSizeUtils.truncatePadTopic("ATS041Minted".getBytes()), result.getTransactionResult().logs.get(0).copyOfTopics().get(0));
+        assertArrayEquals(LogSizeUtils.truncatePadTopic(tokenOwner.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(1));
+        assertArrayEquals(LogSizeUtils.truncatePadTopic(tokenOwner.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(2));
+        assertArrayEquals(LogSizeUtils.truncatePadTopic(padding(BigInteger.valueOf(6).multiply(nAmp))), result.getTransactionResult().logs.get(0).copyOfTopics().get(3));
+
+        Address to = avmRule.getRandomAddress(BigInteger.ZERO);
+        result = avmRule.call(tokenOwner, contractAddress, BigInteger.ZERO,
                 encoder.encodeOneString("ATS041Send")
                         .encodeOneAddress(to)
                         .encodeOneBigInteger(BigInteger.valueOf(3).multiply(nAmp))
@@ -647,7 +730,21 @@ public class ATSTokenContractTest {
     @Test
     public void testBurnEnoughBalance() {
         ABIStreamingEncoder encoder = new ABIStreamingEncoder();
-        AvmRule.ResultWrapper result = avmRule.call(tokenOwner,
+
+        AvmRule.ResultWrapper result = avmRule.call(tokenOwner, contractAddress, BigInteger.ZERO,
+                encoder.encodeOneString("ATS041Mint")
+                        .encodeOneAddress(tokenOwner).encodeOneBigInteger(BigInteger.valueOf(6).multiply(nAmp))
+                        .encodeOneByteArray(new byte[0])
+                        .encodeOneByteArray(new byte[0])
+                        .toBytes());
+        Assert.assertTrue(result.getReceiptStatus().isSuccess());
+        assertEquals(1, result.getTransactionResult().logs.size());
+        assertArrayEquals(LogSizeUtils.truncatePadTopic("ATS041Minted".getBytes()), result.getTransactionResult().logs.get(0).copyOfTopics().get(0));
+        assertArrayEquals(LogSizeUtils.truncatePadTopic(tokenOwner.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(1));
+        assertArrayEquals(LogSizeUtils.truncatePadTopic(tokenOwner.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(2));
+        assertArrayEquals(LogSizeUtils.truncatePadTopic(padding(BigInteger.valueOf(6).multiply(nAmp))), result.getTransactionResult().logs.get(0).copyOfTopics().get(3));
+
+        result = avmRule.call(tokenOwner,
                 contractAddress,
                 BigInteger.ZERO,
                 encoder.encodeOneString("ATS041Burn")
@@ -665,13 +762,11 @@ public class ATSTokenContractTest {
 
         result = avmRule.call(tokenOwner, contractAddress, BigInteger.ZERO, encoder.encodeOneString("ATS041BalanceOf").encodeOneAddress(tokenOwner).toBytes());
         BigInteger res = (BigInteger) result.getDecodedReturnData();
-        System.out.println(res);
-        Assert.assertTrue(res.compareTo(tokenTotalSupply.subtract(BigInteger.valueOf(3).multiply(nAmp))) == 0);
+        Assert.assertTrue(res.compareTo(BigInteger.valueOf(3).multiply(nAmp)) == 0);
 
         result = avmRule.call(tokenOwner, contractAddress, BigInteger.ZERO, encoder.encodeOneString("ATS041TotalSupply").toBytes());
         res = (BigInteger) result.getDecodedReturnData();
-        System.out.println(res);
-        Assert.assertTrue(res.compareTo(tokenTotalSupply.subtract(BigInteger.valueOf(3).multiply(nAmp))) == 0);
+        Assert.assertTrue(res.compareTo(BigInteger.valueOf(3).multiply(nAmp)) == 0);
     }
 
 
@@ -719,7 +814,21 @@ public class ATSTokenContractTest {
     @Test
     public void testOperatorBurnWithZeroTokenHolderAddress() {
         ABIStreamingEncoder encoder = new ABIStreamingEncoder();
-        AvmRule.ResultWrapper result = avmRule.call(tokenOwner,
+
+        AvmRule.ResultWrapper result = avmRule.call(tokenOwner, contractAddress, BigInteger.ZERO,
+                encoder.encodeOneString("ATS041Mint")
+                        .encodeOneAddress(tokenOwner).encodeOneBigInteger(BigInteger.valueOf(6).multiply(nAmp))
+                        .encodeOneByteArray(new byte[0])
+                        .encodeOneByteArray(new byte[0])
+                        .toBytes());
+        Assert.assertTrue(result.getReceiptStatus().isSuccess());
+        assertEquals(1, result.getTransactionResult().logs.size());
+        assertArrayEquals(LogSizeUtils.truncatePadTopic("ATS041Minted".getBytes()), result.getTransactionResult().logs.get(0).copyOfTopics().get(0));
+        assertArrayEquals(LogSizeUtils.truncatePadTopic(tokenOwner.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(1));
+        assertArrayEquals(LogSizeUtils.truncatePadTopic(tokenOwner.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(2));
+        assertArrayEquals(LogSizeUtils.truncatePadTopic(padding(BigInteger.valueOf(6).multiply(nAmp))), result.getTransactionResult().logs.get(0).copyOfTopics().get(3));
+
+       result = avmRule.call(tokenOwner,
                 contractAddress,
                 BigInteger.ZERO,
                 encoder.encodeOneString("ATS041OperatorBurn")
@@ -736,6 +845,13 @@ public class ATSTokenContractTest {
         assertArrayEquals(LogSizeUtils.truncatePadTopic(tokenOwner.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(2));
         assertArrayEquals(AionBuffer.allocate(40).put32ByteInt(BigInteger.valueOf(333_333_333_333L).multiply(nAmp)).getArray(),
                 result.getTransactionResult().logs.get(0).copyOfData());
+    }
+
+    private static byte[] padding(BigInteger value) {
+        byte[] valueArray = value.toByteArray();
+        byte[] paddedArray = new byte[32];
+        System.arraycopy(valueArray, 0, paddedArray,32-valueArray.length, valueArray.length);
+        return paddedArray;
     }
 
 }

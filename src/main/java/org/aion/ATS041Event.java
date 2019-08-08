@@ -28,15 +28,14 @@ public class ATS041Event {
             issuerData = new byte[0];
         }
 
-        byte[] eventData = AionBuffer.allocate(BIGINTEGER_LENGTH + Integer.BYTES + data.length + Integer.BYTES + issuerData.length)
-                .put32ByteInt(amount)
+        byte[] eventData = AionBuffer.allocate(Integer.BYTES + data.length + Integer.BYTES + issuerData.length)
                 .putInt(data.length)
                 .put(data)
                 .putInt(issuerData.length)
                 .put(issuerData)
                 .getArray();
 
-        Blockchain.log("ATS041TokenMinted".getBytes(),
+        Blockchain.log("ATS041Minted".getBytes(),
                         issuer.toByteArray(),
                         to.toByteArray(),
                         padding(amount),

@@ -261,14 +261,16 @@ public class ATS041Implementation {
 
     private static void doMint(Address to, BigInteger amount, byte[] data, byte[] issuerData) {
         onlyTokenIssuer();
+        Blockchain.require(!to.equals(new Address(new byte[32])));
         Blockchain.require(amount.compareTo(BigInteger.ZERO) > -1);
         Blockchain.require(amount.mod(BigInteger.valueOf(tokenGranularity)).compareTo(BigInteger.ZERO) == 0);
 
         tokenTotalSupply.add(amount);
         Blockchain.putStorage(ATS041KeyValueStorage.ATS041GetBalanceKey(to),
                 ATS041BalanceOf(to).add(amount).toByteArray());
+        callRecipient(Blockchain.getCaller(), Blockchain.getCaller(), to, amount, data, issuerData, true);
         ATS041Event.ATS041ATSTokenMinted(Blockchain.getCaller(), to, amount, data, issuerData);
-        //ToDO: callRecipient here?
+
     }
 
     private static void doSend(Address operator, Address from, Address to, BigInteger amount, byte[] userData, byte[] operatorData, boolean preventLocking) {

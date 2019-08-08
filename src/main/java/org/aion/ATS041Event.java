@@ -18,12 +18,29 @@ public class ATS041Event {
                 creator.toByteArray());
     }
 
-    protected static void ATS041ATSTokenMinted(Address issuer, Address to, BigInteger amount, byte[] issuerData) {
+    protected static void ATS041ATSTokenMinted(Address issuer, Address to, BigInteger amount, byte[] data, byte[] issuerData) {
+
+        if (data == null){
+            data = new byte[0];
+        }
+
+        if (issuerData == null){
+            issuerData = new byte[0];
+        }
+
+        byte[] eventData = AionBuffer.allocate(BIGINTEGER_LENGTH + Integer.BYTES + data.length + Integer.BYTES + issuerData.length)
+                .put32ByteInt(amount)
+                .putInt(data.length)
+                .put(data)
+                .putInt(issuerData.length)
+                .put(issuerData)
+                .getArray();
+
         Blockchain.log("ATS041TokenMinted".getBytes(),
                         issuer.toByteArray(),
                         to.toByteArray(),
                         padding(amount),
-                        issuerData);
+                        eventData);
     }
     /**
      * Store byte[] sizes for collecting data

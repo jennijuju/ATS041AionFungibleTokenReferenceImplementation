@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="org.aion.ATSTokenContractTest" time="8.711" tests="32" errors="0" skipped="0" failures="6">
+  <properties>
+    <property name="sun.desktop" value="gnome"/>
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
+    <property name="java.specification.version" value="11"/>
+    <property name="sun.cpu.isalist" value=""/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/home/jennifer/Integration/ATS/ATS041AionFungibleTokenReferenceImplementation/target/test-classes:/home/jennifer/Integration/ATS/ATS041AionFungibleTokenReferenceImplementation/target/classes:/home/jennifer/Integration/ATS/ATS041AionFungibleTokenReferenceImplementation/lib/org-aion-avm-api.jar:/home/jennifer/Integration/ATS/ATS041AionFungibleTokenReferenceImplementation/lib/org-aion-avm-userlib.jar:/home/jennifer/Integration/ATS/ATS041AionFungibleTokenReferenceImplementation/lib/org-aion-avm-tooling.jar:/home/jennifer/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/jennifer/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/jennifer/.m2/repository/org/aion/ATS041FungibleToken/avm/1.0-SNAPSHOT/avm-1.0-SNAPSHOT.jar:"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="user.timezone" value=""/>
+    <property name="java.vm.specification.version" value="11"/>
+    <property name="os.name" value="Linux"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="/home/jennifer/jdk-11.0.1/lib"/>
+    <property name="sun.java.command" value="/home/jennifer/Integration/ATS/ATS041AionFungibleTokenReferenceImplementation/target/surefire/surefirebooter7789605439286000289.jar /home/jennifer/Integration/ATS/ATS041AionFungibleTokenReferenceImplementation/target/surefire 2019-08-08T10-47-34_184-jvmRun1 surefire4757185205781856112tmp surefire_05087065934485334154tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/home/jennifer/Integration/ATS/ATS041AionFungibleTokenReferenceImplementation/target/test-classes:/home/jennifer/Integration/ATS/ATS041AionFungibleTokenReferenceImplementation/target/classes:/home/jennifer/Integration/ATS/ATS041AionFungibleTokenReferenceImplementation/lib/org-aion-avm-api.jar:/home/jennifer/Integration/ATS/ATS041AionFungibleTokenReferenceImplementation/lib/org-aion-avm-userlib.jar:/home/jennifer/Integration/ATS/ATS041AionFungibleTokenReferenceImplementation/lib/org-aion-avm-tooling.jar:/home/jennifer/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/jennifer/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/jennifer/.m2/repository/org/aion/ATS041FungibleToken/avm/1.0-SNAPSHOT/avm-1.0-SNAPSHOT.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/home/jennifer"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2018-10-16"/>
+    <property name="java.home" value="/home/jennifer/jdk-11.0.1"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/home/jennifer/Integration/ATS/ATS041AionFungibleTokenReferenceImplementation"/>
+    <property name="java.vm.compressedOopsMode" value="32-bit"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="/home/jennifer/Integration/ATS/ATS041AionFungibleTokenReferenceImplementation/target/surefire/surefirebooter7789605439286000289.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="11.0.1+13"/>
+    <property name="user.name" value="jennifer"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="4.15.0-55-generic"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="18.9"/>
+    <property name="localRepository" value="/home/jennifer/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="java.version" value="11.0.1"/>
+    <property name="user.dir" value="/home/jennifer/Integration/ATS/ATS041AionFungibleTokenReferenceImplementation"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.library.path" value="/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vm.version" value="11.0.1+13"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="55.0"/>
+  </properties>
+  <testcase name="testBurnWrongGranularity" classname="org.aion.ATSTokenContractTest" time="1.769"/>
+  <testcase name="testGetBalanceOfaZeroBalanceAccount" classname="org.aion.ATSTokenContractTest" time="0.551"/>
+  <testcase name="testTokenCreation" classname="org.aion.ATSTokenContractTest" time="0.697"/>
+  <testcase name="testAuthorizeOperatorTokenHolderItselfWithoutAuthorizing" classname="org.aion.ATSTokenContractTest" time="0.29"/>
+  <testcase name="testSendaValidTransaction" classname="org.aion.ATSTokenContractTest" time="0.365">
+    <failure type="java.lang.AssertionError">java.lang.AssertionError
+	at org.aion.ATSTokenContractTest.testSendaValidTransaction(ATSTokenContractTest.java:397)
+</failure>
+    <system-err><![CDATA[DApp execution to REVERT due to uncaught EXCEPTION: "null"
+i.RevertException
+	at org.aion.avm.core.BlockchainRuntimeImpl.avm_require(BlockchainRuntimeImpl.java:407)
+	at p.avm.Blockchain.avm_require(Blockchain.java:228)
+	at org.aion.ATS041Implementation.avm_doSend(Unknown Source)
+	at org.aion.ATS041Implementation.avm_ATS041Send(Unknown Source)
+	at org.aion.ATS041TokenContract.avm_ATS041Send(Unknown Source)
+	at org.aion.ATS041TokenContract.avm_main(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.aion.avm.core.persistence.LoadedDApp.callMain(LoadedDApp.java:246)
+	at org.aion.avm.core.DAppExecutor.call(DAppExecutor.java:85)
+	at org.aion.avm.core.AvmImpl.commonInvoke(AvmImpl.java:476)
+	at org.aion.avm.core.AvmImpl.runExternalInvoke(AvmImpl.java:340)
+	at org.aion.avm.core.AvmImpl.backgroundProcessTransaction(AvmImpl.java:242)
+	at org.aion.avm.core.AvmImpl.access$300(AvmImpl.java:32)
+	at org.aion.avm.core.AvmImpl$AvmExecutorThread.run(AvmImpl.java:97)
+]]></system-err>
+  </testcase>
+  <testcase name="testSendToNullAddress" classname="org.aion.ATSTokenContractTest" time="0.323"/>
+  <testcase name="testAuthorizeOperatorWithaNonExistingOperator" classname="org.aion.ATSTokenContractTest" time="0.302"/>
+  <testcase name="testAuthorizeOperatorTokenHolderItselfAfterAuthorizing" classname="org.aion.ATSTokenContractTest" time="0.192"/>
+  <testcase name="testRevokeOperatorThatWasAnOperator" classname="org.aion.ATSTokenContractTest" time="0.203"/>
+  <testcase name="testBurnWithoutEnoughBalance" classname="org.aion.ATSTokenContractTest" time="0.223"/>
+  <testcase name="testOperatorBurnIsNotOperator" classname="org.aion.ATSTokenContractTest" time="0.218"/>
+  <testcase name="testOperatorSendWithZeroTokenHolderAddress" classname="org.aion.ATSTokenContractTest" time="0.212">
+    <failure type="java.lang.AssertionError">java.lang.AssertionError
+	at org.aion.ATSTokenContractTest.testOperatorSendWithZeroTokenHolderAddress(ATSTokenContractTest.java:568)
+</failure>
+    <system-err><![CDATA[DApp execution to REVERT due to uncaught EXCEPTION: "null"
+i.RevertException
+	at org.aion.avm.core.BlockchainRuntimeImpl.avm_require(BlockchainRuntimeImpl.java:407)
+	at p.avm.Blockchain.avm_require(Blockchain.java:228)
+	at org.aion.ATS041Implementation.avm_doSend(Unknown Source)
+	at org.aion.ATS041Implementation.avm_ATS041OperatorSend(Unknown Source)
+	at org.aion.ATS041TokenContract.avm_ATS041OperatorSend(Unknown Source)
+	at org.aion.ATS041TokenContract.avm_main(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.aion.avm.core.persistence.LoadedDApp.callMain(LoadedDApp.java:246)
+	at org.aion.avm.core.DAppExecutor.call(DAppExecutor.java:85)
+	at org.aion.avm.core.AvmImpl.commonInvoke(AvmImpl.java:476)
+	at org.aion.avm.core.AvmImpl.runExternalInvoke(AvmImpl.java:340)
+	at org.aion.avm.core.AvmImpl.backgroundProcessTransaction(AvmImpl.java:242)
+	at org.aion.avm.core.AvmImpl.access$300(AvmImpl.java:32)
+	at org.aion.avm.core.AvmImpl$AvmExecutorThread.run(AvmImpl.java:97)
+]]></system-err>
+  </testcase>
+  <testcase name="testSendDisobeyGranularity" classname="org.aion.ATSTokenContractTest" time="0.187"/>
+  <testcase name="testInitializeBalanceToDeployer" classname="org.aion.ATSTokenContractTest" time="0.195"/>
+  <testcase name="testRevokeOperatorTokenHolderItself" classname="org.aion.ATSTokenContractTest" time="0.196"/>
+  <testcase name="testAuthorizeOperatorAnZeroAddress" classname="org.aion.ATSTokenContractTest" time="0.2"/>
+  <testcase name="testIsOperatorForTokenHolderItself" classname="org.aion.ATSTokenContractTest" time="0.17"/>
+  <testcase name="testSendanInvalidTransaction" classname="org.aion.ATSTokenContractTest" time="0.161"/>
+  <testcase name="testSendToZeroAddress" classname="org.aion.ATSTokenContractTest" time="0.167"/>
+  <testcase name="testAuthorizeOperatorWithAnExistingOperator" classname="org.aion.ATSTokenContractTest" time="0.158"/>
+  <testcase name="testAddTokenIssuerThatIsAlreadyExisting" classname="org.aion.ATSTokenContractTest" time="0.175"/>
+  <testcase name="testOperatorSend" classname="org.aion.ATSTokenContractTest" time="0.163">
+    <failure type="java.lang.AssertionError">java.lang.AssertionError
+	at org.aion.ATSTokenContractTest.testOperatorSend(ATSTokenContractTest.java:523)
+</failure>
+    <system-err><![CDATA[DApp execution to REVERT due to uncaught EXCEPTION: "null"
+i.RevertException
+	at org.aion.avm.core.BlockchainRuntimeImpl.avm_require(BlockchainRuntimeImpl.java:407)
+	at p.avm.Blockchain.avm_require(Blockchain.java:228)
+	at org.aion.ATS041Implementation.avm_doSend(Unknown Source)
+	at org.aion.ATS041Implementation.avm_ATS041OperatorSend(Unknown Source)
+	at org.aion.ATS041TokenContract.avm_ATS041OperatorSend(Unknown Source)
+	at org.aion.ATS041TokenContract.avm_main(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.aion.avm.core.persistence.LoadedDApp.callMain(LoadedDApp.java:246)
+	at org.aion.avm.core.DAppExecutor.call(DAppExecutor.java:85)
+	at org.aion.avm.core.AvmImpl.commonInvoke(AvmImpl.java:476)
+	at org.aion.avm.core.AvmImpl.runExternalInvoke(AvmImpl.java:340)
+	at org.aion.avm.core.AvmImpl.backgroundProcessTransaction(AvmImpl.java:242)
+	at org.aion.avm.core.AvmImpl.access$300(AvmImpl.java:32)
+	at org.aion.avm.core.AvmImpl$AvmExecutorThread.run(AvmImpl.java:97)
+]]></system-err>
+  </testcase>
+  <testcase name="testIsOperatorForWhenIsNotOperator" classname="org.aion.ATSTokenContractTest" time="0.167"/>
+  <testcase name="testAuthorizeOperatorNullAddress" classname="org.aion.ATSTokenContractTest" time="0.158"/>
+  <testcase name="testRevokeOperatorThatWasNotAnOperator" classname="org.aion.ATSTokenContractTest" time="0.131"/>
+  <testcase name="testAddTokenIssuerByNotTokenCreator" classname="org.aion.ATSTokenContractTest" time="0.134"/>
+  <testcase name="testSendaNegativeTransaction" classname="org.aion.ATSTokenContractTest" time="0.171"/>
+  <testcase name="testOperatorBurnWithZeroTokenHolderAddress" classname="org.aion.ATSTokenContractTest" time="0.132">
+    <failure type="java.lang.AssertionError">java.lang.AssertionError
+	at org.aion.ATSTokenContractTest.testOperatorBurnWithZeroTokenHolderAddress(ATSTokenContractTest.java:731)
+</failure>
+    <system-err><![CDATA[DApp execution to REVERT due to uncaught EXCEPTION: "null"
+i.RevertException
+	at org.aion.avm.core.BlockchainRuntimeImpl.avm_require(BlockchainRuntimeImpl.java:407)
+	at p.avm.Blockchain.avm_require(Blockchain.java:228)
+	at org.aion.ATS041Implementation.avm_doBurn(Unknown Source)
+	at org.aion.ATS041Implementation.avm_ATS041OperatorBurn(Unknown Source)
+	at org.aion.ATS041TokenContract.avm_ATS041OperatorBurn(Unknown Source)
+	at org.aion.ATS041TokenContract.avm_main(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.aion.avm.core.persistence.LoadedDApp.callMain(LoadedDApp.java:246)
+	at org.aion.avm.core.DAppExecutor.call(DAppExecutor.java:85)
+	at org.aion.avm.core.AvmImpl.commonInvoke(AvmImpl.java:476)
+	at org.aion.avm.core.AvmImpl.runExternalInvoke(AvmImpl.java:340)
+	at org.aion.avm.core.AvmImpl.backgroundProcessTransaction(AvmImpl.java:242)
+	at org.aion.avm.core.AvmImpl.access$300(AvmImpl.java:32)
+	at org.aion.avm.core.AvmImpl$AvmExecutorThread.run(AvmImpl.java:97)
+]]></system-err>
+  </testcase>
+  <testcase name="testOperatorSendWhenIsNotOperator" classname="org.aion.ATSTokenContractTest" time="0.16">
+    <failure type="java.lang.AssertionError">java.lang.AssertionError
+	at org.aion.ATSTokenContractTest.testOperatorSendWhenIsNotOperator(ATSTokenContractTest.java:608)
+</failure>
+    <system-err><![CDATA[DApp execution to REVERT due to uncaught EXCEPTION: "null"
+i.RevertException
+	at org.aion.avm.core.BlockchainRuntimeImpl.avm_require(BlockchainRuntimeImpl.java:407)
+	at p.avm.Blockchain.avm_require(Blockchain.java:228)
+	at org.aion.ATS041Implementation.avm_doSend(Unknown Source)
+	at org.aion.ATS041Implementation.avm_ATS041Send(Unknown Source)
+	at org.aion.ATS041TokenContract.avm_ATS041Send(Unknown Source)
+	at org.aion.ATS041TokenContract.avm_main(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.aion.avm.core.persistence.LoadedDApp.callMain(LoadedDApp.java:246)
+	at org.aion.avm.core.DAppExecutor.call(DAppExecutor.java:85)
+	at org.aion.avm.core.AvmImpl.commonInvoke(AvmImpl.java:476)
+	at org.aion.avm.core.AvmImpl.runExternalInvoke(AvmImpl.java:340)
+	at org.aion.avm.core.AvmImpl.backgroundProcessTransaction(AvmImpl.java:242)
+	at org.aion.avm.core.AvmImpl.access$300(AvmImpl.java:32)
+	at org.aion.avm.core.AvmImpl$AvmExecutorThread.run(AvmImpl.java:97)
+]]></system-err>
+  </testcase>
+  <testcase name="testBurnExceedEnoughBalance" classname="org.aion.ATSTokenContractTest" time="0.212"/>
+  <testcase name="testAddTokenIssuer" classname="org.aion.ATSTokenContractTest" time="0.147"/>
+  <testcase name="testBurnEnoughBalance" classname="org.aion.ATSTokenContractTest" time="0.159">
+    <failure type="java.lang.AssertionError">java.lang.AssertionError
+	at org.aion.ATSTokenContractTest.testBurnEnoughBalance(ATSTokenContractTest.java:657)
+</failure>
+    <system-err><![CDATA[DApp execution to REVERT due to uncaught EXCEPTION: "null"
+i.RevertException
+	at org.aion.avm.core.BlockchainRuntimeImpl.avm_require(BlockchainRuntimeImpl.java:407)
+	at p.avm.Blockchain.avm_require(Blockchain.java:228)
+	at org.aion.ATS041Implementation.avm_doBurn(Unknown Source)
+	at org.aion.ATS041Implementation.avm_ATS041Burn(Unknown Source)
+	at org.aion.ATS041TokenContract.avm_ATS041Burn(Unknown Source)
+	at org.aion.ATS041TokenContract.avm_main(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.aion.avm.core.persistence.LoadedDApp.callMain(LoadedDApp.java:246)
+	at org.aion.avm.core.DAppExecutor.call(DAppExecutor.java:85)
+	at org.aion.avm.core.AvmImpl.commonInvoke(AvmImpl.java:476)
+	at org.aion.avm.core.AvmImpl.runExternalInvoke(AvmImpl.java:340)
+	at org.aion.avm.core.AvmImpl.backgroundProcessTransaction(AvmImpl.java:242)
+	at org.aion.avm.core.AvmImpl.access$300(AvmImpl.java:32)
+	at org.aion.avm.core.AvmImpl$AvmExecutorThread.run(AvmImpl.java:97)
+]]></system-err>
+  </testcase>
+</testsuite>

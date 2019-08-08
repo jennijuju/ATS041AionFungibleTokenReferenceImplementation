@@ -195,8 +195,8 @@ public class ATS041Implementation {
 
     /******************************************Token Movement*******************************************/
 
-    protected static void ATS041Mint(Address to, BigInteger amount, byte[] issuerData) {
-        doMint(to, amount, issuerData);
+    protected static void ATS041Mint(Address to, BigInteger amount, byte[] data, byte[] issuerData) {
+        doMint(to, amount, data, issuerData);
     }
 
     /**
@@ -259,7 +259,7 @@ public class ATS041Implementation {
     }
 
 
-    private static void doMint(Address to, BigInteger amount, byte[] issuerData) {
+    private static void doMint(Address to, BigInteger amount, byte[] data, byte[] issuerData) {
         onlyTokenIssuer();
         Blockchain.require(amount.compareTo(BigInteger.ZERO) > -1);
         Blockchain.require(amount.mod(BigInteger.valueOf(tokenGranularity)).compareTo(BigInteger.ZERO) == 0);
@@ -267,7 +267,7 @@ public class ATS041Implementation {
         tokenTotalSupply.add(amount);
         Blockchain.putStorage(ATS041KeyValueStorage.ATS041GetBalanceKey(to),
                 ATS041BalanceOf(to).add(amount).toByteArray());
-        ATS041Event.ATS041ATSTokenMinted(Blockchain.getCaller(), to, amount, issuerData);
+        ATS041Event.ATS041ATSTokenMinted(Blockchain.getCaller(), to, amount, data, issuerData);
         //ToDO: callRecipient here?
     }
 

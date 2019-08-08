@@ -137,8 +137,8 @@ public class ATS041TokenContract {
     }
 
     @Callable
-    public static void ATS041Mint(Address to, BigInteger amount, byte[] issuerData) {
-        ATS041Mint(to, amount, issuerData);
+    public static void ATS041Mint(Address to, BigInteger amount, byte[] data, byte[] issuerData) {
+        ATS041Mint(to, amount, data, issuerData);
     }
     @Callable
     public static void ATS041Send(Address to, BigInteger amount, byte[] userData) {

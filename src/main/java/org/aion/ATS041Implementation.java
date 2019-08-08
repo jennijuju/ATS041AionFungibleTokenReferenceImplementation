@@ -207,7 +207,7 @@ public class ATS041Implementation {
 
 
     private static void doSend(Address operator, Address from, Address to, BigInteger amount, byte[] userData, byte[] operatorData, boolean preventLocking) {
-        Blockchain.require(amount.compareTo(BigInteger.ZERO) > -1); //Amount is not negative value
+        Blockchain.require(amount.compareTo(BigInteger.ZERO) >= 0); //Amount is not negative value
         Blockchain.require(amount.mod(BigInteger.valueOf(tokenGranularity)).equals(BigInteger.ZERO)); //Check granularity
         Blockchain.require(!to.equals(new Address(new byte[32]))); //Forbid sending to 0x0 (=burning)
         Blockchain.require(!to.equals(Blockchain.getAddress())); //Forbid sending to this contract
@@ -216,7 +216,7 @@ public class ATS041Implementation {
 
         byte[] fromBalance = Blockchain.getStorage(ATS041KeyValueStorage.ATS041GetBalanceKey(from));
         Blockchain.require(fromBalance != null); //Revert transaction if sender does not have a balance at all quickly to save energy
-        Blockchain.require(new BigInteger(fromBalance).compareTo(amount) > -1); // Sender has sufficient balance
+        Blockchain.require(new BigInteger(fromBalance).compareTo(amount) >= 0); // Sender has sufficient balance
         Blockchain.putStorage(ATS041KeyValueStorage.ATS041GetBalanceKey(from), new BigInteger(fromBalance).subtract(amount).toByteArray());
 
 
@@ -235,12 +235,12 @@ public class ATS041Implementation {
     }
 
     private static void doBurn(Address operator, Address tokenHolder, BigInteger amount, byte[] holderData, byte[] operatorData) {
-        Blockchain.require(amount.compareTo(BigInteger.ZERO) > -1); //Amount is not a negative number
+        Blockchain.require(amount.compareTo(BigInteger.ZERO) >= 0); //Amount is not a negative number
         Blockchain.require(amount.mod(BigInteger.valueOf(tokenGranularity)).equals(BigInteger.ZERO));
 
         byte[] balance =Blockchain.getStorage(ATS041KeyValueStorage.ATS041GetBalanceKey(tokenHolder));
         Blockchain.require(balance != null); //Token holder has sufficient balance to burn
-        Blockchain.require(new BigInteger(balance).compareTo(BigInteger.ZERO) > -1); //Token Holder has sufficient balance to burn
+        Blockchain.require(new BigInteger(balance).compareTo(BigInteger.ZERO) >= 0); //Token Holder has sufficient balance to burn
         Blockchain.putStorage(ATS041KeyValueStorage.ATS041GetBalanceKey(tokenHolder), new BigInteger(balance).subtract(amount).toByteArray());
 
         tokenTotalSupply = tokenTotalSupply.subtract(amount);

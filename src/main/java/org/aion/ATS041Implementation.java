@@ -168,10 +168,10 @@ public class ATS041Implementation {
      */
     protected static void ATS041RevokeOperator(Address operator) {
         Blockchain.require(!operator.equals(Blockchain.getCaller()));
-        if (Blockchain.getStorage(ATS041KeyValueStorage.ATS041GetIsOperatorKey(operator,Blockchain.getCaller())) != null) {
+        //if (Blockchain.getStorage(ATS041KeyValueStorage.ATS041GetIsOperatorKey(operator,Blockchain.getCaller())) != null) {
             Blockchain.putStorage(ATS041KeyValueStorage.ATS041GetIsOperatorKey(operator,Blockchain.getCaller()), null);
             ATS041Event.ATS041RevokedOperator(operator, Blockchain.getCaller());
-        }
+        //}
 
     }
 

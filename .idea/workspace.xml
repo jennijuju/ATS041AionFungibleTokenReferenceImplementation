@@ -3,14 +3,43 @@
   <component name="ChangeListManager">
     <list default="true" id="0fe9cacb-d785-43c9-b1e4-dbe8e50b5c14" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/aion/ATS041Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/aion/ATS041Event.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/aion/ATS041Implementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/aion/ATS041Implementation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/aion/ATS041TokenContract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/aion/ATS041TokenContract.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/aion/ATSTokenContractTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/aion/ATSTokenContractTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/ATS041Event.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/aion/ATS041Event.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ATS041FungibleToken-1.0-SNAPSHOT.abi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ATS041FungibleToken-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/aion/ATS041Implementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/aion/ATS041Implementation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/ATS041TokenContract.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/aion/ATS041TokenContract.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/org/aion/ATSTokenContractTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/org/aion/ATSTokenContractTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionBuffer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionList$AionListIterator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionList$AionSubList$AionSubListIterator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionList$AionSubList.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionList.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$AionAbstractCollection.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$AionMapEntry.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$AionMapEntryIterator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$AionMapEntrySet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$AionMapIterator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$AionMapKeyIterator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$AionMapKeySet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$AionMapValueIterator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$AionMapValues.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$BInternalNode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$BLeafNode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap$BNode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionMap.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/AionSet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/CodeAndArguments.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/abi/ABIDecoder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/abi/ABIEncoder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/abi/ABIException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/abi/ABIStreamingEncoder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/aion/avm/userlib/abi/ABIToken.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/original-ATS041FungibleToken-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/2019-08-08T14-27-27_532.dumpstream" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-org.aion.ATSTokenContractTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-org.aion.ATSTokenContractTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/org.aion.ATSTokenContractTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/org.aion.ATSTokenContractTest.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,8 +56,8 @@
             <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/src/test/java/org/aion/ATSTokenContractTest.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="534">
-                    <caret line="830" column="7" selection-start-line="830" selection-start-column="7" selection-end-line="830" selection-end-column="7" />
+                  <state relative-caret-position="255">
+                    <caret line="34" column="11" lean-forward="true" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="11" />
                   </state>
                 </provider>
               </entry>
@@ -46,8 +75,8 @@
               <entry file="file://$PROJECT_DIR$/ATS041Standard.md">
                 <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
                   <state split_layout="SPLIT">
-                    <first_editor relative-caret-position="335">
-                      <caret line="403" column="22" selection-start-line="403" selection-start-column="22" selection-end-line="403" selection-end-column="22" />
+                    <first_editor relative-caret-position="381">
+                      <caret line="155" lean-forward="true" selection-start-line="155" selection-end-line="155" />
                     </first_editor>
                     <second_editor />
                   </state>
@@ -81,9 +110,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/aion/ATS041Implementation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="273" column="5" lean-forward="true" selection-start-line="273" selection-start-column="5" selection-end-line="273" selection-end-column="5" />
+            <state relative-caret-position="-1513">
+              <caret line="59" column="27" selection-start-line="59" selection-start-column="27" selection-end-line="59" selection-end-column="27" />
               <folding>
+                <element signature="e#2043#2044#0" expanded="true" />
+                <element signature="e#2077#2078#0" expanded="true" />
                 <element signature="e#3619#3620#0" expanded="true" />
                 <element signature="e#3671#3672#0" expanded="true" />
               </folding>
@@ -113,7 +144,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/org/aion/ATS041Event.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
-              <caret line="87" column="7" lean-forward="true" selection-start-line="87" selection-start-column="7" selection-end-line="87" selection-end-column="7" />
+              <caret line="87" column="7" selection-start-line="87" selection-start-column="7" selection-end-line="87" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -127,8 +158,9 @@
       <find>log</find>
       <find>biginte</find>
       <find>copyOfData</find>
-      <find>balance</find>
       <find>domint</find>
+      <find>balance</find>
+      <find>revoke</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -171,6 +203,11 @@
             <path>
               <item name="ATS041FungibleToken" type="b2602c69:ProjectViewProjectNode" />
               <item name="ATS041AionFungibleTokenReferenceImplementation" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ATS041FungibleToken" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ATS041AionFungibleTokenReferenceImplementation" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ATS041FungibleToken" type="b2602c69:ProjectViewProjectNode" />
@@ -230,7 +267,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1565288747510" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1565289381317" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Libraries" />
@@ -249,7 +286,22 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ATSTokenContractTest.testOperatorBurnWithZeroTokenHolderAddress">
+  <component name="RunManager" selected="JUnit.ATSTokenContractTest">
+    <configuration name="ATSTokenContractTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ATS041FungibleToken" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.aion.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.aion" />
+      <option name="MAIN_CLASS_NAME" value="org.aion.ATSTokenContractTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ATSTokenContractTest.testBurnEnoughBalance" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ATS041FungibleToken" />
       <extension name="coverage">
@@ -282,22 +334,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ATSTokenContractTest.testOperatorSend" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ATS041FungibleToken" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.aion.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.aion" />
-      <option name="MAIN_CLASS_NAME" value="org.aion.ATSTokenContractTest" />
-      <option name="METHOD_NAME" value="testOperatorSend" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="ATSTokenContractTest.testOperatorSendWhenIsNotOperator" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ATS041FungibleToken" />
       <extension name="coverage">
@@ -314,7 +350,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ATSTokenContractTest.testOperatorSendWithZeroTokenHolderAddress" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ATSTokenContractTest.testRevokeOperatorThatWasNotAnOperator" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ATS041FungibleToken" />
       <extension name="coverage">
         <pattern>
@@ -324,7 +360,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.aion" />
       <option name="MAIN_CLASS_NAME" value="org.aion.ATSTokenContractTest" />
-      <option name="METHOD_NAME" value="testOperatorSendWithZeroTokenHolderAddress" />
+      <option name="METHOD_NAME" value="testRevokeOperatorThatWasNotAnOperator" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -332,11 +368,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ATSTokenContractTest" />
+        <item itemvalue="JUnit.ATSTokenContractTest.testRevokeOperatorThatWasNotAnOperator" />
         <item itemvalue="JUnit.ATSTokenContractTest.testOperatorBurnWithZeroTokenHolderAddress" />
         <item itemvalue="JUnit.ATSTokenContractTest.testBurnEnoughBalance" />
         <item itemvalue="JUnit.ATSTokenContractTest.testOperatorSendWhenIsNotOperator" />
-        <item itemvalue="JUnit.ATSTokenContractTest.testOperatorSendWithZeroTokenHolderAddress" />
-        <item itemvalue="JUnit.ATSTokenContractTest.testOperatorSend" />
       </list>
     </recent_temporary>
   </component>
@@ -350,26 +386,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565214850341</updated>
-      <workItem from="1565214854965" duration="10147000" />
+      <workItem from="1565214854965" duration="10822000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ATSTokenContractTest_testSendaValidTransaction - 2019.08.08 at 14h 18m 39s.xml">
-      <configuration name="ATSTokenContractTest.testSendaValidTransaction" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ATSTokenContractTest_testSendaValidTransaction - 2019.08.08 at 14h 19m 25s.xml">
-      <configuration name="ATSTokenContractTest.testSendaValidTransaction" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ATSTokenContractTest_testSendaValidTransaction - 2019.08.08 at 14h 19m 48s.xml">
-      <configuration name="ATSTokenContractTest.testSendaValidTransaction" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ATSTokenContractTest_testOperatorSend - 2019.08.08 at 14h 21m 16s.xml">
-      <configuration name="ATSTokenContractTest.testOperatorSend" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ATSTokenContractTest_testOperatorSend - 2019.08.08 at 14h 22m 13s.xml">
-      <configuration name="ATSTokenContractTest.testOperatorSend" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="ATSTokenContractTest_testOperatorSendWithZeroTokenHolderAddress - 2019.08.08 at 14h 22m 56s.xml">
       <configuration name="ATSTokenContractTest.testOperatorSendWithZeroTokenHolderAddress" configurationId="JUnit" />
     </history-entry>
@@ -385,9 +406,24 @@
     <history-entry file="ATSTokenContractTest_testBurnEnoughBalance - 2019.08.08 at 14h 25m 05s.xml">
       <configuration name="ATSTokenContractTest.testBurnEnoughBalance" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="ATSTokenContractTest_testOperatorBurnWithZeroTokenHolderAddress - 2019.08.08 at 14h 25m 47s.xml">
+      <configuration name="ATSTokenContractTest.testOperatorBurnWithZeroTokenHolderAddress" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ATSTokenContractTest_testOperatorBurnWithZeroTokenHolderAddress - 2019.08.08 at 14h 25m 53s.xml">
+      <configuration name="ATSTokenContractTest.testOperatorBurnWithZeroTokenHolderAddress" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ATSTokenContractTest - 2019.08.08 at 14h 33m 49s.xml">
+      <configuration name="ATSTokenContractTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ATSTokenContractTest_testRevokeOperatorThatWasNotAnOperator - 2019.08.08 at 14h 36m 09s.xml">
+      <configuration name="ATSTokenContractTest.testRevokeOperatorThatWasNotAnOperator" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ATSTokenContractTest - 2019.08.08 at 14h 36m 32s.xml">
+      <configuration name="ATSTokenContractTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10147000" />
+    <option name="totallyTimeSpent" value="10822000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="265" width="1920" height="1082" extended-state="6" />
@@ -398,11 +434,11 @@
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
-      <window_info content_ui="combo" id="Project" order="5" weight="0.19156884" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.19156884" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="1" />
-      <window_info anchor="bottom" id="Terminal" order="2" weight="0.23609653" />
+      <window_info anchor="bottom" id="Terminal" order="2" weight="0.49842602" />
       <window_info anchor="bottom" id="Database Changes" order="3" />
       <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="5" />
@@ -423,37 +459,6 @@
       <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
     </layout>
-    <layout-to-restore>
-      <window_info id="Designer" order="0" />
-      <window_info id="UI Designer" order="1" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info id="Image Layers" order="4" />
-      <window_info content_ui="combo" id="Project" order="5" weight="0.19156884" />
-      <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="1" />
-      <window_info anchor="bottom" id="Terminal" order="2" weight="0.23609653" />
-      <window_info anchor="bottom" id="Database Changes" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="5" />
-      <window_info anchor="bottom" id="Find" order="6" />
-      <window_info active="true" anchor="bottom" id="Run" order="7" visible="true" weight="0.28436518" />
-      <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32948583" />
-      <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="12" />
-      <window_info anchor="right" id="Theme Preview" order="0" />
-      <window_info anchor="right" id="Database" order="1" />
-      <window_info anchor="right" id="Capture Analysis" order="2" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info anchor="right" id="Maven" order="4" />
-      <window_info anchor="right" id="Palette" order="5" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="6" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -461,54 +466,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/aion/ATS041Implementation.java</url>
-          <line>264</line>
-          <properties />
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/aion/ATS041Implementation.java</url>
-          <line>263</line>
-          <properties />
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/aion/ATS041Implementation.java</url>
-          <line>265</line>
-          <properties />
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/aion/ATS041Implementation.java</url>
-          <line>267</line>
-          <properties />
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/aion/ATS041Implementation.java</url>
-          <line>268</line>
-          <properties />
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/aion/ATS041Implementation.java</url>
-          <line>270</line>
-          <properties />
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/aion/ATS041Implementation.java</url>
-          <line>271</line>
-          <properties />
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/aion/ATS041Implementation.java</url>
-          <line>269</line>
-          <properties />
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/aion/ATS041Event.java</url>
           <line>22</line>
@@ -544,16 +501,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ATS041Standard.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="335">
-            <caret line="403" column="22" selection-start-line="403" selection-start-column="22" selection-end-line="403" selection-end-column="22" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/aion/ATS041FungibleToken/avm/1.0-SNAPSHOT/avm-1.0-SNAPSHOT.jar!/org/aion/avm/core/persistence/LoadedDApp.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -564,7 +511,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/org/aion/ATS041Event.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
-          <caret line="87" column="7" lean-forward="true" selection-start-line="87" selection-start-column="7" selection-end-line="87" selection-end-column="7" />
+          <caret line="87" column="7" selection-start-line="87" selection-start-column="7" selection-end-line="87" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -597,11 +544,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ATS041Standard.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="381">
+            <caret line="155" lean-forward="true" selection-start-line="155" selection-end-line="155" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/aion/ATS041Implementation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="273" column="5" lean-forward="true" selection-start-line="273" selection-start-column="5" selection-end-line="273" selection-end-column="5" />
+        <state relative-caret-position="-1513">
+          <caret line="59" column="27" selection-start-line="59" selection-start-column="27" selection-end-line="59" selection-end-column="27" />
           <folding>
+            <element signature="e#2043#2044#0" expanded="true" />
+            <element signature="e#2077#2078#0" expanded="true" />
             <element signature="e#3619#3620#0" expanded="true" />
             <element signature="e#3671#3672#0" expanded="true" />
           </folding>
@@ -610,8 +569,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/org/aion/ATSTokenContractTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="534">
-          <caret line="830" column="7" selection-start-line="830" selection-start-column="7" selection-end-line="830" selection-end-column="7" />
+        <state relative-caret-position="255">
+          <caret line="34" column="11" lean-forward="true" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="11" />
         </state>
       </provider>
     </entry>

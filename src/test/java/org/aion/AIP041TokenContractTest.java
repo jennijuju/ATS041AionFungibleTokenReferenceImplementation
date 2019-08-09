@@ -623,6 +623,8 @@ public class AIP041TokenContractTest {
         Assert.assertTrue(result.getReceiptStatus().isFailed());
     }
 
+
+
     @Test
     public void testOperatorBurnIsNotOperator() {
         ABIStreamingEncoder encoder = new ABIStreamingEncoder();
@@ -650,7 +652,14 @@ public class AIP041TokenContractTest {
                         .encodeOneByteArray(new byte[0])
                         .encodeOneByteArray(new byte[0])
                         .toBytes());
-        Assert.assertTrue(result.getReceiptStatus().isFailed());
+        Assert.assertTrue(result.getReceiptStatus().isSuccess());
+        assertEquals(1, result.getTransactionResult().logs.size());
+
+        assertArrayEquals(LogSizeUtils.truncatePadTopic("AIP041Burned".getBytes()), result.getTransactionResult().logs.get(0).copyOfTopics().get(0));
+        assertArrayEquals(LogSizeUtils.truncatePadTopic(tokenOwner.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(1));
+        assertArrayEquals(LogSizeUtils.truncatePadTopic(tokenOwner.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(2));
+        assertArrayEquals(AionBuffer.allocate(40).put32ByteInt(BigInteger.valueOf(333_333_333_333L).multiply(nAmp)).getArray(),
+                result.getTransactionResult().logs.get(0).copyOfData());
     }
 
 

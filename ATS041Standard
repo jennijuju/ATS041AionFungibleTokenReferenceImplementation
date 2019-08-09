@@ -441,68 +441,102 @@ The token contract MAY burn tokens for multiple *token holders* at once. In this
 
 - The previous burn rules MUST apply to each *token holders*.
 - The sum of all the balances decremented MUST be equal to the total burned amount.
-- A `Burned` event MUST be emitted for every *token holder* with the corresponding amount for each *token holder*.
+- A `AIP041Burned` event MUST be emitted for every *token holder* with the corresponding amount for each *token holder*.
 - The sum of all the amounts from the `Burned` event MUST be equal to the total burned `amount`.
 
 *NOTE*: Burning an amount of zero (`0`) tokens is valid and MUST be treated as a regular burn.
 
-**`Burned` event** <a id="burned"></a>
+**`AIP041Burned` event** <a id="burned"></a>
 
 Indicate the burning of `amount` of tokens from the `from` address by the `operator` address.
 
-*NOTE*: This event MUST NOT be emitted outside of a burn process.
-
-> **parameters**  
+> **topics**  
+> `"AIP041Burned"`: Name of the event <br>
 > `operator`: Address which triggered the burn.  
 > `from`: Token holder whose tokens are burned.  
-> `amount`: Number of tokens burned.  
-> `holderData`: Information attached to the burn by the `holder`.  
-> `operatorData`: Information attached to the burn by the `operator`.
+
+> **data** <br>
+> `amount`: Amount of the token was burned <br>
+> `holderData.length`: The length of the data attached to the burn by the `holder` <br>
+> `holderData`: Information attached to the send by the `holder` <br>
+> `operatorData.length` : The length of the data attached to the send by the `operator` <br>
+> `operatorData` : Information attached to the send by the `operator` <br>
 
 ``` java
-public static void Burned(Address operator, Address from, BigInteger amount, byte[] holderData, byte[] operatorData)
+byte[] data = AionBuffer.allocate(BIGINTEGER_LENGTH + Integer.BYTES + holderData.length + Integer.BYTES + operatorData.length)
+                .put32ByteInt(amount)
+                .putInt(holderData.length)
+                .put(holderData)
+                .putInt(operatorData.length)
+                .put(operatorData)
+                .getArray();
+
+        Blockchain.log("AIP041Burned".getBytes(),
+                operator.toByteArray(),
+                from.toByteArray(),
+                data);
 ```
 
-The `burn` and `operatorBurn` functions described below MUST be implemented to burn tokens.
+> *NOTE*: This event MUST NOT be emitted outside of a burn process.
+
+
+The `AIP041Burn` and `AIP041OperatorBurn` functions described below MUST be implemented to burn tokens.
 Token contracts MAY implement other functions to burn tokens.
 
-**`burn` function** <a id="burn"></a>
+**`AIP041Burn` function** <a id="burn"></a>
 
 Burn the `amount` of tokens from the address `Blockchain.getCaller()`.
 
 The *operator* and the *token holder* MUST both be the `Blockchain.getCaller()`.
 
 > **parameters**  
-> `amount`: Number of tokens to burn.
+> `amount`: Number of tokens to burn <br>
+> `holderData`: Information attached to the send by the `holder` <br>
 
 ``` java
-public static void burn(byte[] amount, byte[] holderData)
+public static void AIP041Burn(BigInteger amount, byte[] holderData))
  ```
 
-**`operatorBurn` function** <a id="operatorBurn"></a>
+**`AIP041OperatorBurn` function** <a id="operatorBurn"></a>
 
-Burn the `amount` of tokens on behalf of the address `from`.
+Burn the `amount` of tokens on behalf of the address `tokenHolder`.
 
-The *operator* MUST be `Blockchain.getCaller()`. The value of `from` MAY be `0x0`, then the `from` (*token holder*) used for the burn MUST be `Blockchain.getCaller()` (the `operator`).
+The *operator* MUST be `Blockchain.getCaller()`. The value of `tokenHolder` MAY be `0x0`, then the `tokenHolder` used for the burn MUST be `Blockchain.getCaller()` (the `operator`).
 
-*Reminder*: If the *operator* address is not an authorized operator of the `from` address, then the burn process MUST `revert`.
+*Reminder*: If the *operator* address is not an authorized operator of the `tokenHolder` address, then the burn process MUST `revert`.
 
 > **parameters**  
-> `from`: Token holder whose tokens will be burned (or `0x0` to set `from` to `Blockchain.getCaller()`).  
-> `amount`: Number of tokens to burn.  
+> `tokenHolder`: Token holder whose tokens will be burned (or `0x0` to set `from` to `Blockchain.getCaller()`). <br>
+> `amount`: Number of tokens to burn.  <br>
+> `holderDara`: Information attached to the burn by the `holder` <br>
 > `operatorData`: Information attached to the burn by the *operator*.
 
 ``` java
-public static void operatorBurn(Address tokenHolder, byte[] amount, byte[] holderData, byte[] operatorData)
+    public static void AIP041OperatorBurn(Address tokenHolder, BigInteger amount, byte[] holderData, byte[] operatorData)
 ```
 
-*NOTE*: The *operator* MAY pass any information via `operatorData`. The `operatorData` MUST only be provided by the *operator*.
+>*NOTE*: 
+> - The *operator* MAY pass any information via `operatorData`. The `operatorData` MUST only be provided by the *operator*.
+> - `tokenHolder` and `Blockchain.getCaller()` MAY be the same address. I.e., an address MAY call `operatorBurn` for itself. This call MUST be equivalent to `burn` with the addition that the *operator* MAY specify an explicit value for `operatorData` (which cannot be done with the `burn` function).
 
-*NOTE*: `from` and `Blockchain.getCaller()` MAY be the same address. I.e., an address MAY call `operatorBurn` for itself. This call MUST be equivalent to `burn` with the addition that the *operator* MAY specify an explicit value for `operatorData` (which cannot be done with the `burn` function).
+### Java Smart Contract ABI
 
-### Java Interface
+1 <br>
+org.aion.AIP041TokenContract <br>
+Clinit: (String, String, int, BigInteger)  <br>
+public static String AIP041Name() <br>
+public static String AIP041Symbol() <br>
+public static int AIP041Granularity() <br>
+public static BigInteger AIP041TotalSupply() <br>
+public static BigInteger AIP041BalanceOf(Address) <br>
+public static void AIP041AuthorizeOperator(Address) <br>
+public static void AIP041RevokeOperator(Address) <br>
+public static boolean AIP041IsOperatorFor(Address, Address) <br>
+public static void AIP041Send(Address, BigInteger, byte[]) <br>
+public static void AIP041OperatorSend(Address, Address, BigInteger, byte[], byte[]) <br>
+public static void AIP041Burn(BigInteger, byte[]) <br>
+public static void AIP041OperatorBurn(Address, BigInteger, byte[], byte[]) <br>
 
-TBD.
 
 ## Logic
 
@@ -522,7 +556,7 @@ N/A
 
 ## Implementations
 
-[Reference Implementation](https://github.com/jennijuju/Aion-AIP-Token-Contract-Java)
+[Reference Implementation](https://github.com/jennijuju/ATS041AionFungibleTokenReferenceImplementation)
 
 >Note: This implementation is still under development and pending an audit for security check.
 

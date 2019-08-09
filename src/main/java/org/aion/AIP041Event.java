@@ -6,19 +6,19 @@ import org.aion.avm.userlib.AionBuffer;
 
 import java.math.BigInteger;
 
-public class ATS041Event {
+public class AIP041Event {
 
     private static int BIGINTEGER_LENGTH = 32;
 
-    protected static void ATS041ATSTokenCreated(String tokenName, String tokenSymbol, int tokenGranularity, Address creator) {
-        Blockchain.log("ATS041TokenCreated".getBytes(),
+    protected static void AIP041AIPTokenCreated(String tokenName, String tokenSymbol, int tokenGranularity, Address creator) {
+        Blockchain.log("AIP041TokenCreated".getBytes(),
                 tokenName.getBytes(),
                 tokenSymbol.getBytes(),
                 padding(BigInteger.valueOf(tokenGranularity)),
                 creator.toByteArray());
     }
 
-    protected static void ATS041ATSTokenMinted(Address issuer, Address to, BigInteger amount, byte[] data, byte[] issuerData) {
+    protected static void AIP041AIPTokenMinted(Address issuer, Address to, BigInteger amount, byte[] data, byte[] issuerData) {
 
         if (data == null){
             data = new byte[0];
@@ -35,7 +35,7 @@ public class ATS041Event {
                 .put(issuerData)
                 .getArray();
 
-        Blockchain.log("ATS041Minted".getBytes(),
+        Blockchain.log("AIP041Minted".getBytes(),
                         issuer.toByteArray(),
                         to.toByteArray(),
                         padding(amount),
@@ -51,7 +51,7 @@ public class ATS041Event {
      * @param holderData
      * @param operatorData
      */
-    protected static void ATS041Sent(Address operator, Address from, Address to, BigInteger amount, byte[] holderData, byte[] operatorData) {
+    protected static void AIP041Sent(Address operator, Address from, Address to, BigInteger amount, byte[] holderData, byte[] operatorData) {
 
         if (holderData == null){
             holderData = new byte[0];
@@ -69,7 +69,7 @@ public class ATS041Event {
                 .put(operatorData)
                 .getArray();
 
-        Blockchain.log("ATS041Sent".getBytes(),
+        Blockchain.log("AIP041Sent".getBytes(),
                 operator.toByteArray(),
                 from.toByteArray(),
                 to.toByteArray(),
@@ -86,7 +86,7 @@ public class ATS041Event {
      * @param holderData
      * @param operatorData
      */
-    protected static void ATS041Burned(Address operator, Address from, BigInteger amount, byte[] holderData, byte[] operatorData) {
+    protected static void AIP041Burned(Address operator, Address from, BigInteger amount, byte[] holderData, byte[] operatorData) {
 
         if (holderData == null){
             holderData = new byte[0];
@@ -104,32 +104,32 @@ public class ATS041Event {
                 .put(operatorData)
                 .getArray();
 
-        Blockchain.log("ATS041Burned".getBytes(),
+        Blockchain.log("AIP041Burned".getBytes(),
                 operator.toByteArray(),
                 from.toByteArray(),
                 data);
     }
 
-    protected static void ATS041AuthorizedOperator(Address operator, Address tokenHolder) {
-        Blockchain.log("ATS041AuthorizedOperator".getBytes(),
+    protected static void AIP041AuthorizedOperator(Address operator, Address tokenHolder) {
+        Blockchain.log("AIP041AuthorizedOperator".getBytes(),
                 operator.toByteArray(),
                 tokenHolder.toByteArray(),
                 new byte[0]);
     }
 
-    protected static void ATS041RevokedOperator(Address operator, Address tokenHolder) {
-        Blockchain.log("ATS041RevokedOperator".getBytes(),
+    protected static void AIP041RevokedOperator(Address operator, Address tokenHolder) {
+        Blockchain.log("AIP041RevokedOperator".getBytes(),
                 operator.toByteArray(),
                 tokenHolder.toByteArray(),
                 new byte[0]);
     }
 
-    protected static void ATS041AddedTokenIssuer(Address newTokenIssuer) {
-        Blockchain.log("ATS041AddedTokenIssuer".getBytes(), newTokenIssuer.toByteArray(), new byte[0]);
+    protected static void AIP041AddedTokenIssuer(Address newTokenIssuer) {
+        Blockchain.log("AIP041AddedTokenIssuer".getBytes(), newTokenIssuer.toByteArray(), new byte[0]);
     }
 
-    protected static void ATS041RemovedTokenIssuer(Address oldTokenIssuer) {
-        Blockchain.log("ATS041RemovedTokenIssuer".getBytes(), oldTokenIssuer.toByteArray(), new byte[0]);
+    protected static void AIP041RemovedTokenIssuer(Address oldTokenIssuer) {
+        Blockchain.log("AIP041RemovedTokenIssuer".getBytes(), oldTokenIssuer.toByteArray(), new byte[0]);
     }
 
     private static byte[] padding(BigInteger value) {

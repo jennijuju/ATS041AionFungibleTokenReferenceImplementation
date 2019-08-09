@@ -43,10 +43,14 @@ TBD.
 
 - Token Creator: The project/user/ account that owns the Token Contract
 - Token Contract: A smart contract that is deployed using this token standard
+- Token Issuer(s): Accounts that can mint new tokens
 - Token Holder: An account/user that has ownership over a token balance
 - Token Sender: An account/user that is sending a token
 - Token Receiver: An account/user that is receiving a token
-
+- Token Name: The name of the token
+- Token Symbol: The symbol of the token
+- Token Granularity: The granularity of the token
+- Token Total Supply: Total number of minted tokens
 
 ### Methods
 
@@ -101,10 +105,9 @@ The following rules MUST be applied regarding the *granularity*:
 
 ``` java
 public static BigInteger ATS041TotalSupply();
- ```
+```
 
-
-**`balanceOf` function**
+**`ATS041BalanceOf` function**
 
 > **parameter(s):**  
 > `tokenHolder`: Address for which the balance is returned.
@@ -112,24 +115,54 @@ public static BigInteger ATS041TotalSupply();
 > **returns:** Amount of token held by `token holder` in the token contract.
 
 ``` java
-public static byte[] balanceOf(Address tokenHolder)
+public static BigInteger ATS041BalanceOf(Address tokenHolder)
 ```
 
 *NOTE*: The balance MUST be zero (`0`) or higher.
 
+#### **Token Contract Information**
 
+**`ATS041GetTokenCreator` function**
+
+> **returns:** The creator of the token contract.
+
+``` java
+public static Address ATS041GetTokenCreator() 
+```
+
+*NOTE*: The creator of the token MUST be set as the _Blockchain.getcaller()_ at creation time.
+
+**`ATS041RemoveTokenIssuer` function**
+
+> **parameter(s):**  
+> `oldIssuer`: Address for which will be removed from the token issuer list.
+
+``` java
+
+```
+//TODO!!
 
 #### **Token Creation**
 
-**`ATSTokenCreated` event** <a id="ATSTokenCreated"></a>
+**`ATS041TokenCreated` event**
 
-Indicate the `totalSupply` of a new token created by `creator` address.
+> **topics**  
+> `"ATS041TokenCreated""`: The 
+> `tokenName`: Address which triggered the send.  
+> `tokenSymbol`: Token holder.  
+> `tokenGranularity`: Token recipient.  
+
+> **data**  
+> `creator`: Total number of the minted token upon token creation.  
+
+
+
+
+Indicate the `tokenName, token tokenSymbol and tokenGranularity` of a new token created by `creator` address.
 
 *NOTE*: This event MUST NOT be emitted outside of a token creation process.
 
-> **parameters**  
-> `totalSupply`: Total number of the minted token upon token creation.  
-> `creator`: Address of who creates the token.  
+
 
 ``` java
 protected static void ATSTokenCreated(BigInteger totalSupply, Address creator)

@@ -16,7 +16,7 @@
         <aion4j.plugin.version>0.7.1-SNAPSHOT</aion4j.plugin.version>
         <avm.lib.dir>${project.basedir}/lib</avm.lib.dir>
 
-        <contract.main.class>org.aion.ATS041TokenContract</contract.main.class>
+        <contract.main.class>org.aion.AIP041TokenContract</contract.main.class>
     </properties>
 
     <dependencies>

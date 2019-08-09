@@ -6,21 +6,21 @@ import org.aion.avm.userlib.AionBuffer;
 
 import java.math.BigInteger;
 
-public class ATS041KeyValueStorage {
+public class AIP041KeyValueStorage {
 
     protected enum Keys {
         BALANCE,
         IS_OPERATOR
     }
 
-    protected static byte[] ATS041GetBalanceKey(Address tokenHolder) {
+    protected static byte[] AIP041GetBalanceKey(Address tokenHolder) {
         return Blockchain.blake2b(AionBuffer.allocate(Integer.BYTES + Address.LENGTH)
                                             .putInt(Keys.BALANCE.hashCode())
                                             .putAddress(tokenHolder)
                                             .getArray());
     }
 
-    protected static byte[] ATS041GetIsOperatorKey(Address operator, Address tokenHolder) {
+    protected static byte[] AIP041GetIsOperatorKey(Address operator, Address tokenHolder) {
         return Blockchain.blake2b(AionBuffer.allocate(Integer.BYTES + Address.LENGTH * 2)
                                             .putInt(Keys.IS_OPERATOR.hashCode())
                                             .putAddress(operator)

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="org.aion.AIP041TokenContractTest" time="5.469" tests="29" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="org.aion.AIP041TokenContractTest" time="6.185" tests="29" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="gnome"/>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
@@ -16,7 +16,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="/home/jennifer/jdk-11.0.1/lib"/>
-    <property name="sun.java.command" value="/home/jennifer/Integration/ATS/ATS041AionFungibleTokenReferenceImplementation/target/surefire/surefirebooter3871494853957044373.jar /home/jennifer/Integration/ATS/ATS041AionFungibleTokenReferenceImplementation/target/surefire 2019-08-09T14-18-58_010-jvmRun1 surefire11123556875730430867tmp surefire_012318296311644267543tmp"/>
+    <property name="sun.java.command" value="/home/jennifer/Integration/ATS/ATS041AionFungibleTokenReferenceImplementation/target/surefire/surefirebooter13266584595552930376.jar /home/jennifer/Integration/ATS/ATS041AionFungibleTokenReferenceImplementation/target/surefire 2019-08-13T14-54-26_862-jvmRun1 surefire7763297606057287617tmp surefire_07624950219519582233tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/home/jennifer/Integration/ATS/ATS041AionFungibleTokenReferenceImplementation/target/test-classes:/home/jennifer/Integration/ATS/ATS041AionFungibleTokenReferenceImplementation/target/classes:/home/jennifer/Integration/ATS/ATS041AionFungibleTokenReferenceImplementation/lib/org-aion-avm-api.jar:/home/jennifer/Integration/ATS/ATS041AionFungibleTokenReferenceImplementation/lib/org-aion-avm-userlib.jar:/home/jennifer/Integration/ATS/ATS041AionFungibleTokenReferenceImplementation/lib/org-aion-avm-tooling.jar:/home/jennifer/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/jennifer/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/jennifer/.m2/repository/org/aion/AS041Token/avm/1.0-SNAPSHOT/avm-1.0-SNAPSHOT.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -32,7 +32,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="/home/jennifer/Integration/ATS/ATS041AionFungibleTokenReferenceImplementation/target/surefire/surefirebooter3871494853957044373.jar"/>
+    <property name="surefire.real.class.path" value="/home/jennifer/Integration/ATS/ATS041AionFungibleTokenReferenceImplementation/target/surefire/surefirebooter13266584595552930376.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="11.0.1+13"/>
     <property name="user.name" value="jennifer"/>
@@ -58,33 +58,33 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="testBurnWrongGranularity" classname="org.aion.AIP041TokenContractTest" time="1.08"/>
-  <testcase name="testGetBalanceOfaZeroBalanceAccount" classname="org.aion.AIP041TokenContractTest" time="0.298"/>
-  <testcase name="testAuthorizeOperatorTokenHolderItselfWithoutAuthorizing" classname="org.aion.AIP041TokenContractTest" time="0.247"/>
-  <testcase name="testSendaValidTransaction" classname="org.aion.AIP041TokenContractTest" time="0.203"/>
-  <testcase name="testSendToNullAddress" classname="org.aion.AIP041TokenContractTest" time="0.204"/>
-  <testcase name="testAuthorizeOperatorWithaNonExistingOperator" classname="org.aion.AIP041TokenContractTest" time="0.159"/>
-  <testcase name="testAuthorizeOperatorTokenHolderItselfAfterAuthorizing" classname="org.aion.AIP041TokenContractTest" time="0.135"/>
-  <testcase name="testRevokeOperatorThatWasAnOperator" classname="org.aion.AIP041TokenContractTest" time="0.191"/>
-  <testcase name="testBurnWithoutEnoughBalance" classname="org.aion.AIP041TokenContractTest" time="0.202"/>
-  <testcase name="testOperatorBurnIsNotOperator" classname="org.aion.AIP041TokenContractTest" time="0.193"/>
-  <testcase name="testOperatorSendWithZeroTokenHolderAddress" classname="org.aion.AIP041TokenContractTest" time="0.179"/>
-  <testcase name="testSendDisobeyGranularity" classname="org.aion.AIP041TokenContractTest" time="0.211"/>
-  <testcase name="testInitializeBalanceToDeployer" classname="org.aion.AIP041TokenContractTest" time="0.134"/>
-  <testcase name="testRevokeOperatorTokenHolderItself" classname="org.aion.AIP041TokenContractTest" time="0.12"/>
-  <testcase name="testAuthorizeOperatorAnZeroAddress" classname="org.aion.AIP041TokenContractTest" time="0.115"/>
-  <testcase name="testIsOperatorForTokenHolderItself" classname="org.aion.AIP041TokenContractTest" time="0.109"/>
-  <testcase name="testSendanInvalidTransaction" classname="org.aion.AIP041TokenContractTest" time="0.171"/>
-  <testcase name="testSendToZeroAddress" classname="org.aion.AIP041TokenContractTest" time="0.192"/>
-  <testcase name="testAuthorizeOperatorWithAnExistingOperator" classname="org.aion.AIP041TokenContractTest" time="0.143"/>
-  <testcase name="testInitialization" classname="org.aion.AIP041TokenContractTest" time="0.12"/>
-  <testcase name="testOperatorSend" classname="org.aion.AIP041TokenContractTest" time="0.131"/>
-  <testcase name="testIsOperatorForWhenIsNotOperator" classname="org.aion.AIP041TokenContractTest" time="0.148"/>
-  <testcase name="testAuthorizeOperatorNullAddress" classname="org.aion.AIP041TokenContractTest" time="0.128"/>
-  <testcase name="testRevokeOperatorThatWasNotAnOperator" classname="org.aion.AIP041TokenContractTest" time="0.137"/>
-  <testcase name="testSendaNegativeTransaction" classname="org.aion.AIP041TokenContractTest" time="0.104"/>
-  <testcase name="testOperatorBurnWithZeroTokenHolderAddress" classname="org.aion.AIP041TokenContractTest" time="0.093"/>
-  <testcase name="testOperatorSendWhenIsNotOperator" classname="org.aion.AIP041TokenContractTest" time="0.078"/>
-  <testcase name="testBurnExceedEnoughBalance" classname="org.aion.AIP041TokenContractTest" time="0.124"/>
-  <testcase name="testBurnEnoughBalance" classname="org.aion.AIP041TokenContractTest" time="0.096"/>
+  <testcase name="testBurnWrongGranularity" classname="org.aion.AIP041TokenContractTest" time="1.194"/>
+  <testcase name="testGetBalanceOfaZeroBalanceAccount" classname="org.aion.AIP041TokenContractTest" time="0.329"/>
+  <testcase name="testAuthorizeOperatorTokenHolderItselfWithoutAuthorizing" classname="org.aion.AIP041TokenContractTest" time="0.24"/>
+  <testcase name="testSendaValidTransaction" classname="org.aion.AIP041TokenContractTest" time="0.26"/>
+  <testcase name="testSendToNullAddress" classname="org.aion.AIP041TokenContractTest" time="0.241"/>
+  <testcase name="testAuthorizeOperatorWithaNonExistingOperator" classname="org.aion.AIP041TokenContractTest" time="0.215"/>
+  <testcase name="testAuthorizeOperatorTokenHolderItselfAfterAuthorizing" classname="org.aion.AIP041TokenContractTest" time="0.189"/>
+  <testcase name="testRevokeOperatorThatWasAnOperator" classname="org.aion.AIP041TokenContractTest" time="0.21"/>
+  <testcase name="testBurnWithoutEnoughBalance" classname="org.aion.AIP041TokenContractTest" time="0.188"/>
+  <testcase name="testOperatorBurnIsNotOperator" classname="org.aion.AIP041TokenContractTest" time="0.248"/>
+  <testcase name="testOperatorSendWithZeroTokenHolderAddress" classname="org.aion.AIP041TokenContractTest" time="0.157"/>
+  <testcase name="testSendDisobeyGranularity" classname="org.aion.AIP041TokenContractTest" time="0.214"/>
+  <testcase name="testInitializeBalanceToDeployer" classname="org.aion.AIP041TokenContractTest" time="0.168"/>
+  <testcase name="testRevokeOperatorTokenHolderItself" classname="org.aion.AIP041TokenContractTest" time="0.192"/>
+  <testcase name="testAuthorizeOperatorAnZeroAddress" classname="org.aion.AIP041TokenContractTest" time="0.173"/>
+  <testcase name="testIsOperatorForTokenHolderItself" classname="org.aion.AIP041TokenContractTest" time="0.139"/>
+  <testcase name="testSendanInvalidTransaction" classname="org.aion.AIP041TokenContractTest" time="0.142"/>
+  <testcase name="testSendToZeroAddress" classname="org.aion.AIP041TokenContractTest" time="0.155"/>
+  <testcase name="testAuthorizeOperatorWithAnExistingOperator" classname="org.aion.AIP041TokenContractTest" time="0.157"/>
+  <testcase name="testInitialization" classname="org.aion.AIP041TokenContractTest" time="0.133"/>
+  <testcase name="testOperatorSend" classname="org.aion.AIP041TokenContractTest" time="0.136"/>
+  <testcase name="testIsOperatorForWhenIsNotOperator" classname="org.aion.AIP041TokenContractTest" time="0.12"/>
+  <testcase name="testAuthorizeOperatorNullAddress" classname="org.aion.AIP041TokenContractTest" time="0.118"/>
+  <testcase name="testRevokeOperatorThatWasNotAnOperator" classname="org.aion.AIP041TokenContractTest" time="0.127"/>
+  <testcase name="testSendaNegativeTransaction" classname="org.aion.AIP041TokenContractTest" time="0.136"/>
+  <testcase name="testOperatorBurnWithZeroTokenHolderAddress" classname="org.aion.AIP041TokenContractTest" time="0.135"/>
+  <testcase name="testOperatorSendWhenIsNotOperator" classname="org.aion.AIP041TokenContractTest" time="0.126"/>
+  <testcase name="testBurnExceedEnoughBalance" classname="org.aion.AIP041TokenContractTest" time="0.149"/>
+  <testcase name="testBurnEnoughBalance" classname="org.aion.AIP041TokenContractTest" time="0.159"/>
 </testsuite>

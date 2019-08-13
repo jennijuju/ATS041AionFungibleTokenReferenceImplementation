@@ -201,13 +201,7 @@ public class AIP041TokenContractTest {
                 encoder.encodeOneString("AIP041AuthorizeOperator")
                         .encodeOneAddress(tokenHolder)
                         .toBytes());
-        Assert.assertTrue(result.getReceiptStatus().isSuccess());
-        assertEquals(1, result.getTransactionResult().logs.size());
-        assertArrayEquals(LogSizeUtils.truncatePadTopic("AIP041AuthorizedOperator".getBytes()), result.getTransactionResult().logs.get(0).copyOfTopics().get(0));
-        assertArrayEquals(LogSizeUtils.truncatePadTopic(tokenHolder.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(1));
-        assertArrayEquals(LogSizeUtils.truncatePadTopic(tokenHolder.toByteArray()), result.getTransactionResult().logs.get(0).copyOfTopics().get(2));
-        assertArrayEquals(new byte[0], result.getTransactionResult().logs.get(0).copyOfData());
-
+        Assert.assertTrue(result.getReceiptStatus().isFailed());
         result = avmRule.call(avmRule.getRandomAddress(BigInteger.TEN.multiply(nAmp)), contractAddress, BigInteger.ZERO,
                 encoder.encodeOneString("AIP041IsOperatorFor")
                         .encodeOneAddress(tokenHolder)
@@ -294,7 +288,7 @@ public class AIP041TokenContractTest {
                         .toBytes());
         Assert.assertTrue(result.getReceiptStatus().isSuccess());
 
-        assertEquals(0, result.getTransactionResult().logs.size());
+        assertEquals(1, result.getTransactionResult().logs.size());
 
         result = avmRule.call(avmRule.getRandomAddress(BigInteger.TEN.multiply(nAmp)), contractAddress, BigInteger.ZERO,
                 encoder.encodeOneString("AIP041IsOperatorFor")

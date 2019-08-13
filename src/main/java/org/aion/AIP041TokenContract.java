@@ -57,6 +57,8 @@ public class AIP041TokenContract {
 
     /**
      * totalSupply: Total number of the minted token upon token creation.
+     * Since the decimals of the token is always 18. The initial total supply should be set as in (the desired supply * 10^18) to assure the precision.
+     * For example, if your desired initial total supply is 1,234 tokens, then it should be set to 1, 234 * 10^18 upon creation.
      */
     @Initializable
     private static BigInteger AIP041TokenTotalSupply;
@@ -73,7 +75,7 @@ public class AIP041TokenContract {
         AIP041Implementation.tokenSymbol = AIP041TokenSymbol;
         AIP041Implementation.tokenGranularity = AIP041TokenGranularity;
         AIP041Implementation.tokenTotalSupply = AIP041TokenTotalSupply;
-        AIP041Implementation.initialize();
+        AIP041Implementation.create();
     }
 
     /**********************************************Token Info**********************************************/

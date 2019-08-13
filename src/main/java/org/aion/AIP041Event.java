@@ -3,6 +3,7 @@ package org.aion;
 import avm.Address;
 import avm.Blockchain;
 import org.aion.avm.userlib.AionBuffer;
+import org.aion.avm.userlib.abi.ABIStreamingEncoder;
 
 import java.math.BigInteger;
 
@@ -107,4 +108,27 @@ public class AIP041Event {
         return paddedArray;
     }
 
+    protected static void AIP041Minted(Address issuer, Address to, BigInteger amount, byte[] data, byte[] issuerData) {
+
+        if (data == null){
+            data = new byte[0];
+        }
+
+        if (issuerData == null){
+            issuerData = new byte[0];
+        }
+
+        byte[] eventData = AionBuffer.allocate(Integer.BYTES + data.length + Integer.BYTES + issuerData.length)
+                .putInt(data.length)
+                .put(data)
+                .putInt(issuerData.length)
+                .put(issuerData)
+                .getArray();
+
+        Blockchain.log("AIP041Minted".getBytes(),
+                issuer.toByteArray(),
+                to.toByteArray(),
+                padding(amount),
+                eventData);
+    }
 }

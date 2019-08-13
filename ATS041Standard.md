@@ -4,7 +4,7 @@
 
 ## Summary
 
-A fungible token standard to meet the functionality requirements of current dApp developers. This AIP is to remove cross-chain token functionalities from  [AIP 004](https://github.com/aionnetwork/AIP/blob/master/AIP-004). The reference implementation should be in Java and compatible with Aion AVM. 
+A fungible token standard to meet the functionality requirements of current dApp developers. This AIP is based on [AIP 004](https://github.com/aionnetwork/AIP/blob/master/AIP-004). The reference implementation is in Java and compatible with Aion AVM. 
 
 ## Value Proposition
 
@@ -12,7 +12,7 @@ To enable the creation and management of innovative fungible digital assets on t
 
 ## Motivation
 
-The primary motivation for the proposal is to provide the dApp's that are building on the Aion blockchain with a common standard to implement fungible tokens.
+The primary motivation for the proposal is to provide the dApp's that are building on the Aion blockchain(AVM) with a common standard to implement fungible tokens.
 
 ## Non-Goals
 
@@ -65,7 +65,10 @@ TBD.
 public static String AIP041Name();
 ```
 
-> *NOTE*: The name of the token MUST be set at creation time.
+The following rules MUST be applied regarding the *token name*:
+
+- The *token name* value MUST be set at creation time.
+- The *token name* value MUST NOT be changed ever.
 
 **`AIP041Symbol` function**
 
@@ -75,7 +78,11 @@ public static String AIP041Name();
 public static String AIP041Symbol();
 ```
 
-> *NOTE*: The symbol of the token MUST be set at creation time.
+The following rules MUST be applied regarding the *token symbol*:
+
+- The *token symbol* value MUST be set at creation time.
+- The *token symbol* value MUST NOT be changed ever.
+
 
 **`AIP041Granularity` function**
 
@@ -85,9 +92,9 @@ public static String AIP041Symbol();
 public static int AIP041Granularity();
 ```
 
-The granularity is the smallest number of tokens (in the basic unit, [nAmp](https://github.com/aionnetwork/aion/wiki/Aion-Terminology)) which MAY be minted, sent and burned in any transaction.
+The granularity is the smallest number of tokens (the basic unit in the internal denomination, [nAmp](https://github.com/aionnetwork/aion/wiki/Aion-Terminology)) which MAY be minted, sent and burned in any transaction.
 
-The following rules MUST be applied regarding the *granularity*:
+The following rules MUST be applied regarding the *token granularity*:
 
 - The *granularity* value MUST be set at creation time.
 - The *granularity* value MUST NOT be changed ever.
@@ -106,7 +113,15 @@ The following rules MUST be applied regarding the *granularity*:
 public static BigInteger AIP041TotalSupply();
 ```
 
+The following rules MUST be applied regarding the *token total supply*:
+
+- An initial value of *token total supply* MUST be set at creation time.
+- The *token total supply* value may be changed by minting and burning.
+- The decimals of the token MUST be `18`. Therefore,the initial total supply should be set as in `the desired supply * 10^18` to assure the precision.
+  For example, if your desired initial total supply is 1,234 tokens, then it should be set to 1, 234 * 10^18 upon creation.
+
 **`AIP041BalanceOf` function**
+
 > **parameter(s):**  
 > `tokenHolder`: Address for which the balance is returned.
 
@@ -123,7 +138,7 @@ public static BigInteger AIP041BalanceOf(Address tokenHolder)
 
 **`AIP041TokenCreated` event**
 
-Indicate the `totalSupply` of a new token created by `creator` address.
+Indicate the `totalSupply` of a new token created by `creator` address. This event MUST be emitted upon a token creation process.
 
 > **topics**  
 > `"AIP041TokenCreated""`: Name of the event<br>
@@ -153,12 +168,12 @@ The following rules apply to any *operator*:
 - If an address is an *operator* for a *token holder*, `AIP041IsOperatorFor` MUST return `true`.
 - If an address is not an *operator* for a *token holder*, `AIP041IsOperatorFor` MUST return `false`.
 - The token contract MUST emit an `AIP041AuthorizedOperator` event with the correct values when a *token holder* authorizes an address as its *operator* as defined in the [`AIP041AuthorizedOperator` Event](authorizedoperator). 
-- The token contract MUST emit a `AIP041RevokedOperator` event with the correct values when a *token holder* revokes an address as its *operator* as defined in the [`AIP041RevokedOperator` Event](revokedoperator).
+- The token contract MUST emit an `AIP041RevokedOperator` event with the correct values when a *token holder* revokes an address as its *operator* as defined in the [`AIP041RevokedOperator` Event](revokedoperator).
 
 > *NOTE*: <br>
 > - A *token holder* MAY have multiple *operators* at the same time. 
 > - A *token holder* MAY authorize an already authorized *operator*. An `AIP041AuthorizedOperator` MUST be emitted each time.
-> - A *token holder* MAY revoke an already revoked *operator*. A `AIP041RevokedOperator` MUST be emitted each time.
+> - A *token holder* MAY revoke an already revoked *operator*. An  `AIP041RevokedOperator` MUST be emitted each time.
 
 **`AIP041AuthorizedOperator` event** <a id="authorizedoperator"></a>
 
@@ -187,7 +202,7 @@ Blockchain.log("AIP041AuthorizedOperator".getBytes(),
 Indicates the revocation of `operator` as an *operator* for `tokenHolder`.
 
 > **topics**  
-> `"AIP041RevokedOperator`: Name of the event<br>
+> `"AIP041RevokedOperator`: Name of the event.<br>
 > `operator`: Address which was revoked as an *operator* of `tokenHolder`.  
 > `tokenHolder`: Address of a token holder which revoked the `operator` address as an *operator*.
 
@@ -203,6 +218,7 @@ Indicates the revocation of `operator` as an *operator* for `tokenHolder`.
 
 > *NOTE*: This event MUST NOT be emitted outside of an *operator* revocation process.
 
+***
 
 The `AIP041AuthorizeOperator`, `AIP041RevokeOperator` and `AIP041IsOperatorFor` functions described below MUST be implemented to manage *operators*.
 Token contracts MAY implement other functions to manage *operators*.
@@ -249,11 +265,13 @@ Indicate whether the `operator` address is an *operator* of the `tokenHolder` ad
 public static boolean AIP041IsOperatorFor(Address operator, Address tokenHolder) 
 ```
 
+---
+
 #### **Sending Tokens**
 
 When an *operator* sends an `amount` of tokens from a *token holder* to a *recipient* with the associated `data` and `operatorData`, the token contract MUST apply the following rules:
 
-- Any *token holder* MAY send tokens to any *recipient*.
+- Any *token holder* MAY send tokens to any *recipient*, except for `0x0`(buring).
 - The balance of the *token holder* MUST be decreased by the `amount`.
 - The balance of the *recipient* MUST be increased by the `amount`.
 - The balance of the *token holder* MUST be greater or equal to the `amount`&mdash;such that its resulting balance is greater or equal to zero (`0`) after the send.
@@ -282,10 +300,9 @@ The token contract MAY send tokens from many *token holders*, to many *recipient
 - Transfer of tokens MAY be chained. For example, if a contract upon receiving tokens sends them further to another address. In this case, the previous send rules apply to each send, in order.
 - Sending an amount of zero (`0`) tokens are valid and MUST be treated as a regular send.
 
-/////????????????????????????????????????????????????
 *Implementation Requirement*:  
-- The token contract MUST call the `tokensToSend` hook *before* updating the state.
-- The token contract MUST call the `tokensReceived` hook *after* updating the state.  
+- The token contract MUST call the `callSender` hook *before* updating the state.
+- The token contract MUST call the `callRecipient` hook *after* updating the state.  
 I.e., `tokensToSend` MUST be called first, then the balances MUST be updated to reflect the send, and finally `tokensReceived` MUST be called *afterward*. Thus a `balanceOf` call within `tokensToSend` returns the balance of the address *before* the send and a `balanceOf` call within `tokensReceived` returns the balance of the address *after* the send.
 
 *NOTE*: The `data` field contains extra information intended for, and defined by the recipient&mdash; similar to the data field in a regular ether send transaction. Typically, `data` is used to describe the intent behind the send. The `operatorData` MUST only be provided by the *operator*. It is intended more for logging purposes and particular cases. (Examples include payment references, cheque numbers, countersignatures and more.) In most of the cases the recipient would ignore the `operatorData`, or at most, it would log the `operatorData`.
@@ -377,7 +394,7 @@ Nonetheless, the rules below MUST be respected when minting for a *recipient*:
 - The total supply MUST be increased by the amount of tokens minted.
 - The balance of `0x0` MUST NOT be decreased.
 - The balance of the *recipient* MUST be increased by the amount of tokens minted.
-- The token contract MUST emit a `Minted` event with the correct values as defined in the [`Minted` Event][minted].
+- The token contract MUST emit a `Minted` event with the correct values as defined in the [`AIP041Minted` Event][minted].
 - The `data` and `operatorData` MUST be immutable during the entire mint process&mdash;hence the same `data` and `operatorData` MUST be used to call the `tokensReceived` hook and emit the `Minted` event.
 
 The token contract MUST `revert` when minting in any of the following cases:
@@ -392,29 +409,31 @@ The token contract MAY mint tokens for multiple *recipients* at once. In this ca
 
 - The previous mint rules MUST apply to all the *recipients*.
 - The sum of all the balances incremented MUST be equal to the total minted amount.
-- A `Minted` event MUST be emitted for every *recipient* with the corresponding amount for each *recipient*.
+- A `AIP041Minted` event MUST be emitted for every *recipient* with the corresponding amount for each *recipient*.
 - The sum of all the amounts from the `Minted` event MUST be equal to the total minted `amount`.
 
 *NOTE*: Minting an amount of zero (`0`) tokens is valid and MUST be treated as a regular mint.
 
 *NOTE*: The `data` field contains extra information intended for, and defined by the recipient&mdash; similar to the data field in a regular ether send transaction. Typically, `data` is used to describe the intent behind the mint. The `operatorData` MUST only be provided by the *operator*. It is intended more for logging purposes and particular cases. (Examples include payment references, cheque numbers, countersignatures and more.) In most of the cases the recipient would ignore the `operatorData`, or at most, it would log the `operatorData`.
 
-**`Minted` event** <a id="minted"></a>
+**`AIP041Minted` event** <a id="minted"></a>
 
 Indicate the minting of `amount` of tokens to the `to` address by the `operator` address.
 
 *NOTE*: This event MUST NOT be emitted outside of a mint process.
 
-> **parameters**  
-> `operator`: Address which triggered the mint.  
-> `to`: Token recipient.  
-> `amount`: Number of tokens minted.  
-> `data`: Information attached to the minting, and intended for the recipient (`to`).  
-> `operatorData`: Information attached to the minting by the `operator`.
+> **topics**  
+> `"AIP041Minted"`: Name of the event<br>
+> `issuer`: Address that minted the new tokens.  
+> `to`: Address that receives the tokens.  <br>
+> `amount`: Amount of the token was minted.  
 
-``` java
-TODO: 
-```
+> **data** <br>
+> `data.length`: The length of the information attached to the minting, and intended for the recipient (to). <br>
+> `data`: Information attached to the minting, and intended for the recipient (to) <br>
+> `issuerData.length` : The length of the data attached to the minting by the `issuer` <br>
+> `issuerData` : Information attached to the minting by the `issuer` <br>
+
 
 #### **Burning Tokens**
 
@@ -428,7 +447,6 @@ The rules below MUST be respected when burning the tokens of a *token holder*:
 - The balance of the *token holder* MUST be decreased by amount of tokens burned.
 - The token contract MUST emit a `AIP041Burned` event with the correct values as defined in the [`AIP041Burned` Event](burned).
 - The `AIP041OperatorData` MUST be immutable during the entire burn process&mdash;hence the same `operatorData` MUST be used to call the `tokensToSend` hook and emit the `Burned` event.
-- The `data` field of the `tokensToSend` hook MUST be empty.  ??????????????????
 
 The token contract MUST `revert` when burning in any of the following cases:
 
@@ -543,7 +561,6 @@ public static void AIP041OperatorBurn(Address, BigInteger, byte[], byte[]) <br>
 This standard is based on [AIP-004](https://github.com/aionnetwork/AIP/blob/master/AIP-004/AIP%23004.md) from Aion Network AIP. The following modifications have been made:
 
 - Implementation is now in Java, that is compatible with AVM.  
-- `liquidSupply()`, `thaw()`, `freeze()`, `operatorFreeze()` functions removed from the AIP standard.
 
 
 
@@ -552,7 +569,6 @@ This standard is based on [AIP-004](https://github.com/aionnetwork/AIP/blob/mast
 
 ## Test Cases
 
-N/A
 
 ## Implementations
 

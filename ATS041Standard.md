@@ -569,7 +569,7 @@ This standard is based on [AIP-004](https://github.com/aionnetwork/AIP/blob/mast
 
 ## Test Cases
 
-
+https://github.com/jennijuju/ATS041AionFungibleTokenReferenceImplementation/blob/master/src/test/java/org/aion/AIP041TokenContractTest.java
 ## Implementations
 
 [Reference Implementation](https://github.com/jennijuju/ATS041AionFungibleTokenReferenceImplementation)

@@ -137,9 +137,8 @@ public class AIP041Implementation {
             return true;
         }
 
-        return (Arrays.equals(Blockchain.getStorage(AIP041KeyValueStorage.AIP041GetIsOperatorKey(operator, tokenHolder)), new byte[] {0x01}))
-                ? true
-                : false;
+        return (Arrays.equals(Blockchain.getStorage(AIP041KeyValueStorage.AIP041GetIsOperatorKey(operator,
+                tokenHolder)), new byte[] {0x01}));
 
     }
 
@@ -207,14 +206,15 @@ public class AIP041Implementation {
 
     private static void doSend(Address operator, Address from, Address to, BigInteger amount, byte[] userData, byte[] operatorData, boolean preventLocking) {
         Blockchain.require(!to.equals(new Address(new byte[32]))); //Forbid sending to 0x0 (=burning)
-        Blockchain.require(amount.compareTo(BigInteger.ZERO) > -1); //Amount is not negative value
+        Blockchain.require(amount.compareTo(BigInteger.ZERO) >= 0); //Amount is not negative value
         Blockchain.require(amount.mod(BigInteger.valueOf(tokenGranularity)).equals(BigInteger.ZERO)); //Check granularity
         Blockchain.require(!to.equals(Blockchain.getAddress()));
 
         callSender(operator, from, to, amount, userData, operatorData);
 
         byte[] fromBalance = Blockchain.getStorage(AIP041KeyValueStorage.AIP041GetBalanceKey(from));
-        Blockchain.require(fromBalance != null && new BigInteger(fromBalance).compareTo(amount) > -1); //Revert transaction if sender does not have a balance at all quickly to save energy
+        Blockchain.require(fromBalance != null && new BigInteger(fromBalance).compareTo(amount) >= 0); //Revert
+        // transaction if sender does not have a balance at all quickly to save energy
         Blockchain.putStorage(AIP041KeyValueStorage.AIP041GetBalanceKey(from), new BigInteger(fromBalance).subtract(amount).toByteArray());
 
 
@@ -234,11 +234,12 @@ public class AIP041Implementation {
 
     private static void doBurn(Address operator, Address tokenHolder, BigInteger amount, byte[] holderData, byte[] operatorData) {
         Blockchain.require(!tokenHolder.equals(new Address(new byte[32])));
-        Blockchain.require(amount.compareTo(BigInteger.ZERO) > -1); //Amount is not a negative number
+        Blockchain.require(amount.compareTo(BigInteger.ZERO) >= 0); //Amount is not a negative number
         Blockchain.require(amount.mod(BigInteger.valueOf(tokenGranularity)).equals(BigInteger.ZERO));
 
         byte[] balance =Blockchain.getStorage(AIP041KeyValueStorage.AIP041GetBalanceKey(tokenHolder));
-        Blockchain.require(balance != null && new BigInteger(balance).compareTo(BigInteger.ZERO) > -1); //Token holder has sufficient balance to burn
+        Blockchain.require(balance != null && new BigInteger(balance).compareTo(BigInteger.ZERO) >= 0); //Token holder
+        // has sufficient balance to burn
         Blockchain.putStorage(AIP041KeyValueStorage.AIP041GetBalanceKey(tokenHolder), new BigInteger(balance).subtract(amount).toByteArray());
 
         tokenTotalSupply = tokenTotalSupply.subtract(amount);
@@ -257,7 +258,7 @@ public class AIP041Implementation {
 
     //Check if an account is a contract address
     private static boolean isRegularAccount(Address address) {
-        return (Blockchain.getCodeSize(address) > 0) ? true : false;
+        return (Blockchain.getCodeSize(address) > 0);
     }
 
 }

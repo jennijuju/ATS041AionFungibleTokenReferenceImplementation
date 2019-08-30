@@ -70,7 +70,7 @@ public class AIP041TokenContract {
         Blockchain.require(AIP041TokenName.length() > 0);
         Blockchain.require(AIP041TokenSymbol.length() > 0);
         Blockchain.require(AIP041TokenGranularity >= 1);
-        Blockchain.require(AIP041TokenTotalSupply.compareTo(BigInteger.ZERO) == 1);
+        Blockchain.require(AIP041TokenTotalSupply.compareTo(BigInteger.ZERO) > 0);
         AIP041Implementation.tokenName = AIP041TokenName;
         AIP041Implementation.tokenSymbol = AIP041TokenSymbol;
         AIP041Implementation.tokenGranularity = AIP041TokenGranularity;

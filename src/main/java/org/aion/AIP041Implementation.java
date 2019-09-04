@@ -238,7 +238,7 @@ public class AIP041Implementation {
         Blockchain.require(amount.mod(BigInteger.valueOf(tokenGranularity)).equals(BigInteger.ZERO));
 
         byte[] balance =Blockchain.getStorage(AIP041KeyValueStorage.AIP041GetBalanceKey(tokenHolder));
-        Blockchain.require(balance != null && new BigInteger(balance).compareTo(BigInteger.ZERO) >= 0); //Token holder
+        Blockchain.require(balance != null && new BigInteger(balance).compareTo(amount) >= 0); //Token holder
         // has sufficient balance to burn
         Blockchain.putStorage(AIP041KeyValueStorage.AIP041GetBalanceKey(tokenHolder), new BigInteger(balance).subtract(amount).toByteArray());
 

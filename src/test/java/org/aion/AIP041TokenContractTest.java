@@ -81,6 +81,12 @@ public class AIP041TokenContractTest {
         Assert.assertTrue(resBytes.compareTo(BigInteger.ZERO) == 0);
     }
 
+    @Test public void testGetBalanceOfaNull() {
+        ABIStreamingEncoder encoder = new ABIStreamingEncoder();
+        AvmRule.ResultWrapper result = avmRule.call(tokenOwner, contractAddress, BigInteger.ZERO, encoder.encodeOneString("AIP041BalanceOf").encodeOneAddress(null).toBytes());
+        Assert.assertTrue(result.getReceiptStatus().isFailed());
+    }
+
 
     @Test
     public void testIsOperatorForTokenHolderItself() {

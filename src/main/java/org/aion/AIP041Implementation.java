@@ -92,6 +92,7 @@ public class AIP041Implementation {
      * @return The token balance of the account.
      */
     protected static BigInteger AIP041BalanceOf(Address tokenHolder) {
+        isNotNull(tokenHolder);
         byte[] balance = Blockchain.getStorage(AIP041KeyValueStorage.AIP041GetBalanceKey(tokenHolder));
         return (balance != null)
                 ? new BigInteger(balance)
@@ -107,6 +108,7 @@ public class AIP041Implementation {
      */
 
     protected static void AIP041AuthorizeOperator(Address operator) {
+        isNotNull(operator);
         Blockchain.require(!operator.equals(Blockchain.getCaller()));
         Blockchain.putStorage(AIP041KeyValueStorage.AIP041GetIsOperatorKey(operator,Blockchain.getCaller()), new byte[] {0x01});
         AIP041Event.AIP041AuthorizedOperator(operator, Blockchain.getCaller());
@@ -119,6 +121,7 @@ public class AIP041Implementation {
      * @param operator  Address to rescind as an operator for Blockchain.getCaller().
      */
     protected static void AIP041RevokeOperator(Address operator) {
+        isNotNull(operator);
         Blockchain.require(!operator.equals(Blockchain.getCaller()));  //An address MUST always be an operator for itself.
         Blockchain.putStorage(AIP041KeyValueStorage.AIP041GetIsOperatorKey(operator,Blockchain.getCaller()), null);
         AIP041Event.AIP041RevokedOperator(operator, Blockchain.getCaller());
@@ -205,6 +208,7 @@ public class AIP041Implementation {
 
 
     private static void doSend(Address operator, Address from, Address to, BigInteger amount, byte[] userData, byte[] operatorData, boolean preventLocking) {
+        isNotNull(to);
         Blockchain.require(!to.equals(new Address(new byte[32]))); //Forbid sending to 0x0 (=burning)
         Blockchain.require(amount.compareTo(BigInteger.ZERO) >= 0); //Amount is not negative value
         Blockchain.require(amount.mod(BigInteger.valueOf(tokenGranularity)).equals(BigInteger.ZERO)); //Check granularity
@@ -233,6 +237,7 @@ public class AIP041Implementation {
     }
 
     private static void doBurn(Address operator, Address tokenHolder, BigInteger amount, byte[] holderData, byte[] operatorData) {
+        isNotNull(tokenHolder);
         Blockchain.require(!tokenHolder.equals(new Address(new byte[32])));
         Blockchain.require(amount.compareTo(BigInteger.ZERO) >= 0); //Amount is not a negative number
         Blockchain.require(amount.mod(BigInteger.valueOf(tokenGranularity)).equals(BigInteger.ZERO));
@@ -261,6 +266,9 @@ public class AIP041Implementation {
         return (Blockchain.getCodeSize(address) > 0);
     }
 
+    private static void isNotNull(Object o) {
+        Blockchain.require(o != null);
+    }
 }
 
 

@@ -3,6 +3,7 @@ package org.aion;
 import avm.Address;
 import avm.Blockchain;
 import org.aion.avm.userlib.AionBuffer;
+import org.aion.avm.userlib.AionUtilities;
 import org.aion.avm.userlib.abi.ABIStreamingEncoder;
 
 import java.math.BigInteger;
@@ -13,9 +14,8 @@ public class AIP041Event {
 
     protected static void AIP041AIPTokenCreated(BigInteger totalSupply, Address creator) {
         Blockchain.log("AIP041TokenCreated".getBytes(),
-                padding(totalSupply),
-                creator.toByteArray(),
-                new byte[0]);
+                AionUtilities.padLeft(totalSupply.toByteArray()),
+                creator.toByteArray());
     }
 
     /**
@@ -90,22 +90,13 @@ public class AIP041Event {
     protected static void AIP041AuthorizedOperator(Address operator, Address tokenHolder) {
         Blockchain.log("AIP041AuthorizedOperator".getBytes(),
                 operator.toByteArray(),
-                tokenHolder.toByteArray(),
-                new byte[0]);
+                tokenHolder.toByteArray());
     }
 
     protected static void AIP041RevokedOperator(Address operator, Address tokenHolder) {
         Blockchain.log("AIP041RevokedOperator".getBytes(),
                 operator.toByteArray(),
-                tokenHolder.toByteArray(),
-                new byte[0]);
-    }
-
-    private static byte[] padding(BigInteger value) {
-        byte[] valueArray = value.toByteArray();
-        byte[] paddedArray = new byte[32];
-        System.arraycopy(valueArray, 0, paddedArray,32-valueArray.length, valueArray.length);
-        return paddedArray;
+                tokenHolder.toByteArray());
     }
 
     protected static void AIP041Minted(Address issuer, Address to, BigInteger amount, byte[] data, byte[] issuerData) {
@@ -128,7 +119,7 @@ public class AIP041Event {
         Blockchain.log("AIP041Minted".getBytes(),
                 issuer.toByteArray(),
                 to.toByteArray(),
-                padding(amount),
+                AionUtilities.padLeft(amount.toByteArray()),
                 eventData);
     }
 }

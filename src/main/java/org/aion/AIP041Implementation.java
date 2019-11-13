@@ -223,14 +223,15 @@ public class AIP041Implementation {
 
 
         byte[] toBalance = Blockchain.getStorage(AIP041KeyValueStorage.AIP041GetBalanceKey(to));
-        if(toBalance != null) { //Receiver has a balanace
-            Blockchain.putStorage(AIP041KeyValueStorage.AIP041GetBalanceKey(to), new BigInteger(toBalance).add(amount).toByteArray());
-            callRecipient(operator, from, to, amount, userData, operatorData, preventLocking);
-            AIP041Event.AIP041Sent(operator, from, to, amount, userData, operatorData);
-
+        if(toBalance != null) { //Receiver has a balance
+            BigInteger oldToBalance = new BigInteger(toBalance);
+            if(isInBigIntegerRange(oldToBalance, amount)) {
+                Blockchain.putStorage(AIP041KeyValueStorage.AIP041GetBalanceKey(to), oldToBalance.add(amount).toByteArray());
+                callRecipient(operator, from, to, amount, userData, operatorData, preventLocking);
+                AIP041Event.AIP041Sent(operator, from, to, amount, userData, operatorData);
+            }
         } else { //Receiver is a new token holder
             Blockchain.putStorage(AIP041KeyValueStorage.AIP041GetBalanceKey(to), amount.toByteArray());
-
             callRecipient(operator, from, to, amount, userData, operatorData, preventLocking);
             AIP041Event.AIP041Sent(operator, from, to, amount, userData, operatorData);
         }
@@ -268,6 +269,17 @@ public class AIP041Implementation {
 
     private static void isNotNull(Object o) {
         Blockchain.require(o != null);
+    }
+
+    private static boolean isInBigIntegerRange(BigInteger b1, BigInteger b2) {
+
+        BigInteger sum = b1.add(b2);
+        if ((sum.compareTo(b1) > 0) && (sum.compareTo(b2) > 0)) {//todo: check the sum
+            return true;
+        } else {
+            Blockchain.revert();
+            return false;
+        }
     }
 }
 

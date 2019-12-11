@@ -187,7 +187,6 @@ public class AIP041Implementation {
         }
     }
 
-
     private static void doSend(Address operator, Address from, Address to, BigInteger amount, byte[] userData, byte[] operatorData) {
         Blockchain.require(amount.compareTo(BigInteger.ZERO) >= 0); //Amount is not negative value
         Blockchain.require(amount.mod(BigInteger.valueOf(tokenGranularity)).equals(BigInteger.ZERO));
@@ -208,6 +207,7 @@ public class AIP041Implementation {
     }
 
     private static void doBurn(Address operator, Address tokenHolder, BigInteger amount, byte[] holderData, byte[] operatorData) {
+        Blockchain.require(!tokenHolder.equals(new Address(new byte[32])));
         Blockchain.require(amount.compareTo(BigInteger.ZERO) >= 0); //Amount is not a negative number
         Blockchain.require(amount.mod(BigInteger.valueOf(tokenGranularity)).equals(BigInteger.ZERO));
 
@@ -236,6 +236,7 @@ public class AIP041Implementation {
         return (Blockchain.getCodeSize(address) > 0);
     }
     */
+
     private static BigInteger getBalance(byte[] accountKey) {
         byte[] balance = Blockchain.getStorage(accountKey);
         return balance == null ? BigInteger.ZERO : new BigInteger(balance);

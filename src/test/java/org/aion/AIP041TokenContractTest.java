@@ -188,7 +188,7 @@ public class AIP041TokenContractTest {
                 encoder.encodeOneString("AIP041AuthorizeOperator")
                         .encodeOneAddress(tokenHolder)
                         .toBytes());
-        Assert.assertTrue(result.getReceiptStatus().isFailed());
+        Assert.assertTrue(result.getReceiptStatus().isSuccess());
         result = avmRule.call(avmRule.getRandomAddress(BigInteger.TEN.multiply(nAmp)), contractAddress, BigInteger.ZERO,
                 encoder.encodeOneString("AIP041IsOperatorFor")
                         .encodeOneAddress(tokenHolder)

@@ -32,7 +32,7 @@ public class AIP041Implementation {
      */
     protected static void create() {
         Blockchain.putStorage(AIP041KeyValueStorage.AIP041GetBalanceKey(Blockchain.getCaller()), tokenTotalSupply.toByteArray());
-        AIP041Event.AIP041AIPTokenCreated(tokenTotalSupply, Blockchain.getCaller());
+        AIP041Event.AIP041AIPTokenCreated(tokenTotalSupply, Blockchain.getCaller(), tokenName, tokenGranularity, tokenSymbol);
         AIP041Event.AIP041Minted(Blockchain.getCaller(), Blockchain.getCaller(), tokenTotalSupply, null, null);
     }
 

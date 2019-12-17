@@ -4,7 +4,6 @@ import avm.Address;
 import avm.Blockchain;
 import org.aion.avm.userlib.AionBuffer;
 import org.aion.avm.userlib.AionUtilities;
-import org.aion.avm.userlib.abi.ABIStreamingEncoder;
 
 import java.math.BigInteger;
 
@@ -12,10 +11,17 @@ public class AIP041Event {
 
     private static int BIGINTEGER_LENGTH = 32;
 
-    protected static void AIP041AIPTokenCreated(BigInteger totalSupply, Address creator) {
+    protected static void AIP041AIPTokenCreated(BigInteger totalSupply, Address creator, String tokenName, int tokenGranularity, String tokenSymbol) {
+        byte[] data = AionBuffer.allocate(Integer.BYTES + tokenSymbol.length())
+                .putInt(tokenGranularity)
+                .put(tokenSymbol.getBytes())
+                .getArray();
+
         Blockchain.log("AIP041TokenCreated".getBytes(),
                 AionUtilities.padLeft(totalSupply.toByteArray()),
-                creator.toByteArray());
+                creator.toByteArray(),
+                tokenName.getBytes(),
+                data);
     }
 
     /**

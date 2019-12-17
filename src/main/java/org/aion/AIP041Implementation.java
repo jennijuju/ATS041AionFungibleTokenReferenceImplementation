@@ -192,8 +192,6 @@ public class AIP041Implementation {
         Blockchain.require(amount.mod(BigInteger.valueOf(tokenGranularity)).equals(BigInteger.ZERO));
         Blockchain.require(!to.equals(Blockchain.getAddress()));
 
-        //callSender(operator, from, to, amount, userData, operatorData);
-
         byte[] fromBalanceKey = AIP041KeyValueStorage.AIP041GetBalanceKey(from);
         BigInteger fromBalance = getBalance(fromBalanceKey);
         Blockchain.require(fromBalance.compareTo(amount) >= 0); //Revert transaction if sender does not have a balance at all quickly to save energy
@@ -202,7 +200,6 @@ public class AIP041Implementation {
         byte[] toBalanceKey = AIP041KeyValueStorage.AIP041GetBalanceKey(to);
         BigInteger toBalance = getBalance(toBalanceKey);
         Blockchain.putStorage(toBalanceKey, toBalance.add(amount).toByteArray());
-        //callRecipient(operator, from, to, amount, userData, operatorData);
         AIP041Event.AIP041Sent(operator, from, to, amount, userData, operatorData);
     }
 
@@ -218,24 +215,8 @@ public class AIP041Implementation {
         Blockchain.putStorage(balanceKey, balance.subtract(amount).toByteArray());
 
         tokenTotalSupply = tokenTotalSupply.subtract(amount);
-        //callSender(operator, tokenHolder, new Address(new byte[32]), amount, holderData, operatorData);
         AIP041Event.AIP041Burned(operator, tokenHolder, amount, holderData, operatorData);
     }
-
-    /*
-    private static void callSender(Address operator, Address from, Address to, BigInteger amount, byte[] userData, byte[] operatorData) {
-        // Internal transaction logic should be implemented here.
-    }
-
-    private static void callRecipient(Address operator, Address from, Address to, BigInteger amount, byte[] userData, byte[] operatorData, boolean preventLocking) {
-
-    }
-
-    //Check if an account is a contract address
-    private static boolean isRegularAccount(Address address) {
-        return (Blockchain.getCodeSize(address) > 0);
-    }
-    */
 
     private static BigInteger getBalance(byte[] accountKey) {
         byte[] balance = Blockchain.getStorage(accountKey);
